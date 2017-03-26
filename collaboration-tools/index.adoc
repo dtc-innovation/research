@@ -2,8 +2,12 @@
 :toc:
 :toctitle: Sommaire
 :hide-uri-scheme:
+:idprefix:
+:icons: font
+:revnumber: v1.0
+:revdate: 26 mars 2017
 
-Dernière mise à jour du document : _{revdate}_.
+Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
 
 == Contexte
 
@@ -27,12 +31,12 @@ Cinq critères seront observés :
 . *Transformations* (PDF, HTML, PPT etc.) ;
 . *Partage* (site web, lien hypertexte, aucun)
 
-== Matrice
-
-[format="csv", options="header"]
-|===
-include::matrix.csv[]
-|===
+// == Matrice
+//
+// [format="csv", options="header"]
+// |===
+// include::matrix.csv[]
+// |===
 
 == Outils et plate-formes
 
@@ -42,11 +46,15 @@ icon:link[] https://www.contentful.com/
 
 *Avantages*
 
-* TBD.
+* Modèles de documents riches et sur mesure
+* Gestion des permissions
+* Contenus exposés comme des APIs Open Data
+* Mode hors ligne
+* Possibilité de générer des sites web basés sur une sélection de contenus
 
 *Inconvénients*
 
-* TBD.
+* Payant (de gratuit—limité— jusque 3.000 à 12.000$ par an)
 
 === DokuWiki
 
@@ -54,11 +62,34 @@ icon:link[] https://www.dokuwiki.org/
 
 *Avantages*
 
-* TBD.
+* Wiki collaboratif
+* Gestion des permissions
+* Open Source
+* Stockage sous forme de fichiers
+* link:https://www.dokuwiki.org/plugin:gitbacked[Stockage sur GitHub]
+* Nombre d'utilisateurs illimités
 
 *Inconvénients*
 
-* TBD.
+* Nécessite un hébergement
+* Pas de temps réel collaboratif
+
+=== Gollum
+
+icon:link[] https://github.com/gollum/gollum
+
+*Avantages*
+
+* Wiki collaboratif
+* Open Source
+* Stockage sous forme de fichiers
+* Synchronise sur GitHub par défaut
+* Nombre d'utilisateurs illimités
+
+*Inconvénients*
+
+* Nécessite un hébergement (et le langage Ruby)
+* Pas de temps réel collaboratif
 
 === Google Docs
 
@@ -66,11 +97,15 @@ icon:link[] https://drive.google.com/
 
 *Avantages*
 
-* TBD.
+* Interface collaborative en temps réel
+* Gestion intégrée des suggestions
+* Gestion fine des permissions
+* Fonctionne hors-ligne (uniquement dans Google Chrome)
+* Nombre d'utilisateurs illimités
 
 *Inconvénients*
 
-* TBD.
+* Format propriétaire
 
 === MultiBàO
 
@@ -78,11 +113,17 @@ icon:link[] http://www.multibao.org/
 
 *Avantages*
 
-* TBD.
+* Arborescence libre
+* Open Source
+* Format ouvert (Markdown)
+* Synchronise sur GitHub par défaut
+* Nombre d'utilisateurs illimités (compte GitHub requis)
 
 *Inconvénients*
 
-* TBD.
+* Acceptation de suggestions manuelle
+* Pas de temps réel collaboratif
+* Pas de gestion de permissions (public par défaut)
 
 === Netlify CMS
 
@@ -90,11 +131,35 @@ icon:link[] https://www.netlifycms.org/
 
 *Avantages*
 
-* TBD.
+* Format ouvert (Markdown)
+* Workflow éditorial
+* Synchronise sur GitHub par défaut
+* Extensible via un système de widgets
+* Accès privilégié au support technique
+* Open Source
 
 *Inconvénients*
 
-* TBD.
+* Pas de gestion de permissions (public par défaut)
+
+=== Notions
+
+icon:link[] https://www.notion.so/
+
+*Avantages*
+
+* Templates de pages
+* Éditeur visuel vraiment chouette
+* Gestion des permissions
+* Export en PDF/Markdown
+* Mode offline (macOS seulement)
+* Nombre d'utilisateurs illimités
+
+*Inconvénients*
+
+* Format propriétaire
+* Pas d'export automatique (juste manuel)
+* Gratuit jusqu'à 200 blocks de contenus—8$/utilisateur pour passer en illimité (ristournes potentielle pour les _non-profit_)
 
 === ProseMirror
 
@@ -102,11 +167,14 @@ icon:link[] http://prosemirror.net/
 
 *Avantages*
 
-* TBD.
+* Interface collaborative en temps réel
+* Sauvegarde en Markdown
+* Open Source
 
 *Inconvénients*
 
-* TBD.
+* Nécessite des développements spécifiques (gestion de l'authentification, export GitHub)
+* Nécessite un hébergement
 
 === Wikispaces
 
@@ -114,11 +182,15 @@ icon:link[] http://www.wikispaces.com/
 
 *Avantages*
 
-* TBD.
+* Interface collaborative en temps réel
+* Gestion intégrée des suggestions
+* Gestion des permissions
 
 *Inconvénients*
 
-* TBD.
+* Format propriétaire
+* Payant (de 100 à 400$ par an)
+* 2.000$ par an pour accéder à l'API
 
 === XWiki
 
@@ -126,11 +198,32 @@ icon:link[] http://www.xwiki.org/
 
 *Avantages*
 
-* TBD.
+* Multi-formes (Wiki, FAQ, blog, agenda, forums etc.)
+* Gestion des permissions
+* Exports multiples (HTML, LibreOffice, PDF)
+* Extensible via leur link:http://extensions.xwiki.org/xwiki/bin/view/Main/[annuaire d'extensions]
+* Synchronise sur GitHub via l'extension link:http://extensions.xwiki.org/xwiki/bin/view/Extension/XWiki%20Application%20-%20GitHub%20App[GitHub Commit Application]
 
 *Inconvénients*
 
-* TBD.
+* Format propriétaire
+* Payant pour l'offre Cloud (6.000€ pour 100 utilisateurs, 9.000€ par an pour 250 utilisateurs)
+* Nécessite un hébergement pour la version gratuite
+
+== Conclusions
+
+Les interfaces de collaboration propriétaires ont une tendance à enfermer les usagers dans un modèle de _pricing_ par utilisateur (contre-productif pour de la documentation ouverte) et à enfermer dans un format propriétaire nécessitant des combines pour exporter en masse.
+
+Toute solution orientant vers un support de stockage sur GitHub (ou assimilé, type GitLab) offre des possibilités de synchronisation vers GitBook.
+
+Pistes pressenties :
+
+* Netlify CMS pour la collaboration et l'export vers GitHub
+* DokuWiki avec le plugin d'export git configuré pour exporter vers GitHub
+* Utiliser Contentful pour la collaboration et développer un export vers GitHub
+* Utiliser Contentful pour la collaboration et générer des sites web statiques (via link:https://github.com/contentful/jekyll-contentful-data-import[jekyll-contentful-data-import])
+* Utiliser Google Docs pour la collaboration et développer un export vers GitHub
+* Utiliser link:https://yhatt.github.io/marp/[Marp] pour écrire des présentations en Markdown et les exporter en PDF (fonctionne sous Linux, Mac et Windows)
 
 == Annexe
 
