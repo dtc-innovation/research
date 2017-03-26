@@ -1,0 +1,137 @@
+= Contenus & collaboration
+:toc:
+:toctitle: Sommaire
+:hide-uri-scheme:
+
+Dernière mise à jour du document : _{revdate}_.
+
+== Contexte
+
+L'association link:http://www.opendatafrance.net/[Open Data France] a contacté link:https://dtc-innovation.org[dtc innovation] pour prendre connaissance de l'état de l'art des *outils collaboratifs de rédaction de contenus*.
+
+Les outils de collaboration comme _Google Docs_ sont jugés satisfaisants pour collaborer et gérer les permissions (collaboration, partage) mais peu satisfaisants dans leurs formats ouverts de stockage.
+
+Les outils de collaboration comme _GitHub_ ou _GitBook_ sont jugés satisfaisants pour leurs formats ouverts de stockage mais peu satisfaisants pour la collaboration (interfaces techniques, pertes de données, difficile de commenter).
+
+== Opportunités
+
+L'envie exprimée est de pouvoir *collaborer et distribuer de la documentation* avec plusieurs centaines de collectivités publiques de manière ouverte et transparente.
+
+L'accent est mis sur la _réutilisation_ de plates-formes techniques existantes, leur _souplesse_ de mise en œuvre et de générer le _minimum de code spécifique_.
+
+Cinq critères seront observés :
+
+. *Source de données* (libre, propriétaire) ;
+. *Collaboration* (temps-réel, suggestions) ;
+. *Stockage* (fichiers, cloud) ;
+. *Transformations* (PDF, HTML, PPT etc.) ;
+. *Partage* (site web, lien hypertexte, aucun)
+
+== Matrice
+
+[format="csv", options="header"]
+|===
+include::matrix.csv[]
+|===
+
+== Outils et plate-formes
+
+=== Contentful
+
+icon:link[] https://www.contentful.com/
+
+*Avantages*
+
+* TBD.
+
+*Inconvénients*
+
+* TBD.
+
+=== DokuWiki
+
+icon:link[] https://www.dokuwiki.org/
+
+*Avantages*
+
+* TBD.
+
+*Inconvénients*
+
+* TBD.
+
+=== Google Docs
+
+icon:link[] https://drive.google.com/
+
+*Avantages*
+
+* TBD.
+
+*Inconvénients*
+
+* TBD.
+
+=== MultiBàO
+
+icon:link[] http://www.multibao.org/
+
+*Avantages*
+
+* TBD.
+
+*Inconvénients*
+
+* TBD.
+
+=== Netlify CMS
+
+icon:link[] https://www.netlifycms.org/
+
+*Avantages*
+
+* TBD.
+
+*Inconvénients*
+
+* TBD.
+
+=== ProseMirror
+
+icon:link[] http://prosemirror.net/
+
+*Avantages*
+
+* TBD.
+
+*Inconvénients*
+
+* TBD.
+
+=== Wikispaces
+
+icon:link[] http://www.wikispaces.com/
+
+*Avantages*
+
+* TBD.
+
+*Inconvénients*
+
+* TBD.
+
+=== XWiki
+
+icon:link[] http://www.xwiki.org/
+
+*Avantages*
+
+* TBD.
+
+*Inconvénients*
+
+* TBD.
+
+== Annexe
+
+Le papier link:https://www.scientific.net/AMM.441.928[A Cloud-Based Real-Time Mobile Collaboration Wiki System] détaille un mécanisme idéal de collaboration en temps réel pour contenus textuels.
