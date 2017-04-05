@@ -1,0 +1,14 @@
+Produit,Format ouvert,Gestion des suggestions,Temps-réel,API git,API HTTP,Contenu sous forme de fichiers,Export vers d'autres formats de fichiers
+Contentful,⚠️,❌,❌,❌,✅,❌,⚠️ (JSON)
+DokuWiki,✅,❌,❌,⚠️,⚠️,✅,⚠️ (avec plugins)
+Draft,✅,✅,❌,❌,✅,✅,"✅ (HTML, DOC, MD, MOBI)"
+Gollum,✅,❌,❌,✅,❌,✅,✅ (MD)
+Google Docs,❌,✅,✅,❌,✅,❌,"✅ (PDF, DOC, HTML)"
+HackMD,✅,❌,✅,❌,❌,❌,✅ (MD)
+MultiBàO,✅,✅,❌,✅,✅ (via GitHub/GitLab),✅,✅ (HTML)
+Netlify CMS,✅,✅,❌,✅,✅ (via GitHub/GitLab),✅,✅ (HTML)
+Notion,❌,❌,✅,❌,❌,❌,"✅ (PDF, MD)"
+ProseMirror,✅,❌,✅,⚠️,✅ (via GitHub/GitLab),⚠️,❌
+Wikispaces,❌,❌,✅,❌,⚠️,❌,⚠️
+XWiki,❌,❌,❌,⚠️,❌,⚠️,"✅ (PDF, ODT)
+⚠️ (avec plugins)"

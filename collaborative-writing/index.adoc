@@ -1,0 +1,272 @@
+= Écriture collaborative
+:toc:
+:toc-title: Sommaire
+:hide-uri-scheme:
+:idprefix:
+:icons: font
+:revnumber: v1.1
+:revdate: 5 avril 2017
+
+Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
+
+== Contexte
+
+L'association link:http://www.opendatafrance.net/[Open Data France] a contacté link:https://dtc-innovation.org[dtc innovation] pour prendre connaissance de l'état de l'art des *outils collaboratifs de rédaction de contenus*.
+
+Les outils de collaboration comme _Google Docs_ sont jugés satisfaisants pour collaborer et gérer les permissions (collaboration, partage) mais peu satisfaisants dans leurs formats ouverts de stockage.
+
+Les outils de collaboration comme _GitHub_ ou _GitBook_ sont jugés satisfaisants pour leurs formats ouverts de stockage mais peu satisfaisants pour la collaboration (interfaces techniques, pertes de données, difficile de commenter).
+
+== Objectifs
+
+L'envie exprimée est de pouvoir *collaborer et distribuer de la documentation* avec plusieurs centaines de collectivités publiques de manière ouverte et transparente.
+
+L'accent est mis sur la _réutilisation_ de plates-formes techniques existantes, leur _souplesse_ de mise en œuvre et de générer le _minimum de code spécifique_.
+
+
+== Des outils vers les données
+
+Les interfaces de collaboration propriétaires ont une tendance à enfermer les usagers dans un modèle de _pricing_ par utilisateur ce qui est contre-productif pour de la documentation ouverte.
+L'enfermement dans un format propriétaire nécessite des efforts pour exporter en masse.
+
+Cinq critères seront observés :
+
+. *Source de données* (libre, propriétaire) ;
+. *Collaboration* (temps-réel, suggestions) ;
+. *Stockage* (fichiers, cloud) ;
+. *Transformations* (PDF, HTML, PPT etc.) ;
+. *Partage* (site web, lien hypertexte, aucun)
+
+=== Temps-réel vs. collaboration
+
+TBD.
+
+
+=== Scénarios types
+
+=== Combinaisons possibles
+
+* Netlify CMS pour la collaboration et l'export vers GitHub
+* DokuWiki avec le plugin d'export git configuré pour exporter vers GitHub
+* Utiliser Contentful pour la collaboration et développer un export vers GitHub
+* Utiliser Contentful pour la collaboration et générer des sites web statiques (via link:https://github.com/contentful/jekyll-contentful-data-import[jekyll-contentful-data-import])
+* Utiliser Google Docs pour la collaboration et développer un export vers GitHub
+* Utiliser link:https://yhatt.github.io/marp/[Marp] pour écrire des présentations en Markdown et les exporter en PDF (fonctionne sous Linux, Mac et Windows)
+
+== Outils et plate-formes
+
+
+
+[format="csv", options="header"]
+|===
+include::matrix.csv[]
+|===
+
+Légende::
+  * ✅ supporté nativement
+  * ⚠️ avec l'aide d'un plugin
+  * ❌ pas supporté nativement
+
+=== Contentful
+
+icon:link[] https://www.contentful.com/
+
+[horizontal]
+Avantages::
+  * Modèles de documents riches et sur mesure
+  * Gestion des permissions
+  * Contenus exposés comme des APIs Open Data
+  * Mode hors ligne
+  * Possibilité de générer des sites web basés sur une sélection de contenus
+
+Inconvénients::
+  * Payant (de gratuit—limité— jusque 3.000 à 12.000$ par an)
+
+=== DokuWiki
+
+icon:link[] https://www.dokuwiki.org/
+
+[horizontal]
+Avantages::
+  * Wiki collaboratif
+  * Gestion des permissions
+  * Open Source
+  * Stockage sous forme de fichiers
+  * link:https://www.dokuwiki.org/plugin:gitbacked[Stockage sur GitHub]
+  * Nombre d'utilisateurs illimités
+
+Inconvénients::
+  * Nécessite un hébergement
+  * Pas de temps réel collaboratif
+
+=== Draft
+
+icon:link[] https://draftin.com/
+
+[horizontal]
+Avantages::
+  * Format ouvert (Markdown)
+  * Stockage sous forme de fichiers
+  * Gestion des suggestions
+  * Mode document, transcript et présentation
+  * Synchronisation vers Dropbox et Evernote
+  * Contenus exposés via API et Webhooks
+  * Gestion des permissions
+
+Inconvénients::
+  * Pérennité du produit
+
+=== Gollum
+
+icon:link[] https://github.com/gollum/gollum
+
+[horizontal]
+Avantages::
+  * Format ouvert (Markdown)
+  * Open Source
+  * Stockage sous forme de fichiers
+  * Synchronise sur GitHub par défaut
+  * Nombre d'utilisateurs illimités
+
+Inconvénients::
+  * Nécessite un hébergement (et le langage Ruby)
+  * Pas de temps réel collaboratif
+
+=== Google Docs
+
+icon:link[] https://drive.google.com/
+
+[horizontal]
+Avantages::
+  * Interface temps réel
+  * Gestion des suggestions
+  * Gestion fine des permissions
+  * Fonctionne hors-ligne (uniquement dans Google Chrome)
+  * Nombre d'utilisateurs illimités
+
+Inconvénients::
+  * Format propriétaire
+
+=== HackMD
+
+icon:link[] https://hackmd.io/
+
+[horizontal]
+Avantages::
+  * Open Source
+  * Interface temps réel
+  * Mode document et présentation
+  * Format ouvert (Markdown)
+
+Inconvénients::
+  * Pas d'organisation de fichiers/répertoires
+  * Pérennité du produit
+  * Pas de synchronisation vers Dropbox ou GitHub
+
+=== MultiBàO
+
+icon:link[] http://www.multibao.org/
+
+[horizontal]
+Avantages::
+  * Arborescence libre
+  * Gestion des suggestions
+  * Open Source
+  * Format ouvert (Markdown)
+  * Synchronise sur GitHub par défaut
+  * Nombre d'utilisateurs illimités (compte GitHub requis)
+
+Inconvénients::
+  * Acceptation de suggestions manuelle
+  * Pas de temps réel collaboratif
+  * Pas de gestion de permissions (public par défaut)
+
+=== Netlify CMS
+
+icon:link[] https://www.netlifycms.org/
+
+[horizontal]
+Avantages::
+  * Format ouvert (Markdown)
+  * Workflow éditorial
+  * Synchronise sur GitHub, GitLab et BitBucket
+  * Extensible via un système de widgets
+  * Accès privilégié au support technique
+  * Open Source
+
+Inconvénients::
+  * N/A
+
+Alternatives::
+  icon:link[] link:https://forestry.io/[forestry.io] 
+  icon:link[] link:https://www.siteleaf.com/[Siteleaf]
+
+=== Notion
+
+icon:link[] https://www.notion.so/
+
+[horizontal]
+Avantages::
+  * Templates de pages
+  * Éditeur visuel vraiment chouette
+  * Gestion des permissions
+  * Export en PDF/Markdown
+  * Mode offline (macOS seulement)
+  * Nombre d'utilisateurs illimités
+
+Inconvénients::
+  * Format propriétaire
+  * Pas d'export automatique (juste manuel)
+  * Gratuit jusqu'à 200 blocks de contenus—8$/utilisateur pour passer en illimité (ristournes potentielle pour les _non-profit_)
+
+=== ProseMirror
+
+icon:link[] http://prosemirror.net/
+
+[horizontal]
+Avantages::
+  * Interface temps réel
+  * Sauvegarde en Markdown
+  * Open Source
+
+Inconvénients::
+  * Nécessite des développements spécifiques (gestion de l'authentification, export GitHub)
+  * Nécessite un hébergement
+
+=== Wikispaces
+
+icon:link[] http://www.wikispaces.com/
+
+[horizontal]
+Avantages::
+  * Interface temps réel
+  * Gestion intégrée des suggestions
+  * Gestion des permissions
+
+Inconvénients::
+  * Format propriétaire
+  * Payant (de 100 à 400$ par an)
+  * 2.000$ par an pour accéder à l'API
+
+=== XWiki
+
+icon:link[] http://www.xwiki.org/
+
+[horizontal]
+Avantages::
+  * Multi-formes (Wiki, FAQ, blog, agenda, forums etc.)
+  * Gestion des permissions
+  * Exports multiples (HTML, LibreOffice, PDF)
+  * Extensible via leur link:http://extensions.xwiki.org/xwiki/bin/view/Main/[annuaire d'extensions]
+  * Synchronise sur GitHub via l'extension link:http://extensions.xwiki.org/xwiki/bin/view/Extension/XWiki%20Application%20-%20GitHub%20App[GitHub Commit Application]
+
+Inconvénients::
+  * Format propriétaire
+  * Payant pour l'offre Cloud (6.000€ pour 100 utilisateurs, 9.000€ par an pour 250 utilisateurs)
+  * Nécessite un hébergement pour la version gratuite
+
+== Annexe
+
+Le papier link:https://www.scientific.net/AMM.441.928[A Cloud-Based Real-Time Mobile Collaboration Wiki System] détaille un mécanisme idéal de collaboration en temps réel pour contenus textuels.
+
+include::../footer-license.adoc[]
