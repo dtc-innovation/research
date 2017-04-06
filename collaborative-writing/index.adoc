@@ -6,6 +6,7 @@
 :icons: font
 :revnumber: v1.1
 :revdate: 6 avril 2017
+:pdf-page-layout: landscape
 //icons (in use in matrix.csv)
 :checked: icon:check-square[]
 :warning: icon:warning[]
@@ -135,6 +136,8 @@ Les documents peuvent être démarrés en brouillon dans *Evernote* ou *Google D
 Le système reconstruit les sites *Jekyll* lors d'un changement.
 +
 *Draft* est employé pour rédiger des présentations en Markdown et les exporter en PDF.
+
+<<<
 
 == Outils et plate-formes
 
