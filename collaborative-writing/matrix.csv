@@ -1,14 +1,13 @@
 Produit,Format ouvert,Gestion des suggestions,Temps-réel,API git,API HTTP,Contenu sous forme de fichiers,Export vers d'autres formats de fichiers
-Contentful,⚠️,❌,❌,❌,✅,❌,⚠️ (JSON)
-DokuWiki,✅,❌,❌,⚠️,⚠️,✅,⚠️ (avec plugins)
-Draft,✅,✅,❌,❌,✅,✅,"✅ (HTML, DOC, MD, MOBI)"
-Gollum,✅,❌,❌,✅,❌,✅,✅ (MD)
-Google Docs,❌,✅,✅,❌,✅,❌,"✅ (PDF, DOC, HTML)"
-HackMD,✅,❌,✅,❌,❌,❌,✅ (MD)
-MultiBàO,✅,✅,❌,✅,✅ (via GitHub/GitLab),✅,✅ (HTML)
-Netlify CMS,✅,✅,❌,✅,✅ (via GitHub/GitLab),✅,✅ (HTML)
-Notion,❌,❌,✅,❌,❌,❌,"✅ (PDF, MD)"
-ProseMirror,✅,❌,✅,⚠️,✅ (via GitHub/GitLab),⚠️,❌
-Wikispaces,❌,❌,✅,❌,⚠️,❌,⚠️
-XWiki,❌,❌,❌,⚠️,❌,⚠️,"✅ (PDF, ODT)
-⚠️ (avec plugins)"
+Contentful,{warning},{unchecked},{unchecked},{unchecked},{checked},{unchecked},{warning}
+DokuWiki,{checked},{unchecked},{unchecked},{warning},{warning},{checked},{warning}
+Draft,{checked},{checked},{unchecked},{unchecked},{checked},{checked},{checked}
+Gollum,{checked},{unchecked},{unchecked},{checked},{unchecked},{checked},{checked}
+Google Docs,{unchecked},{checked},{checked},{unchecked},{checked},{unchecked},{checked}
+HackMD,{checked},{unchecked},{checked},{unchecked},{unchecked},{unchecked},{checked}
+MultiBàO,{checked},{checked},{unchecked},{checked},{checked},{checked},{checked}
+Netlify CMS,{checked},{checked},{unchecked},{checked},{checked},{checked},{checked}
+Notion,{unchecked},{unchecked},{checked},{unchecked},{unchecked},{unchecked},{checked}
+ProseMirror,{checked},{unchecked},{checked},{warning},{checked},{warning},{unchecked}
+Wikispaces,{unchecked},{unchecked},{checked},{unchecked},{warning},{unchecked},{warning}
+XWiki,{unchecked},{unchecked},{unchecked},{warning},{unchecked},{warning},{checked}

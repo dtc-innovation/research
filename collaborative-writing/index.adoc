@@ -5,7 +5,11 @@
 :idprefix:
 :icons: font
 :revnumber: v1.1
-:revdate: 5 avril 2017
+:revdate: 6 avril 2017
+//icons (in use in matrix.csv)
+:checked: icon:check-square[]
+:warning: icon:warning[]
+:unchecked: icon:close[]
 
 Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
 
@@ -138,15 +142,15 @@ Les outils ayant nourri cette réflexion sont décrits de manière synthétique 
 
 Pour rappel, les solutions à privilégier entreposent le contenu dans un *format ouvert* type _Markdown_ ou _Asciidoc_, *gèrent les suggestions* et exposent les contenus sous *forme de fichiers*.
 
-[format="csv", options="header"]
+[format="csv", options="header",cols=">,7*^"]
 |===
 include::matrix.csv[]
 |===
 
 Légende::
-  * ✅ supporté nativement
-  * ⚠️ avec l'aide d'un plugin
-  * ❌ pas supporté nativement
+  * {checked} supporté nativement
+  * {warning} avec l'aide d'un plugin
+  * {unchecked} pas supporté nativement
 
 === Contentful
 
