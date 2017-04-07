@@ -18,9 +18,12 @@ Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
 
 L'association link:http://www.opendatafrance.net/[Open Data France] a contacté link:https://dtc-innovation.org[dtc innovation] pour prendre connaissance de l'état de l'art des *outils collaboratifs de rédaction de contenus*.
 
-Les outils de collaboration comme _Google Docs_ sont jugés satisfaisants pour collaborer et gérer les permissions (collaboration, partage) mais peu satisfaisants dans le format de stockage et la réutilisation du contenu.
+Pour le moment, leurs équipes fonctionnent avec plusieurs solutions, qui comportent chacune leurs avantages et leurs inconvénients. 
+Les outils de collaboration comme _Google Docs_ sont jugés satisfaisants pour collaborer et gérer les permissions (collaboration, partage). Là où ils pêchent ? Le format de stockage et la réutilisation du contenu.
 
-Les outils de collaboration comme _GitHub_ ou _GitBook_ sont jugés satisfaisants pour l'ubiquité du stockage et la versatilité des formats de contenus mais peu satisfaisants pour la collaboration (interfaces techniques, pertes de données, difficile de commenter).
+A l'inverse, _GitHub_ ou _GitBook_ sont jugés satisfaisants pour l'ubiquité du stockage et la versatilité des formats de contenus mais peu satisfaisants pour la collaboration (interfaces techniques, pertes de données, difficile de commenter).
+
+Comment répondre à ces problèmes, fluidifier la chaîne de travail tout en préservant des environnements de collaboration faciles à prendre en main ? Comment créer une solution optimale pour exporter le contenu vers des formats divers ? 
 
 == Objectifs
 
@@ -30,6 +33,11 @@ L'accent est mis sur la _réutilisation_ de plates-formes techniques existantes,
 
 Idéalement, le *même ensemble d'outils permettra d'organiser des contenus _privés_, _publics_ et en _cours de rédaction_ de manière transparente*.
 Les documents gérés par ces outils seront routés vers des destinations différentes (sites web, newsletters etc.) en fonction de leur étiquetage.
+
+Si on résume les étapes, il s'agit de trouver un système optimal pour :
+- archiver et organiser le contenu
+- créer du contenu et l'ouvrir à de multiples collaborateurs (éditeur, correcteur, traducteur...)
+- exporter le contenu souhaité et l'adapter selon son besoin (site, présentation, newsletter...)
 
 == Des outils vers les données
 
@@ -107,9 +115,8 @@ Les fichiers Markdown sont *transformés/dérivés en fichiers HTML* ou PDF lors
 
 === Solutions possibles
 
-Netlify CMS::
-Générateur de sites Jekyll::
-Synchronisation GitBook::
+*Option A - Netlify CMS + Générateur de sites Jekyll + Synchronisation GitBook* +
++
 *Netlify CMS* permet d'organiser des *collections* et des *workflows* de contenus entreposés au format *Markdown* dans des dépôts _privés_ et _publics_. +
 +
 Les contributions sont gérées comme suit :
@@ -125,9 +132,8 @@ link:https://yhatt.github.io/marp/[Marp] est employé pour rédiger des présent
 +
 Toutes les les intégrations associées à *GitHub* s'intègrent à la chaine de publication—dont *GitBook*.
 
-Draft::
-Markdown::
-Générateur de sites Jekyll::
+*Option B - Draft + Markdown + Générateur de sites Jekyll* +
++
 *Draft* permet d'organiser des *collections* et des *contributions* de contenus entreposés au format *Markdown* dans des _Team Folders_.
 +
 Les documents peuvent être démarrés en brouillon dans *Evernote* ou *Google Docs* puis importés dans *Draft* afin de les synchroniser sur *Dropbox*.
