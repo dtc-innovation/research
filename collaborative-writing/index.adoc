@@ -18,13 +18,13 @@ Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
 
 L'association link:http://www.opendatafrance.net/[Open Data France] a contacté link:https://dtc-innovation.org[dtc innovation] pour prendre connaissance de l'état de l'art des *outils collaboratifs de rédaction de contenus*.
 
-Pour le moment, leurs équipes fonctionnent avec plusieurs outils indépendants, qui comportent chacune leurs avantages et leurs inconvénients. 
+Pour le moment, leurs équipes fonctionnent avec plusieurs outils indépendants, qui comportent chacune leurs avantages et leurs inconvénients.
 
 Les outils comme _Google Docs_ sont jugés satisfaisants pour collaborer et gérer les permissions (collaboration, partage). Là où ils pêchent ? Le format de stockage et la réutilisation du contenu.
 
 A l'inverse, _GitHub_ ou _GitBook_ sont jugés satisfaisants pour l'ubiquité du stockage et la versatilité des formats de contenus mais peu satisfaisants pour la collaboration (interfaces techniques, pertes de données, difficile de commenter).
 
-Comment répondre à ces problèmes, fluidifier la chaîne de travail tout en préservant des environnements de collaboration faciles à prendre en main ? Comment créer une solution optimale pour exporter le contenu vers des formats divers ? 
+Comment répondre à ces problèmes, fluidifier la chaîne de travail tout en préservant des environnements de collaboration faciles à prendre en main ? Comment créer une solution optimale pour exporter le contenu vers des formats divers ?
 
 == Objectifs
 
@@ -67,9 +67,10 @@ Enfin, la sélection d'outils pour des raisons pratiques mène rapidement à leu
 
 <image>
 
-<rephraser la suite pour mieux souligner les choix d'interop qui feront émerger les outils>
+L'*analyse du processus de collaboration* permet de mettre l'accent sur les *critères d'interopérabilité* qui caractérisent ce qui est en réalité une chaine de publication.
+Nous pouvons ainsi mesurer l'importance de nos choix et de comprendre les surfaces fonctionnelles couvertes par tel ou tel outil, et de les choisir en conséquence.
 
-Rendre réutilisable une production de contenus passe par plusieurs choix :
+Les *trois surfaces majeures de la collaboration* de contenus sont décrites ci-après.
 
 === Créer des contenus aux formats divers
 
@@ -143,9 +144,9 @@ Les contributions sont gérées comme suit :
 
 Les fichiers *Markdown* et les médias associés sont dérivés à l'aide de Jekyll pour être hébergés sur l'infrastructure de l'éditeur sous forme de documents HTML mis en forme avec CSS et JavaScript—ou encore sur link:https://pages.github.com/[GitHub Pages], link:https://docs.gitlab.com/ce/user/project/pages[GitLab Pages] ou link:https://www.gitbook.com/[GitBook], entres autres.
 
-link:https://yhatt.github.io/marp/[Marp] est employé pour rédiger des présentations en Markdown, les versionner avec git et les exporter en PDF.
+link:https://yhatt.github.io/marp/[Marp] est employé pour rédiger des présentations de type Powerpoint mais en Markdown.
 
-Toutes les les intégrations associées à *GitHub* s'intègrent à la chaine de publication—dont *GitBook*.
+Toutes les les intégrations associées à *GitHub* s'intègrent naturellement à la chaine de publication dont la synchronisation vers *GitBook*.
 
 === Draft + Synchronisation Dropbox + Générateur de sites Jekyll
 
