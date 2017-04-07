@@ -1,16 +1,16 @@
 = Écriture collaborative
-:toc:
+:toc: left
 :toc-title: Sommaire
 :hide-uri-scheme:
 :idprefix:
 :icons: font
 :revnumber: v1.1
-:revdate: 6 avril 2017
+:revdate: 7 avril 2017
 :pdf-page-layout: landscape
 //icons (in use in matrix.csv)
-:checked: icon:check-square[]
-:warning: icon:warning[]
-:unchecked: icon:close[]
+:checked: icon:check[role="green"]
+:warning: icon:warning[role="yellow"]
+:unchecked: icon:close[role="red"]
 
 Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
 
@@ -18,8 +18,9 @@ Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
 
 L'association link:http://www.opendatafrance.net/[Open Data France] a contacté link:https://dtc-innovation.org[dtc innovation] pour prendre connaissance de l'état de l'art des *outils collaboratifs de rédaction de contenus*.
 
-Pour le moment, leurs équipes fonctionnent avec plusieurs solutions, qui comportent chacune leurs avantages et leurs inconvénients. 
-Les outils de collaboration comme _Google Docs_ sont jugés satisfaisants pour collaborer et gérer les permissions (collaboration, partage). Là où ils pêchent ? Le format de stockage et la réutilisation du contenu.
+Pour le moment, leurs équipes fonctionnent avec plusieurs outils indépendants, qui comportent chacune leurs avantages et leurs inconvénients. 
+
+Les outils comme _Google Docs_ sont jugés satisfaisants pour collaborer et gérer les permissions (collaboration, partage). Là où ils pêchent ? Le format de stockage et la réutilisation du contenu.
 
 A l'inverse, _GitHub_ ou _GitBook_ sont jugés satisfaisants pour l'ubiquité du stockage et la versatilité des formats de contenus mais peu satisfaisants pour la collaboration (interfaces techniques, pertes de données, difficile de commenter).
 
@@ -27,19 +28,35 @@ Comment répondre à ces problèmes, fluidifier la chaîne de travail tout en pr
 
 == Objectifs
 
-L'envie exprimée est de pouvoir *collaborer et distribuer de la documentation* avec plusieurs centaines de collectivités publiques de manière ouverte et transparente.
+L'envie exprimée est de pouvoir collaborer et distribuer de la documentation avec *plusieurs centaines de collectivités publiques de manière ouverte et transparente*.
 
 L'accent est mis sur la _réutilisation_ de plates-formes techniques existantes, leur _souplesse_ de mise en œuvre et de générer le _minimum de code spécifique_.
 
 Idéalement, le *même ensemble d'outils permettra d'organiser des contenus _privés_, _publics_ et en _cours de rédaction_ de manière transparente*.
-Les documents gérés par ces outils seront routés vers des destinations différentes (sites web, newsletters etc.) en fonction de leur étiquetage.
+Les documents gérés par ces outils seront distribués vers des destinations différentes (sites web, newsletters etc.) en fonction de leur étiquetage.
 
-Si on résume les étapes, il s'agit de trouver un système optimal pour :
-- archiver et organiser le contenu
-- créer du contenu et l'ouvrir à de multiples collaborateurs (éditeur, correcteur, traducteur...)
-- exporter le contenu souhaité et l'adapter selon son besoin (site, présentation, newsletter...)
+Pour résumer, il s'agit de trouver un système optimal pour :
 
-== Des outils vers les données
+* archiver et organiser le contenu
+* créer du contenu et l'ouvrir à de multiples collaborateurs (éditeur, correcteur, traducteur...)
+* exporter le contenu souhaité et l'adapter selon son besoin (site, présentation, newsletter...)
+
+== Scénario type
+
+*Une seule interface web* permet de gérer *plusieurs collections* de contenus à différents stades de complétion :
+
+* documents de référence ;
+* base de connaissance ;
+* supports de formation ;
+* guides pratiques ;
+* contenus annexes.
+
+Les collections de contenus sont organisés dans *un ou plusieurs entrepôts* au format *Markdown*.
+Cela facilite le ciblage de leur publication : site(s) web, espace documentaire public, espace documentaire privé etc.
+
+Les fichiers Markdown sont *transformés en fichiers HTML* ou PDF lors de leur publication.
+
+== Composer une chaine de publication collaborative : des données vers les outils
 
 Les interfaces de collaboration propriétaires ont une *tendance à enfermer les usagers* (_nous_) et *les contenus* (_nos efforts_) dans des interfaces et formats propriétaires.
 Ces interfaces et formats nécessitent des efforts financiers supplémentaires pour rendre le contenu réutilisable.
@@ -48,43 +65,56 @@ Rares sont les outils dissociant le *processus de création du contenu* (modific
 
 Enfin, la sélection d'outils pour des raisons pratiques mène rapidement à leur *démultiplication*—et à la *difficulté de leur interopérabilité* de par l'enfermement des données dans des interfaces graphiques.
 
+<image>
+
+<rephraser la suite pour mieux souligner les choix d'interop qui feront émerger les outils>
+
 Rendre réutilisable une production de contenus passe par plusieurs choix :
 
-Format de contenu::
-Les formats textuels riches comme *Markdown* ou *Asciidoc* sont adaptés à la représentation du contenu textuel et illustré—document de travail privé et public, FAQ, support de formation, présentation, brouillon etc.
-Ils peuvent être agrémentés de *métadonnées* servant lors de leur *transformation* dans un autre format de représentation comme _HTML_ ou _PDF_.
-+
+=== Créer des contenus aux formats divers
+
+*Markdown* ou *Asciidoc* sont des formats textuels riches, des syntaxes, qui contiennent des indicateurs visuels de la structure graphique du document.
+Ils permettent :
+
+* de *structurer* du contenu textuel et illustré : document de travail privé et public, FAQ, support de formation, présentation, brouillon etc ;
+* d'agrémenter les contenus de *métadonnées* ;
+* de les *transformer* dans d'autres formats de représentation comme _HTML_ ou _PDF_.
+
 *HTML* est un format adapté à la *(re)présentation*.
-Il peut être lui même transformé en _PDF_ ou agrémenté avec des librairies JavaScript comme link:https://github.com/hakimel/reveal.js/[reveal.js] ou link:https://github.com/bespokejs/bespoke[Bespoke] pour obtenir un équivalent de présentation _Powerpoint_ dans le navigateur—l'interopérabilité, la durabilité et l'ouverture en plus.
+Il peut être lui-même transformé en _PDF_ ou agrémenté avec des librairies JavaScript comme link:https://github.com/hakimel/reveal.js/[reveal.js] ou link:https://github.com/bespokejs/bespoke[Bespoke] pour obtenir un équivalent de présentation _Powerpoint_ dans le navigateur—l'interopérabilité, la durabilité et l'ouverture en plus.
 
-Interface de collaboration::
-L'interface de collaboration offre une interface fonctionne d'*organisation* et des fonctionnalités d'*interaction* avec le contenu.
-Cela vaut aussi bien pour les personnes à l'origine des contenus que celles proposant des modifications, ajouts, corrections ou traductions.
-+
-Ces outils offrent plusieurs fonctionnalités distinctes :
+=== Créer du contenu à plusieurs
 
-  Gestion du contenu;;
-  Les contenus textuels, médias et autres fichiers peuvent être organisés selon des règles métier qui nous sont propres ;
-  Workflow éditorial;;
-  Un contenu ou suggestion de changement suit un chemin de validation avant d'être intégré au document de référence puis rendu public ;
-  Changements en temps-réel;;
-  Certaines interfaces permettent le travail à plusieurs sur un même document en simultané sans perte de données ;
-  Permissions;;
-  La *visibilité* d'un contenu ou d'une arborescence de contenus peut être déterminé à l'attention d'un public libre ou ciblé en fonction d'un profil d'actions (éditeur, correcteur etc.).
+L'interface de collaboration offre la possibilité de *modifier les fichiers*, de les *organiser* et d'attribuer des rôles d'accès/contribution.
 
-Accès au contenu::
-Le contenu est mis à disposition dans le *format de référence de manière transparente*.
-+
-Cela garantit deux choses :
+Ces outils offrent plusieurs fonctionnalités :
 
-. une *indépendance* face à l'outil de l'interface de collaboration ;
-. une *intégration* dans une chaine de publication—link:https://gitbook.com[GitBook], site web (type link:https://jekyllrb.com/[Jekyll]), synchronisation de fichiers (rsync, Dropbox etc.), newsletter etc.
+Gestion du contenu;;
+Les contenus textuels, média et autres fichiers peuvent être organisés selon des règles métier ;
 
-Fichiers;;
+Workflow éditorial;;
+Un contenu ou suggestion de changement suit un chemin de validation avant d'être intégré au document de référence puis rendu public ;
+
+Changements en temps-réel;;
+Certaines interfaces permettent le travail à plusieurs sur un même document en simultané sans perte de données ;
+
+Permissions;;
+La *visibilité* d'un contenu ou d'une arborescence de contenus peut être déterminée à l'attention d'un public libre ou ciblé en fonction d'un profil d'actions (éditeur, correcteur etc.).
+
+=== Génération de supports
+
+L'avantage des documents créés avec Markdown ou Asciidoc est la *variété de leurs usages*.
+
+La mise à disposition de documents créés avec ces syntaxes permet de générer des *supports multiples à partir d'une même base*.
+Ainsi, le contenu d'une FAQ pourra se retrouver intégrée à un site ou disponible à part entière sur un site dédié, sur une présentation équivalente à Powerpoint, un PDF, etc.
+
+Les opérations de transformation sont rendues possibles dès lors que le *stockage des contenus est dissocié de l'interface de collaboration*.
+
+Contenus locaux (fichiers)::
 Les contenus sont accessibles de manière interopérable sous forme de _fichiers_ en _lecture seule_, pour *archivage*, *transformation* et *republication*. +
 L'historisation des contenus avec link:https://git-scm.com/[git] offre un canal d'accès en écriture pour des _power users_.
 
-API;;
+Contenus distants (API)::
 Les contenus sont accessibles de manière _programmatique_ via une interface HTTP. +
 Des filtres de requêtes permettent de *dériver des documents publics* sur un ou plusieurs sites web—voire sous forme d'un jeu de données Open Data.
 
@@ -94,53 +124,38 @@ Il y a une distinction critique entre la modification de contenus en temps-réel
 
 La modification en temps-réel est impressionnante mais *tous les usagers modifient la même copie de travail*.
 
-La collaboration permet d'*organiser les modifications et suggestions* de tous les usagers, y compris les personnes extérieures au groupe de travail.
+La collaboration permet d'*organiser les modifications et suggestions* de tous les usagers, d'accepter ou de refuser les changements et d'en garder un historique.
 
 Les outils poussant à la *collaboration* sont à privilégier car ils favorisent le *pilotage par la qualité du contenu*.
 
-=== Scénario type
+== Solutions recommandées
 
-*Une seule interface web* permet de gérer *plusieurs collections* de contenus à différents stades de complétion :
+=== Netlify CMS + Générateur de sites Jekyll + Synchronisation GitBook
 
-* documents de référence ;
-* base de connaissance ;
-* supports de formation ;
-* guides pratiques ;
-* contenus périphériques présentation l'action.
+*Netlify CMS* permet d'organiser des *collections* et des *workflows* de contenus entreposés au format *Markdown* dans des dépôts _privés_ et _publics_.
 
-Les collections de contenus sont organisés dans *un ou plusieurs entrepôts* au format *Markdown*.
-Cela facilite le ciblage de leur publication : site(s) web, espace documentaire public, espace documentaire privé etc.
-
-Les fichiers Markdown sont *transformés/dérivés en fichiers HTML* ou PDF lors de leur publication.
-
-=== Solutions possibles
-
-*Option A - Netlify CMS + Générateur de sites Jekyll + Synchronisation GitBook* +
-+
-*Netlify CMS* permet d'organiser des *collections* et des *workflows* de contenus entreposés au format *Markdown* dans des dépôts _privés_ et _publics_. +
-+
 Les contributions sont gérées comme suit :
 
 * les *éditeurs créent et organisent* les contenus ;
 * les contenus sont *publiés après validation* d'un éditeur ;
 * les contributeurs connus soumettent des changements dans le CMS ;
 * les contributeurs inconnus soumettent des changements depuis GitHub.
-+
+
 Les fichiers *Markdown* et les médias associés sont dérivés à l'aide de Jekyll pour être hébergés sur l'infrastructure de l'éditeur sous forme de documents HTML mis en forme avec CSS et JavaScript—ou encore sur link:https://pages.github.com/[GitHub Pages], link:https://docs.gitlab.com/ce/user/project/pages[GitLab Pages] ou link:https://www.gitbook.com/[GitBook], entres autres.
-+
+
 link:https://yhatt.github.io/marp/[Marp] est employé pour rédiger des présentations en Markdown, les versionner avec git et les exporter en PDF.
-+
+
 Toutes les les intégrations associées à *GitHub* s'intègrent à la chaine de publication—dont *GitBook*.
 
-*Option B - Draft + Markdown + Générateur de sites Jekyll* +
-+
+=== Draft + Synchronisation Dropbox + Générateur de sites Jekyll
+
 *Draft* permet d'organiser des *collections* et des *contributions* de contenus entreposés au format *Markdown* dans des _Team Folders_.
-+
+
 Les documents peuvent être démarrés en brouillon dans *Evernote* ou *Google Docs* puis importés dans *Draft* afin de les synchroniser sur *Dropbox*.
-+
+
 *Dropbox* est installé sur l'infrastructure de l'éditeur pour synchroniser les fichiers *Markdown* et les médias associés. +
 Le système reconstruit les sites *Jekyll* lors d'un changement.
-+
+
 *Draft* est employé pour rédiger des présentations en Markdown et les exporter en PDF.
 
 <<<
