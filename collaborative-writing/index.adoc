@@ -65,7 +65,7 @@ Rares sont les outils dissociant le *processus de création du contenu* (modific
 
 Enfin, la sélection d'outils pour des raisons pratiques mène rapidement à leur *démultiplication*—et à la *difficulté de leur interopérabilité* de par l'enfermement des données dans des interfaces graphiques.
 
-<image>
+image::workflow-diagram.jpg[]
 
 L'*analyse du processus de collaboration* permet de mettre l'accent sur les *critères d'interopérabilité* qui caractérisent ce qui est en réalité une chaine de publication.
 Nous pouvons ainsi mesurer l'importance de nos choix et de comprendre les surfaces fonctionnelles couvertes par tel ou tel outil, et de les choisir en conséquence.
