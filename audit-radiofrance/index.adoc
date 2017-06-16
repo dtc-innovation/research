@@ -1,0 +1,49 @@
+= Audit Radio France
+:toc: left
+:toc-title: Sommaire
+:hide-uri-scheme:
+:idprefix:
+:data-uri:
+:icons: font
+:revnumber: v1.0-dev
+:revdate: 16 juin 2017
+
+Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
+
+== Contexte
+
+== Scope API
+
+=== Intérêt immédiat
+
+* Eslint : renforcer certaines pratiques via des règles additionnelles, voire la création de règles custom ;
+* Eslint : établir un package de configuration Radio France
+* Package `rf-init` — auditer ;
+* Package `rf-pg-connector` — auditer, passer en promesses, quid d'un _redesign_ d'API pour permettre ;
+* Package `rf-pg-connector` — utilisation de template strings ou d'un _query builder_ ? ;
+* Anticiper le passage en `node@8` et ECMAScript 2016/2017 ;
+* Quid des _consumers_ Symfony de l'API.
+
+=== Intérêt fort
+
+* Documentation des concepts métier — glossaire, etc. ;
+* Public API : explorer l'aspect vocabulaire/ontologie pour rendre le contenu référençable hors du contexte Radio France (aka Linked Data) ;
+* Public API : comment l'utiliser dans différents cas d'accès à l'API (ex : WebExtension, WebHook, CI, WebApp, etc.) ;
+* Public API : quelle(s) stratégie(s) d'authentification ? ;
+* Public API : POURQUOI, QUI et COMMENT afin de bien _designer_ le contenu et les exemples ;
+* Public API : quelle(s) stratégie(s) de documentation.
+
+=== Intérêt modéré
+
+* Quel retour sur investissement de tester en local vs. tester uniquement en intégration continue ?
+* Harmoniser la documentation des repos, des README notamment ;
+* Document d'architecture — remettre la main dessus, le rendre visible ;
+* Stratégie de partage de setup de machines — dans l'équipe API, leur entourage immédiat et éventuellement avec les autres équipes dev du plateau ;
+* Quid de la découvrabilité de l'API ;
+* Faire une review des requêtes ElasticSearch ;
+* Participer à des codes review — quelles pratiques faire émerger ?
+* Quid de la consistance des données — "greg" ne retournait pas de suggestions dans l'API autocomplete, un document retourné par ElasticSearch était en réalité manquant (pas de concept associé) ;
+* Quid du requêtage en pur SQL vs. assistance en JavaScript — mieux documenter l'intention de requêtes complexes notamment ;
+* Quel est le _bus factor_ d'Éric ?
+
+include::../footer-license.adoc[]
