@@ -30,7 +30,7 @@ Ce document résume ce que nous avons observé les 15 et 16 juin dans les locaux
 ** UX
 ** SEO
 ** France Culture
-** (discussion avec Terry, mais quelle était son équipe ?)
+** France Bleu — dont Terry qui a aidé à la mise en place du SDK PHP d'accès à l'API
 
 ## Observation et conseils
 
