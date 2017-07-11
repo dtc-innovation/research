@@ -5,21 +5,36 @@
 :idprefix:
 :data-uri:
 :icons: font
-:revnumber: v1.0-dev
-:revdate: 5 juillet 2017
+:revnumber: v1.0.0
+:revdate: 11 juillet 2017
 
 Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
 
 == Contexte
 
-Ce document résume ce que nous avons observé les 15 et 16 juin dans les locaux de la Direction du Numérique chez Radio France
+La coopérative *dtc innovation* a été contactée par la _Direction du Numérique_ de *Radio France* suite à une mise en relation de link::https://jolicode.com/[Jolicode].
+
+La _Direction du Numérique_ souhaitait obtenir davantage de visibilité sur ses applications JavaScript en sollicitant un audit de ses applications Node — principalement du côté de son équipe API.
+Cet audit s'inscrit dans la lignée d'un audit de leurs applications PHP.
+
+L'objectif de cet audit est multiple :
+
+. *faire un point* sur leur parc applicatif JavaScript et Node ;
+. *obtenir un regard* sur les habitudes de l'équipe ;
+. *augmenter la visibilité* sur ce qui est produit par les équipes ;
+. dans un monde idéal, atteindre un niveau où *tout code serait _open sourçable_* (aka. link::https://en.wikipedia.org/wiki/Inner_source[inner source]).
+
+L'audit débutera d'abord par l'*établissement d'un périmètre fonctionnel* (_scope_) pour ensuite définir des missions d'actions ciblées, généralement courtes et clairement délimitées.
+
+Ce document *résume ce que nous avons observé* les 15 et 16 juin puis le 5 juillet 2017 dans les locaux de la _Direction du Numérique_ chez Radio France. +
+Ce document contient également des *pistes d'actions*  ainsi que des *recommandations* pouvant appuyer et soutenir la stratégie moyen et long terme de Radio France dans son innovation numérique.
 
 == Journal
 
 === jeudi 15 juin
 
 * Arrivée et accueil
-* Matinée : présentation par l'équipe API ("cruiser") de l'architecture du back-end web et de la communication entre les micro-services.
+* Matinée : présentation par l'équipe API ("cruiser") de l'architecture du back-end web et de la communication entre les micro-services
 * Présence à la "Foire au Cruiser" l'après-midi
 * Discussions avec les différents membres de l'équipe API
 
@@ -30,50 +45,125 @@ Ce document résume ce que nous avons observé les 15 et 16 juin dans les locaux
 ** UX
 ** SEO
 ** France Culture
-** France Bleu — dont Terry qui a aidé à la mise en place du SDK PHP d'accès à l'API
+** France Bleu
+
+=== mercredi 5 juillet
+
+* Discussions avec les différents membres de l'équipe API
+* Discussions avec d'autres équipes sur le même plateau
+** Back-Office
+** Terry dans l'équipe France Bleu — il a aidé à la mise en place du SDK PHP et récupéré le _lead_ depuis 1 semaine
+** Mobile natif
+** Direction du numérique
+
+=== mercredi 12 juillet
+
+* Restitution de l'audit
+* Rencontre entre la _direction du numérique_ et  link::https://www.etalab.gouv.fr/[Etalab]
 
 ## Observation et conseils
 
 ### Observations générales
 
-Nous sommes ressortis avec un sentiment très positif suite à ce que nous avons pu observer à la Direction du Numérique.
+Nous sommes ressortis avec un sentiment très positif suite à ce que nous avons pu observer à la _Direction du Numérique_.
 
-Tous les signaux ont l'air d'être au vert :
+De nombreux signaux ont l'air d'être au vert :
 
-* Concernant la technique, les choix sont simples, cohérents en soi et entre eux, pas de gros risques sur des technologies, un parti pris sur l'indépendance logicielle (pas de services en SaaS).
-** Le premier matin, la clarté de l'explication de l'architecture était en elle-même un signe de la qualité de l'archtecture.
-** Ne pas hésiter à payer pour du support spécifique quand un problème apparait et qu'un manque de compétence est identifié est une très bonne décision aussi
-* Nous ne connaissons pas les détails financiers, mais les ambitions ont l'air en adéquation avec les moyens à disposition
-* Les équipes sont petites et ont l'air soudées et de bien communiquer en interne et entre elles. La communcation a l'air fluide, simple, efficace.
-* Les équipes s'organisent comme elles le souhaitent et ont l'air de s'organiser de manière efficace.
-* Les individus ont l'air épanouis et de prendre plaisir à leur travail
-* Il y a un climat général de confiance entre les équipes et apparemment avec la Direction du Numérique qui laisse aux équipe l'autonomie nécessaire.
+* Concernant la technique, les choix sont simples, cohérents en soi et entre eux, pas de gros risques sur des technologies, un parti pris sur l'indépendance logicielle (pas de services en SaaS) ;
+** Le premier matin, la clarté de l'explication de l'architecture était en elle-même un signe de la qualité de l'architecture ;
+** Ne pas hésiter à payer pour du support spécifique quand un problème apparait et qu'un manque de compétence est identifié est une très bonne décision aussi ;
+* Nous ne connaissons pas les détails financiers, mais les ambitions ont l'air en adéquation avec les moyens à disposition ;
+* Les équipes sont petites et ont l'air soudées et de bien communiquer entre elles. La communication a l'air fluide, simple, efficace ;
+* Les équipes s'organisent comme elles le souhaitent et ont l'air de s'organiser de manière efficace ;
+* La présence d'un _Product Owner_ dans la majorité des équipes semble jouer pour beaucoup à l'organisation de l'effort et au maintien de la qualité applicative ;
+* Les individus ont l'air épanouis et de prendre plaisir à leur travail ;
+* Il y a un climat général de confiance entre les équipes et apparemment avec la _Direction du Numérique_ qui laisse aux équipe l'autonomie nécessaire.
 
-Si nous devions donner un premier conseil général, ça serait celui de garder, chérir et protéger tous ces morceaux de contextes techniques, organisationels et humains qui mènent mécaniquement à un service rendu de qualité.
+En plus de cela, la pratique des _foires_ hebdomadaires (30 minutes par semaine d'ouverture aux demandes en présentiel) semble être bien rodée, canalise les demandes et évite les tractations à la machine à café.
+
+> Les personnes reviennent des foires avec un besoin clarifié.
+
+> On refuse les demandes qui ne bénéficient pas à toutes les chaines ; les trucs dégueulasses ils les gèrent de leur côté.
+
+Si nous devions donner un premier conseil général, ça serait celui de *préserver, encourager et protéger tous ces morceaux de contextes techniques, organisationnels et humains qui mènent mécaniquement à un service rendu de qualité*.
 
 ### Observations équipe API
 
-Il s'agit de l'équipe avec laquelle nous avons passé le plus de temps. Nous avons listé les sujets suivants :
+Il s'agit de l'équipe avec laquelle nous avons passé la majorité de notre temps.
 
-(liste déjà publiée par Thomas)
+Au 9 juillet 2017, la _stack_ est basée sur `node@6` et a pour objectif de suivre son cycle _Long-term Support_ (LTS).
+Le langage JavaScript est utilisé à hauteur de l'implémentation supportée par Node. +
+Le choix technologique initial des services API étaient basés sur link::http://loopback.io/[LoopBack] et link::https://www.mongodb.com/fr[MongoDB].
+Après moults difficultés et frustrations, l'équipe s'est recentrée sur le duo link::https://expressjs.com/[Express] et link::https://www.postgresql.org/[PostgreSQL].
 
-#### rf-pg-connector
+> On veut réduire le temps de mise en production.
 
-Concernant les limitations de `rf-pg-connector`, David Bruant a passé un peu de temps avec Florian de l'équipe API. La conclusion semble être que le problème est identifié et qu'il faut juste passer du temps à le résoudre. Afin de rendre la transition douce, il est recommandé d'utiliser les numéros de versions de dépendance pour `rf-pg-connector`, et faire la transition de ses consommateurs un par un (Florian a indiqué que cette procédure est connue et a déjà été appliquée).
-Il est possible qu'utiliser un langage avec vérification statique comme TypeScript ou Flow aide aussi à ce genre de refactoring.
+Il existe une dizaine de web services avec comme objectif de distribuer la donnée au plus de monde possible au sein de _Radio France_.
+Les services sont déployés 5 à 10 fois par semaine avec link::https://www.terraform.io/[Terraform] et link::https://www.ansible.com/[Ansible] et servent _100 millions_ de requêtes par jour avec un _uptime_ de 100%.
 
-Concernant les requêtes SQL, il est conseillé d'utiliser un [query builder](https://github.com/brianc/node-sql) ou [un autre](https://www.npmjs.com/package/sql-template-strings). Celà augmenterait la lisibilité du code SQL qui se cache à l'intérieur du JavaScript.
-Nous avons vu que le module [node-sql](https://github.com/brianc/node-sql) ne supporte pas les `LATERAL JOIN`. Une option peut être de contribuer à cette bibliothèque si elle est choisie.
+> On veut être résilient à tout type de pannes.
 
-Apparemment, le choix des "lateral join" (plutôt que des requêtes imbriquées) a été fait sur un conseil d'un expert pour raison de performances. Une idée pourrait être de définir une méthodologie de test de cette hypothèse sur les requêtes qui ont lieu effectivement chez Radio France.
+La structure de données de l'API a pour vocation à rester rétrocompatible afin de limiter la maintenance des consommateurs de l'API.
+Une surcouche de l'API — la *Public API* — est consommée par les _services mobiles_.
+Cette dernière diffère légèrement de l'API privée car elle expose moins de champs et a recours à la link::http://jsonapi.org/[spécification JSON API].
 
-Florian a évoqué un questionnement sur le fait d'avoir du SQL à 3 endroits (`rf-pg-connector`, `rf-models` et dans chaque modèle). Ce choix a l'air raisonnable. Ces 3 endroits correspondent à 3 strates de spécificités qu'il n'est pas mauvais de garder séparés.
+[horizontal]
+Succès::
+  * La disponibilité de l'API est unanime ;
+  * Les modèles link::https://www.openapis.org/[Open API] documentent programmatiquement les ressources et sont exposés… via l'API.
+
+Frictions::
+  * Une documentation a été mise en ligne à une adresse, puis continuée "ailleurs" ;
+  * Chaque chaîne gère ses _tags_ pour désigner des contenus et contenus ; ceci empêche l'interconnexion des données entre chaînes et avec le monde extérieur.
+
+Opportunités::
+  * Combiner _Open API_ avec des link::http://schema.org/docs/full.html[schémas connus de données] pour renforcer ;
+  * Employer des ontologies génériques (ex: link::https://www.wikidata.org/[Wikidata]), spécialisées (ex: link::https://musicbrainz.org/[MusicBrainz]) ou spécifiques à Radio France pour définir les valeurs de l'API.
+
+Une API de recherche basée sur link::https://www.elastic.co/products/elasticsearch[ElasticSearch] permet
+
+> On n'est pas très bon sur la recherche client.
+
+#### Module rf-pg-connector
+
+Concernant les limitations de `rf-pg-connector`, David Bruant a passé un peu de temps avec Florian de l'équipe API.
+La conclusion semble être que le problème est identifié et qu'il faut juste passer du temps à le résoudre.
+Afin de rendre la transition douce, il est recommandé d'utiliser les numéros de versions de dépendance pour `rf-pg-connector`, et faire la transition de ses consommateurs un par un (Florian a indiqué que cette procédure est connue et a déjà été appliquée).
+Il est possible qu'utiliser un langage avec vérification statique comme link::http://www.typescriptlang.org/[TypeScript] ou link::https://flow.org/[Flow] aide aussi à ce genre de refactoring.
+
+Concernant les requêtes SQL, il est conseillé d'utiliser un link::https://github.com/brianc/node-sql[query builder] ou link::https://www.npmjs.com/package/sql-template-strings[un autre]. Celà augmenterait la lisibilité du code SQL qui se cache à l'intérieur du JavaScript.
+Nous avons vu que le module link::https://github.com/brianc/node-sql[node-sql] ne supporte pas les `LATERAL JOIN`. Une option peut être de contribuer à cette bibliothèque si elle est choisie.
+
+Apparemment, le choix des "lateral join" (plutôt que des requêtes imbriquées) a été fait sur un conseil d'un expert pour raison de performances.
+Une idée pourrait être de définir une méthodologie de test de cette hypothèse sur les requêtes qui ont lieu effectivement chez Radio France.
+
+Florian a évoqué un questionnement sur le fait d'avoir du SQL à 3 endroits (`rf-pg-connector`, `rf-models` et dans chaque modèle).
+Ce choix a l'air raisonnable.
+Ces 3 endroits correspondent à 3 strates de spécificités qu'il n'est pas mauvais de garder séparés.
 
 
 ### Observations équipes chaînes
 
-Nos discussions avec les différentes équipes ont fait émergé un problème commun concernant la gestion du code JavaScript côté client.
-Chaque site de chaîne a son processus de build, ses outils, ses habitudes, ses façons de faire le JavaScript front-end. Ceci se traduit naturellement en beaucoup de travail dupliqué et difficilement réutilisé.
+Les équipes chaînes gèrent un _back-end_ écrit en PHP avec le framework Symfony.
+Un SDK incubé par l'_équipe back-end_ abstrait les appels à l'API.
+Chaque chaîne gère surcharge les composants du SDK pour gérer leurs cas spécifiques d'interprétation des données.
+
+[horizontal]
+Succès::
+
+  * Le SDK est adopté par toutes les équipes chaînes
+  *
+
+Frictions::
+
+  * L'empilement de couches de gestion de données rend le débogage complexe et coûteux en temps ;
+  * L'adresse de la documentation n'est pas connue — on fait confiance au SDK en inspectant son code.
+
+
+Chaque chaîne gère leur _front-end_ selon les affinités et compétences en présence.
+Nos discussions ont fait émerger un problème commun concernant la gestion du code JavaScript côté client.
+Chaque site de chaîne a son processus de build, ses outils, ses habitudes, ses façons de faire le JavaScript front-end.
+Ceci se traduit naturellement en beaucoup de travail dupliqué et difficilement réutilisé.
 
 Un conseil ici serait d'avoir une équipe transverse spécifique sur à sujets, de la même manière qu'il existe une équipe transverse sur le framework PHP qui interroge l'API interne.
 Il existe l'équipe cockpit, mais notre compréhension à ce stade est que cette équipe ne fait que créer et maintenir quelques composants front-end réutilisés par tous les sites.
@@ -82,14 +172,14 @@ Il faudrait soit étendre les sujets couverts par cette équipe, soit en créer 
 
 ### Observations équipe UX
 
-Beaucoup de sujets ont été évoqués, dont celui d'une charte graphique (voire d'un styleguide) en travail.
-Ce sujet a aussi été évoqué par une équipe chaîne. Un rapprochement pourrait être utile afin de mieux coordonner les efforts sur ce sujet.
+Beaucoup de sujets ont été évoqués, dont celui d'une charte graphique (voire d'un _styleguide_) en cours de réalisation.
+Ce sujet a aussi été évoqué par au moins deux équipes chaînes. Un rapprochement pourrait être utile afin de mieux coordonner les efforts sur ce sujet.
 
-## Actions à mettre en œuvre
+### Observations équipe mobile
 
-### ESLint
+### Observations équipe marketing
 
-Trouver un problème de qualité de code, trouver s'il existe la règle correspondante, créer la règle si ce n'est pas le cas.
+### Observations projet _Open Data_
 
 == Scope API
 
