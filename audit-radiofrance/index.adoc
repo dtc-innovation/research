@@ -56,10 +56,9 @@ Ce document contient également des *pistes d'actions*  ainsi que des *recommand
 ** Mobile natif
 ** Direction du numérique
 
-=== mercredi 12 juillet
+=== jeudi 12 juillet
 
 * Restitution de l'audit
-* Rencontre entre la _direction du numérique_ et  link::https://www.etalab.gouv.fr/[Etalab]
 
 ## Observation et conseils
 
@@ -96,10 +95,31 @@ Le langage JavaScript est utilisé à hauteur de l'implémentation supportée pa
 Le choix technologique initial des services API étaient basés sur link::http://loopback.io/[LoopBack] et link::https://www.mongodb.com/fr[MongoDB].
 Après moults difficultés et frustrations, l'équipe s'est recentrée sur le duo link::https://expressjs.com/[Express] et link::https://www.postgresql.org/[PostgreSQL].
 
+L'équipe API met à disposition plusieurs modules Node
+
+[horizontal]
+Succès::
+  * Une bonne qualité de code ;
+  * Intégration continue quasi systématique ;
+  * Présence de tests d'intégration à défaut de pouvoir tester unitairement certains aspects métier.
+
+Frictions::
+  * La découverte des modules est peu évidente — certains sont dans un _namespace_ GitLab différent ;
+  * Les README sont minimalistes ou inexistants.
+
+Opportunités::
+  * Harmoniser les scripts npm — `npm start` pour démarrer le service, `npm run build` pour produire les artéfacts, `npm test` pour lancer les tests, `npm run dev` pour démarrer le service en mode développement (et redémarrer en cas de changement avec `nodemon`, par exemple) ;
+  * Systématiser des vérifications lors de l'intégration continue (`npm outdated`, link::https://npmjs.com/npm-check[npm-check], link::https://npmjs.com/snyk[snyk], link::https://npmjs.com/david[david]) ;
+  * Héberger les modules Node sur un registre privé auto-hébergé pour faciliter le suivi semver des dépendances — ainsi que la consommation de librairies côté client (notamment pour le parsing des _steps_ ou de la grille de programme) ;
+  * Basculer vers `node@8` et `npm@5` lorsqu'elle passe en LTS afin de bénéficier du `package-lock.json` et de l'installation déterministe ;
+  * Systématiser le cours à des fichiers README répondant à des besoins élémentaires — périmètre fonction et exemples d'utilisation, d'installation.
+
 > On veut réduire le temps de mise en production.
 
 Il existe une dizaine de web services avec comme objectif de distribuer la donnée au plus de monde possible au sein de _Radio France_.
-Les services sont déployés 5 à 10 fois par semaine avec link::http://capistranorb.com/[Capistrano] et servent _100 millions_ de requêtes par jour avec un _uptime_ de 100%.
+
+Les services sont déployés 5 à 10 fois par semaine avec link::http://capistranorb.com/[Capistrano], tandis que le _provisioning_ et l'instantiation sont effectués avec link::https://www.terraform.io/[Terraform] et link::https://puppet.com/[Puppet].
+L'infrastructure gère environ _100 millions_ de requêtes par jour avec un _uptime_ de 100%.
 
 > On veut être résilient à tout type de pannes.
 
@@ -114,28 +134,51 @@ Succès::
 
 Frictions::
   * Une documentation a été mise en ligne à une adresse, puis continuée "ailleurs" ;
+  * Les _normaliseurs_ sont difficiles à lire donc difficile à déboguer ;
   * Chaque chaîne gère ses _tags_ pour désigner des contenus et contenus ; ceci empêche l'interconnexion des données entre chaînes et avec le monde extérieur.
 
 Opportunités::
   * Combiner _Open API_ avec des link::http://schema.org/docs/full.html[schémas connus de données] pour renforcer ;
   * Employer des ontologies génériques (ex: link::https://www.wikidata.org/[Wikidata]), spécialisées (ex: link::https://musicbrainz.org/[MusicBrainz]) ou spécifiques à Radio France pour définir les valeurs de l'API.
 
-Une API de recherche basée sur link::https://www.elastic.co/products/elasticsearch[ElasticSearch] permet
+L'API de recherche textuelle au sein des contenus se base sur link::https://www.elastic.co/products/elasticsearch[ElasticSearch].
+Elle est notamment utilisée pour les recommandations d'articles (via la fonctionnalité `more_like_this`), l'autocomplétion
 
 > On n'est pas très bon sur la recherche client.
+
+[horizontal]
+Frictions::
+  * Certains événements de suppression d'articles ne sont pas répercutés, entrainant des résultats menant à des contenus retirés de la publication.
+
+Opportunités::
+  * Une bonne recherche nécessite des réglages fins et un certain temps d'ajustements et d'observation ;
+  * Ça ne coûterait pas cher de faire du link::http://www.uxbooth.com/articles/the-art-of-guerrilla-usability-testing/[guerilla testing] devant la Maison de la Radio pour recueillir une connaissance des pratiques de recherche ;
+  * Les résultats d'autocomplétion pourraient être basés sur des critères de fraicheur et de popularité (de recherche, de visites, de tags cliqués) ainsi que par choix éditoriaux.
+
+> Il y a 2 ans, on a commencé la nouvelle infrastructure _from scratch_.
+> Maintenant on s'ennuie presque — beaucoup de micro-tâches, souvent de l'ordre d'une journée ou moins.
 
 #### Module rf-pg-connector
 
 Concernant les limitations de `rf-pg-connector`, David Bruant a passé un peu de temps avec Florian de l'équipe API.
 La conclusion semble être que le problème est identifié et qu'il faut juste passer du temps à le résoudre.
-Afin de rendre la transition douce, il est recommandé d'utiliser les numéros de versions de dépendance pour `rf-pg-connector`, et faire la transition de ses consommateurs un par un (Florian a indiqué que cette procédure est connue et a déjà été appliquée).
-Il est possible qu'utiliser un langage avec vérification statique comme link::http://www.typescriptlang.org/[TypeScript] ou link::https://flow.org/[Flow] aide aussi à ce genre de refactoring.
+
+Afin de rendre la transition douce, il est recommandé d'épingler les numéros de versions de dépendance et de procéder la transition de ses consommateurs un par un.
+Florian a indiqué que cette procédure est connue et a déjà été appliquée.
+
+[horizontal]
+Opportunités::
+  * Basculer vers `npm@5` pour bénéficier de semver avec git.
 
 Concernant les requêtes SQL, il est conseillé d'utiliser un link::https://github.com/brianc/node-sql[query builder] ou link::https://www.npmjs.com/package/sql-template-strings[un autre]. Celà augmenterait la lisibilité du code SQL qui se cache à l'intérieur du JavaScript.
-Nous avons vu que le module link::https://github.com/brianc/node-sql[node-sql] ne supporte pas les `LATERAL JOIN`. Une option peut être de contribuer à cette bibliothèque si elle est choisie.
+Nous avons vu que le module link::https://github.com/brianc/node-sql[node-sql] ne supporte pas les `LATERAL JOIN`. +
+Apparemment, le choix des `LATERAL JOIN` (plutôt que des requêtes imbriquées) a été fait sur un conseil d'un expert pour raison de performances.
 
-Apparemment, le choix des "lateral join" (plutôt que des requêtes imbriquées) a été fait sur un conseil d'un expert pour raison de performances.
-Une idée pourrait être de définir une méthodologie de test de cette hypothèse sur les requêtes qui ont lieu effectivement chez Radio France.
+[horizontal]
+Opportunités::
+  * L'utilisation d'un langage avec vérification statique comme link::http://www.typescriptlang.org/[TypeScript] ou link::https://flow.org/[Flow] pourrait aider au refactoring et renforcer la cohérence des modèles de données employés ;
+  * Contribuer le support de `LATERAL JOIN` à link::https://github.com/brianc/node-sql[node-sql] si elle est choisie ;
+  * Définir une méthodologie de test de cette hypothèse sur les requêtes qui ont lieu effectivement chez Radio France.
 
 Florian a évoqué un questionnement sur le fait d'avoir du SQL à 3 endroits (`rf-pg-connector`, `rf-models` et dans chaque modèle).
 Ce choix a l'air raisonnable.
@@ -151,33 +194,80 @@ Chaque chaîne gère surcharge les composants du SDK pour gérer leurs cas spéc
 [horizontal]
 Succès::
 
-  * Le SDK est adopté par toutes les équipes chaînes
-  *
+  * Le SDK API est adopté par toutes les équipes chaînes.
 
 Frictions::
 
   * L'empilement de couches de gestion de données rend le débogage complexe et coûteux en temps ;
-  * L'adresse de la documentation n'est pas connue — on fait confiance au SDK en inspectant son code.
+  * L'adresse de la documentation n'est pas connue et le ticket d'entrée est élevé — on utilise le SDK et les composants PHP en guide de doc.
 
+> La recherche, c'est encore un autre format.
 
 Chaque chaîne gère leur _front-end_ selon les affinités et compétences en présence.
 Nos discussions ont fait émerger un problème commun concernant la gestion du code JavaScript côté client.
 Chaque site de chaîne a son processus de build, ses outils, ses habitudes, ses façons de faire le JavaScript front-end.
 Ceci se traduit naturellement en beaucoup de travail dupliqué et difficilement réutilisé.
 
+> Le _front-end_, c'est le cœur de la problématique.
+
 Un conseil ici serait d'avoir une équipe transverse spécifique sur à sujets, de la même manière qu'il existe une équipe transverse sur le framework PHP qui interroge l'API interne.
-Il existe l'équipe cockpit, mais notre compréhension à ce stade est que cette équipe ne fait que créer et maintenir quelques composants front-end réutilisés par tous les sites.
-Il faudrait soit étendre les sujets couverts par cette équipe, soit en créer une autre.
+Il existe l'*équipe cockpit* qui produit des composants transverses comme le _player multimédia_.
+Notre compréhension à ce stade est que cette équipe ne fait que créer et maintenir quelques composants front-end réutilisés par tous les sites.
+
+> On voudrait avoir des briques fonctionnelles isolées.
+> On a fait ça dans le _rush_ et on n'en a peut-être pas assez parlé.
+
+[horizontal]
+Opportunités::
+  * Étendre les sujets couverts par cette équipe ;
+  * L'intégrer à l'équipe UX pour en faire une équipe transverse et reproduire le succès du SDK API côté front-end.
 
 
 ### Observations équipe UX
 
 Beaucoup de sujets ont été évoqués, dont celui d'une charte graphique (voire d'un _styleguide_) en cours de réalisation.
-Ce sujet a aussi été évoqué par au moins deux équipes chaînes. Un rapprochement pourrait être utile afin de mieux coordonner les efforts sur ce sujet.
+Ce sujet a aussi été évoqué par au moins deux équipes chaînes.
+
+Les designers sont embarqué·e·s dans les équipes chaînes en fonction des demandes et de la charge de travail.
+Une personne peut travailler en alternance pour l'équipe _Culture_ et _France Bleu_, par exemple.
+
+[horizontal]
+Succès::
+  * Les compétences UX et UI deviennent reconnues ;
+  * L'émergence d'un besoin de _styleguide_ fait consensus.
+
+Frictions::
+  * Il n'y a pas un consensus évident quant à la responsabilité de produire du code ;
+  * Il n'y a pas non plus consensus sur la diffusion du guide et du suivi de son implémentation.
+
+Opportunités::
+  * Un rapprochement avec les équipes chaînes pourrait être utile afin de mieux coordonner les efforts ;
+  * Partager les outils de documentation pour bénéficier d'une documentation multi-disciplinaire ;
+  * S'orienter vers une utilisation de link::https://www.sketchapp.com/[Sketch] combinée à link::https://www.goabstract.com[Abstract] (versioning avec Git), link::https://www.invisionapp.com/craft[Craft] (prototypage et consommation des API) et link::http://airbnb.io/react-sketchapp/[React Sketch.app] (rendu de composants React) pour créer des composants communs aux sites web et app mobiles.
 
 ### Observations équipe mobile
 
 ### Observations équipe marketing
+
+Nous entamons une discussion après avoir lu le mot *documentation* sur un post-it affiché sur un tableau blanc.
+
+> Les gens de la technique, ils ne viennent pas nous voir.
+
+> J'ai plein de données _analytics_ que j'ai du mal à récupérer.
+
+[horizontal]
+Frictions::
+  * L'outil de documentation _de facto_ est l'email ;
+  * On a ressenti une certaine souffrance liée à l'isolation technique et à une charge de travail continue ;
+  * Beaucoup d'actions manuelles sont nécessaires pour collecter les informations nécessaire
+
+Opportunités::
+  * Former Deborah à être _Product Owner_ ;
+  * Doter l'équipe d'un·e _Product Owner_ ;
+  * Partager les outils de documentation pour bénéficier d'une documentation multi-disciplinaire ;
+  * Venir livrer des rapports succincts aux différentes foires pour informer des impacts des équipes ;
+  * Organiser une foire pour susciter l'intérêt des autres équipes (techniques et produits) ;
+  * Designer une _API Business_ pour refermer la boucle de _feedback_.
 
 ### Observations projet _Open Data_
 
