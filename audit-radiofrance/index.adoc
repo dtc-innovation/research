@@ -99,7 +99,7 @@ Après moults difficultés et frustrations, l'équipe s'est recentrée sur le du
 > On veut réduire le temps de mise en production.
 
 Il existe une dizaine de web services avec comme objectif de distribuer la donnée au plus de monde possible au sein de _Radio France_.
-Les services sont déployés 5 à 10 fois par semaine avec link::https://www.terraform.io/[Terraform] et link::https://www.ansible.com/[Ansible] et servent _100 millions_ de requêtes par jour avec un _uptime_ de 100%.
+Les services sont déployés 5 à 10 fois par semaine avec link::http://capistranorb.com/[Capistrano] et servent _100 millions_ de requêtes par jour avec un _uptime_ de 100%.
 
 > On veut être résilient à tout type de pannes.
 
