@@ -350,7 +350,7 @@ Frictions::
   * L'absence de normalisation des valeurs (invité·e·s, artistes, thèmes, tags etc.) peut limiter considérablement l'usage externe du fait de jointures de données complexes et coûteuses en nettoyage.
 
 Opportunités::
-  * Combiner _Open API_ avec des link::http://schema.org/docs/full.html[schémas connus de données] pour appliquer du _typage_ aux modèles de données ;
+  * Combiner _Open API_ avec des link::http://schema.org/docs/full.html[schémas connus de données] exprimés en link::http://json-ld.org/[JSON-LD] pour appliquer du _typage_ aux modèles de données ;
   * Employer des ontologies génériques (ex: link::https://www.wikidata.org/[Wikidata]), spécialisées (ex: link::https://musicbrainz.org/[MusicBrainz]) ou spécifiques à Radio France (à la link::http://www.bbc.co.uk/things/[BBC Things]) pour définir les valeurs retournées par l'API ;
   * Les deux précédents points auraient également un impact bénéfique en interne : recherches et recommandations para-produits, enrichissement naturel des données (via des extraits Wikipédia  par exemple) ;
   * Organiser un _soft launch_ avec les équipes de la link::https://etalab.gouv.fr[mission Etalab] pour se roder à l'exercice des _hackathons_ et obtenir des retours d'utilisation de l'_Open API_.
@@ -365,7 +365,24 @@ Opportunités::
 
 > L'enjeu se situe également côté produit, sinon il n'y a pas d'enjeu technique.
 
-== Scope API
+== Conclusion, enjeux et intérêts
+
+L'équipe API constitue une pierre angulaire du succès de la stratégie de la Direction du Numérique mise en œuvre il y a de cela deux ans.
+Sa réussite tient à la confiance portée dans l'équipe, à des recrutements de qualité, au rôle des _Product Owners_ et à la présence d'équipes connexes telles que l'infrastructure, _back-office_ et Zone 51.
+
+Les enjeux sont multiples :
+
+* se remettre dans une situation de _challenge_ pour réunir et motiver les équipes à aller plus loin ensemble ;
+* réitérer le succès technique de l'API au niveau du langage visuel avec une plus grande diversité de métiers — UX, mobile, front-end ;
+* éviter le clivage client/fournisseur lié aux frontières dures établies par des postures.
+
+Nous pensons que :
+
+* *simplifier les strates d'accès à l'API* (_Open_ vs. interne) aidera à la maintenance, du code API et de ses consommateurs — ainsi que les interactions et relations afférantes ;
+* le *typage transversal* aidera à garantir la qualité des structures de données (schema.org, JSON-LD, Open API, TypeScript/Flow) ;
+* la *convergence styleguide/web/mobile* aidera à mettre les équipes en position de collaboration multi-disciplinaire en vue de réaliser un objet commun — des entités Radio France solides dans et hors les murs, côté services et côté utilisateurs.
+
+Le meilleur soutien et accompagnement que l'on puisse apporter serait de *pairer* à la réalisation de tâches/_epics_ ciblées pour *maintenir l'autonomie* dont fait déjà preuve l'équipe API et les équipes afférantes.
 
 === Intérêt immédiat
 
