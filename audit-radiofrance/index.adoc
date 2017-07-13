@@ -56,7 +56,7 @@ Ce document contient également des *pistes d'actions*  ainsi que des *recommand
 ** Mobile natif
 ** Direction du numérique
 
-=== jeudi 12 juillet
+=== jeudi 13 juillet
 
 * Restitution de l'audit
 
@@ -300,6 +300,40 @@ Opportunités::
   * Designer une _API Business_ pour refermer la boucle de _feedback_.
 
 ### Observations projet _Open Data_
+
+Radio France envisage de mettre à disposition une _Open API_ à des personnes tierces.
+Elle serait une version dérivée de la _Public API_ — cette dernière étant destinée aux sites et applications Radio France.
+
+Cette envie s'inscrit dans la *compréhension des usages d'écoute* et de consommation des flux de Radio France.
+Un des objectifs est de pouvoir *soutenir les mouvements de désintermédiation et d'innovation*, mais aussi d'anticiper les effets de la link::https://www.etalab.gouv.fr/loi-pour-une-republique-numerique-lancement-dune-consultation-sur-le-service-public-de-la-donnee[Loi République Numérique] — on peut en effet imaginer qu'à terme les données courantes de Radio France soient considérées comme une information publique.
+
+> Nous voulons mutualiser les coûts et les ressources entre acteurs.
+
+L'ouverture de l'API bénéficierait également à Radio France en faisant émerger les données cachées, en facilitant la réutilisation de leurs données tout en devenant un aimant pour repérer et attirer les talents.
+L'émergence de réutilisations et de contributions (notamment de traduction) apporteraient également des éléments de réflexion à la stratégie produit de Radio France.
+
+[horizontal]
+Succès::
+  * Cette action est considérée possible car l'infrastructure et les capacités de montée en charge sont éprouvées et robustes.
+
+Frictions::
+  * L'absence de normalisation des valeurs (invité·e·s, artistes, thèmes, tags etc.) peut limiter considérablement l'usage externe du fait de jointures de données complexes et coûteuses en nettoyage.
+
+Opportunités::
+  * Combiner _Open API_ avec des link::http://schema.org/docs/full.html[schémas connus de données] pour appliquer du _typage_ aux modèles de données ;
+  * Employer des ontologies génériques (ex: link::https://www.wikidata.org/[Wikidata]), spécialisées (ex: link::https://musicbrainz.org/[MusicBrainz]) ou spécifiques à Radio France (à la link::http://www.bbc.co.uk/things/[BBC Things]) pour définir les valeurs retournées par l'API ;
+  * Les deux précédents points auraient également un impact bénéfique en interne : recherches et recommandations para-produits, enrichissement naturel des données (via des extraits Wikipédia  par exemple) ;
+  * Organiser un _soft launch_ avec les équipes de la link::https://etalab.gouv.fr[mission Etalab] pour se roder à l'exercice des _hackathons_ et obtenir des retours d'utilisation de l'_Open API_.
+
+=== Observations Direction du Numérique
+
+> Il ne faut pas perdre de vue la vision globale.
+
+> Mon challenge c'est de faire travailler les gens ensemble.
+
+> Être dans le mouvement, maintenir la dynamique pour ne pas devenir une startup vieillissante.
+
+> L'enjeu se situe également côté produit, sinon il n'y a pas d'enjeu technique.
 
 == Scope API
 
