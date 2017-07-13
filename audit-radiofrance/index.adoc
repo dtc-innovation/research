@@ -277,6 +277,36 @@ Opportunités::
 
 ### Observations équipe mobile
 
+L'équipe mobile est située dans un bureau à part.
+Elle est constituée de développeurs iOS et Android mais aussi de _Product Managers_.
+
+Leurs interactions avec l'API Radio France se fait via la _Public API_, quasi exclusivement en consommation.
+La seule API en `POST` qui soit utilisée n'est par ailleurs par gérée par l'équipe API.
+
+> Normalement on a une doc de l'API mais je ne sais plus où elle est.
+
+> Notre documentation c'est le SDK qu'on s'est fait. Il reflète notre besoin. Quand on a une question va voir l'équipe API.
+
+Des problèmes de performance sur une route de l'API _staging_ (40 à 50 secondes d'attente) ont obligé les développeurs à changer leurs valeurs de _timeout_ et à opter pour cibler l'environnement de _production_ à la place.
+Ils ne savent pas d'où vient le problème ni s'il a été réglé.
+
+> On trouvait ça mieux de tester en production. C'est plus parlant.
+
+> Il parait qu'ils refont la documentation ; elle est finie ?
+
+> On essaie de rattraper le delta entre API privée et _Public API_.
+
+[horizontal]
+Frictions::
+  * Sensation de distance, notamment au niveau du dialogue et des façons de faire ;
+  * Pas d'appétence à mieux travailler ensemble ;
+  * L'écart continuera de se creuser avec le temps, jusqu'à un point de non-retour.
+
+Opportunités::
+  * Des envies produit (comme enrichir les profils de personnes invitées avec Wikipédia) convergent avec des opportunités de l'_Open API_ ;
+  * Explorer les composants partagés pour web et mobile (type link::http://www.reactnative.com/[React Native]) ;
+  * Considérer le développement mobile comme une compétence transverse des équipes chaînes et de l'équipe UX.
+
 ### Observations équipe marketing
 
 Nous entamons une discussion après avoir lu le mot *documentation* sur un post-it affiché sur un tableau blanc.
