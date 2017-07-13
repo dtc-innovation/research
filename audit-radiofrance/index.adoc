@@ -138,8 +138,7 @@ Frictions::
   * Chaque chaîne gère ses _tags_ pour désigner des contenus et contenus ; ceci empêche l'interconnexion des données entre chaînes et avec le monde extérieur.
 
 Opportunités::
-  * Combiner _Open API_ avec des link::http://schema.org/docs/full.html[schémas connus de données] pour renforcer ;
-  * Employer des ontologies génériques (ex: link::https://www.wikidata.org/[Wikidata]), spécialisées (ex: link::https://musicbrainz.org/[MusicBrainz]) ou spécifiques à Radio France pour définir les valeurs de l'API.
+  * Capitaliser sur l'expérience de l'équipe pour sortir une v2 de l'API qui uniformise les sorties, supprime les spécifiques et les efforts de rétrocompatibilité en simplifiant la base de code — ainsi que celle des différents SDK.
 
 L'API de recherche textuelle au sein des contenus se base sur link::https://www.elastic.co/products/elasticsearch[ElasticSearch].
 Elle est notamment utilisée pour les recommandations d'articles (via la fonctionnalité `more_like_this`), l'autocomplétion
@@ -170,7 +169,7 @@ Florian a indiqué que cette procédure est connue et a déjà été appliquée.
 Opportunités::
   * Basculer vers `npm@5` pour bénéficier de semver avec git.
 
-Concernant les requêtes SQL, il est conseillé d'utiliser un link::https://github.com/brianc/node-sql[query builder] ou link::https://www.npmjs.com/package/sql-template-strings[un autre]. Celà augmenterait la lisibilité du code SQL qui se cache à l'intérieur du JavaScript.
+Concernant les requêtes SQL, il est conseillé d'utiliser un link::https://github.com/brianc/node-sql[query builder] ou link::https://www.npmjs.com/package/sql-template-strings[un autre]. Cela augmenterait la lisibilité du code SQL qui se cache à l'intérieur du JavaScript.
 Nous avons vu que le module link::https://github.com/brianc/node-sql[node-sql] ne supporte pas les `LATERAL JOIN`. +
 Apparemment, le choix des `LATERAL JOIN` (plutôt que des requêtes imbriquées) a été fait sur un conseil d'un expert pour raison de performances.
 
@@ -203,6 +202,8 @@ Frictions::
 
 > La recherche, c'est encore un autre format.
 
+> On voudrait que la structure des objets soit la même à tout moment.
+
 Chaque chaîne gère leur _front-end_ selon les affinités et compétences en présence.
 Nos discussions ont fait émerger un problème commun concernant la gestion du code JavaScript côté client.
 Chaque site de chaîne a son processus de build, ses outils, ses habitudes, ses façons de faire le JavaScript front-end.
@@ -221,6 +222,35 @@ Notre compréhension à ce stade est que cette équipe ne fait que créer et mai
 Opportunités::
   * Étendre les sujets couverts par cette équipe ;
   * L'intégrer à l'équipe UX pour en faire une équipe transverse et reproduire le succès du SDK API côté front-end.
+
+### Observations équipe Zone 51
+
+Cette équipe a été montée il y a environ un an pour remplacer l'API Radio (un composant parmi ceux gérés par l'équipe API) — API en charge de normaliser les données collectées depuis le SI métier.
+Cet effort a été engagé pour *mettre fin aux problèmes liés l'accumulation* de rustines successives et pour distribuer la connaissance des règles métier jusque là contenue dans la tête d'une personne.
+
+Une des caractéristiques de cette équipe est d'avoir deux _Product Owner_ : un à la Direction du Numérique et un au Service Informatique.
+Une intention claire est de rapprocher la Direction du Numérique et le SI par la pratique.
+
+> C'est le premier projet en coopération avec l'équipe informatique basée de l'autre côté de la ligne de RER.
+
+> Tout le monde travaille sur tout.
+> Tout le monde fait le support.
+> Nous avons des rituels de partage de connaissance.
+
+> Maziar sait bien s'entourer et il nous fait confiance.
+
+==== Module rf-pubsub
+
+Le module `rf-pubsub` a été mentionné à quelques reprises.
+Notamment l'effort de publication d'un module additionnel — un _wrapper_ — pour le _promisifier_.
+
+[horizontal]
+Frictions::
+  * Un module supplémentaire a été créé, doit être maintenu alors que la fonctionnalité décrite existe déjà dans `rf-pubsub`.
+
+Opportunités::
+  * Cartographier l'utilisation des modules `rf-*` au sein des applications pour évaluer les versions utilisées et leurs dépendants ;
+  * Organiser des *cliniques de code* pour fournir un support, détecter et co-développer des améliorations possibles.
 
 
 ### Observations équipe UX
