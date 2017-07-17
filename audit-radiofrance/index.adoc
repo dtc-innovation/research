@@ -1,0 +1,457 @@
+= Audit Radio France
+:toc: left
+:toc-title: Sommaire
+:appendix-caption: Annexe
+:hide-uri-scheme:
+:idprefix:
+:data-uri:
+:icons: font
+:revnumber: v1.0.0
+:revdate: 17 juillet 2017
+
+Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
+
+== Contexte
+
+La coopérative *dtc innovation* a été contactée par la _Direction du Numérique_ de *Radio France* suite à une mise en relation de link:https://jolicode.com/[Jolicode].
+
+La _Direction du Numérique_ souhaitait obtenir davantage de visibilité sur ses applications JavaScript en sollicitant un audit de ses applications Node — principalement du côté de son équipe API.
+Cet audit s'inscrit dans la lignée d'un audit de leurs applications PHP.
+
+L'objectif de cet audit est multiple :
+
+. *faire un point* sur leur parc applicatif JavaScript et Node ;
+. *obtenir un regard* sur les habitudes de l'équipe ;
+. *augmenter la visibilité* sur ce qui est produit par les équipes ;
+. dans un monde idéal, atteindre un niveau où *tout code serait _open sourçable_* (aka. link:https://en.wikipedia.org/wiki/Inner_source[inner source]).
+
+L'audit débutera d'abord par l'*établissement d'un périmètre fonctionnel* (_scope_) pour ensuite définir des missions d'actions ciblées, généralement courtes et clairement délimitées.
+
+Ce document *résume ce que nous avons observé* les 15 et 16 juin puis le 5 juillet 2017 dans les locaux de la _Direction du Numérique_ chez Radio France. +
+Ce document contient également des *pistes d'actions*  ainsi que des *recommandations* pouvant appuyer et soutenir la stratégie moyen et long terme de Radio France dans son innovation numérique.
+
+== Journal
+
+=== jeudi 15 juin
+
+* Arrivée et accueil
+* Matinée : présentation par l'équipe API ("cruiser") de l'architecture du back-end web et de la communication entre les micro-services
+* Présence à la "Foire au Cruiser" l'après-midi
+* Discussions avec les différents membres de l'équipe API
+
+=== vendredi 16 juin
+
+* Restitution des différents axes d'amélioration que nous avons entendu et discussion avec l'équipe API pour la priorisation de ces points
+* Discussions avec d'autres équipes sur le même plateau
+** UX
+** SEO
+** France Culture
+** France Bleu
+
+=== mercredi 5 juillet
+
+* Discussions avec les différents membres de l'équipe API
+* Discussions avec d'autres équipes sur le même plateau
+** Back-Office
+** Terry dans l'équipe France Bleu — il a aidé à la mise en place du SDK PHP et récupéré le _lead_ depuis 1 semaine
+** Mobile natif
+** Direction du numérique
+
+=== jeudi 13 juillet
+
+* Restitution de l'audit
+
+## Observation et conseils
+
+### Observations générales
+
+Nous sommes ressortis avec un sentiment très positif suite à ce que nous avons pu observer à la _Direction du Numérique_.
+
+De nombreux signaux ont l'air d'être au vert :
+
+* Concernant la technique, les choix sont simples, cohérents en soi et entre eux, pas de gros risques sur des technologies, un parti pris sur l'indépendance logicielle (pas de services en SaaS) ;
+** Le premier matin, la clarté de l'explication de l'architecture était en elle-même un signe de la qualité de l'architecture ;
+** Ne pas hésiter à payer pour du support spécifique quand un problème apparait et qu'un manque de compétence est identifié est une très bonne décision aussi ;
+* Nous ne connaissons pas les détails financiers, mais les ambitions ont l'air en adéquation avec les moyens à disposition ;
+* Les équipes sont petites et ont l'air soudées et de bien communiquer entre elles. La communication a l'air fluide, simple, efficace ;
+* Les équipes s'organisent comme elles le souhaitent et ont l'air de s'organiser de manière efficace ;
+* La présence d'un _Product Owner_ dans la majorité des équipes semble jouer pour beaucoup à l'organisation de l'effort et au maintien de la qualité applicative ;
+* Les individus ont l'air épanouis et de prendre plaisir à leur travail ;
+* Il y a un climat général de confiance entre les équipes et apparemment avec la _Direction du Numérique_ qui laisse aux équipe l'autonomie nécessaire.
+
+En plus de cela, la pratique des _foires_ hebdomadaires (30 minutes par semaine d'ouverture aux demandes en présentiel) semble être bien rodée, canalise les demandes et évite les tractations à la machine à café.
+
+> Les personnes reviennent des foires avec un besoin clarifié.
+
+> On refuse les demandes qui ne bénéficient pas à toutes les chaines ; les trucs dégueulasses ils les gèrent de leur côté.
+
+Si nous devions donner un premier conseil général, ça serait celui de *préserver, encourager et protéger tous ces morceaux de contextes techniques, organisationnels et humains qui mènent mécaniquement à un service rendu de qualité*.
+
+### Observations équipe API
+
+Il s'agit de l'équipe avec laquelle nous avons passé la majorité de notre temps.
+
+Au 9 juillet 2017, la _stack_ est basée sur `node@6` et a pour objectif de suivre son cycle _Long-term Support_ (LTS).
+Le langage JavaScript est utilisé à hauteur de l'implémentation supportée par Node. +
+Le choix technologique initial des services API étaient basés sur link:http://loopback.io/[LoopBack] et link:https://www.mongodb.com/fr[MongoDB].
+Après moults difficultés et frustrations, l'équipe s'est recentrée sur le duo link:https://expressjs.com/[Express] et link:https://www.postgresql.org/[PostgreSQL].
+
+L'équipe API met à disposition plusieurs modules NodeJS sur GitLab.
+Ces modules sont préfixés par `rf-` par convention.
+Leur usage en dehors des projets de l'équipe est inconnu.
+
+[horizontal]
+Succès::
+  * Une bonne qualité de code ;
+  * Intégration continue quasi systématique ;
+  * Présence de tests d'intégration à défaut de pouvoir tester unitairement certains aspects métier.
+
+Frictions::
+  * La découverte des modules est peu évidente — certains sont dans un _namespace_ GitLab différent ;
+  * Les README sont minimalistes ou inexistants.
+
+Opportunités::
+  * Harmoniser les scripts npm — `npm start` pour démarrer le service, `npm run build` pour produire les artéfacts, `npm test` pour lancer les tests, `npm run dev` pour démarrer le service en mode développement (et redémarrer en cas de changement avec `nodemon`, par exemple) ;
+  * Systématiser des vérifications lors de l'intégration continue (`npm outdated`, link:https://npmjs.com/npm-check[npm-check], link:https://npmjs.com/snyk[snyk], link:https://npmjs.com/david[david]) ;
+  * Héberger les modules Node sur un registre privé auto-hébergé pour faciliter le suivi semver des dépendances — ainsi que la consommation de librairies côté client (notamment pour le parsing des _steps_ ou de la grille de programme) ;
+  * Basculer vers `node@8` et `npm@5` lorsqu'elle passe en LTS afin de bénéficier du `package-lock.json` et de l'installation déterministe ;
+  * Systématiser le cours à des fichiers README répondant à des besoins élémentaires — périmètre fonction et exemples d'utilisation, d'installation.
+
+> On veut réduire le temps de mise en production.
+
+Il existe une dizaine de web services avec comme objectif de distribuer la donnée au plus de monde possible au sein de _Radio France_.
+
+Les services sont déployés 5 à 10 fois par semaine avec link:http://capistranorb.com/[Capistrano], tandis que le _provisioning_ et l'instantiation sont effectués avec link:https://www.terraform.io/[Terraform] et link:https://puppet.com/[Puppet].
+L'infrastructure gère environ _100 millions_ de requêtes par jour avec un _uptime_ de 100%.
+
+> On veut être résilient à tout type de pannes.
+
+La structure de données de l'API a pour vocation à rester rétrocompatible afin de limiter la maintenance des consommateurs de l'API.
+Une surcouche de l'API — la *Public API* — est consommée par les _services mobiles_.
+Cette dernière diffère légèrement de l'API privée car elle expose moins de champs et a recours à la link:http://jsonapi.org/[spécification JSON API].
+
+[horizontal]
+Succès::
+  * La disponibilité de l'API est unanime ;
+  * Les modèles link:https://www.openapis.org/[Swagger] documentent programatiquement les ressources et sont exposés… via l'API.
+
+Frictions::
+  * Une documentation a été mise en ligne à une adresse, puis continuée "ailleurs" ;
+  * Les _normaliseurs_ sont difficiles à lire donc difficile à déboguer ;
+  * Chaque chaîne gère ses _tags_ pour désigner des contenus et contenus ; ceci empêche l'interconnexion des données entre chaînes et avec le monde extérieur.
+
+Opportunités::
+  * Capitaliser sur l'expérience de l'équipe pour sortir une v2 de l'API qui uniformise les sorties, supprime les spécifiques et les efforts de rétrocompatibilité en simplifiant la base de code — ainsi que celle des différents SDK.
+
+L'API de recherche textuelle au sein des contenus se base sur link:https://www.elastic.co/products/elasticsearch[ElasticSearch].
+Elle est notamment utilisée pour les recommandations d'articles (via la fonctionnalité `more_like_this`), l'autocomplétion
+
+> On n'est pas très bon sur la recherche client.
+
+[horizontal]
+Frictions::
+  * Certains événements de suppression d'articles ne sont pas répercutés, entrainant des résultats menant à des contenus retirés de la publication.
+
+Opportunités::
+  * Une bonne recherche nécessite des réglages fins et un certain temps d'ajustements et d'observation ;
+  * Ça ne coûterait pas cher de faire du link:http://www.uxbooth.com/articles/the-art-of-guerrilla-usability-testing/[guerilla testing] devant la Maison de la Radio pour recueillir une connaissance des pratiques de recherche ;
+  * Les résultats d'autocomplétion pourraient être basés sur des critères de fraicheur et de popularité (de recherche, de visites, de tags cliqués) ainsi que par choix éditoriaux.
+
+> Il y a 2 ans, on a commencé la nouvelle infrastructure _from scratch_.
+> Maintenant on s'ennuie presque — beaucoup de micro-tâches, souvent de l'ordre d'une journée ou moins.
+
+[TIP]
+.Actions et envies priorisées
+====
+_dtc innovation_ et l'équipe API ont fait émerger et priorisé une liste d'actions à mener autour des projets de l'équipe.
+
+Cette liste exhaustive d'envies est formulée en <<emerging-todolist,annexe de ce document>>.
+====
+
+#### Module rf-pg-connector
+
+Concernant les limitations de `rf-pg-connector`, David Bruant a passé un peu de temps avec Florian de l'équipe API.
+La conclusion semble être que le problème est identifié et qu'il faut juste passer du temps à le résoudre.
+
+Afin de rendre la transition douce, il est recommandé d'épingler les numéros de versions de dépendance et de procéder la transition de ses consommateurs un par un.
+Florian a indiqué que cette procédure est connue et a déjà été appliquée.
+
+[horizontal]
+Opportunités::
+  * Basculer vers `npm@5` pour bénéficier de semver avec git.
+
+Concernant les requêtes SQL, il est conseillé d'utiliser un link:https://github.com/brianc/node-sql[query builder] ou link:https://www.npmjs.com/package/sql-template-strings[un autre]. Cela augmenterait la lisibilité du code SQL qui se cache à l'intérieur du JavaScript.
+Nous avons vu que le module link:https://github.com/brianc/node-sql[node-sql] ne supporte pas les `LATERAL JOIN`. +
+Apparemment, le choix des `LATERAL JOIN` (plutôt que des requêtes imbriquées) a été fait sur un conseil d'un expert pour raison de performances.
+
+[horizontal]
+Opportunités::
+  * L'utilisation d'un langage avec vérification statique comme link:http://www.typescriptlang.org/[TypeScript] ou link:https://flow.org/[Flow] pourrait aider au refactoring et renforcer la cohérence des modèles de données employés ;
+  * Contribuer le support de `LATERAL JOIN` à link:https://github.com/brianc/node-sql[node-sql] si elle est choisie ;
+  * Définir une méthodologie de test de cette hypothèse sur les requêtes qui ont lieu effectivement chez Radio France.
+
+Florian a évoqué un questionnement sur le fait d'avoir du SQL à 3 endroits (`rf-pg-connector`, `rf-models` et dans chaque modèle).
+Ce choix a l'air raisonnable.
+Ces 3 endroits correspondent à 3 strates de spécificités qu'il n'est pas mauvais de garder séparés.
+
+
+### Observations équipes chaînes
+
+Les équipes chaînes gèrent un _back-end_ écrit en PHP avec le framework Symfony.
+Un SDK incubé par l'_équipe back-end_ abstrait les appels à l'API.
+Chaque chaîne gère surcharge les composants du SDK pour gérer leurs cas spécifiques d'interprétation des données.
+
+[horizontal]
+Succès::
+
+  * Le SDK API est adopté par toutes les équipes chaînes.
+
+Frictions::
+
+  * L'empilement de couches de gestion de données rend le débogage complexe et coûteux en temps ;
+  * L'adresse de la documentation n'est pas connue et le ticket d'entrée est élevé — on utilise le SDK et les composants PHP en guide de doc.
+
+> La recherche, c'est encore un autre format.
+
+> On voudrait que la structure des objets soit la même à tout moment.
+
+Chaque chaîne gère leur _front-end_ selon les affinités et compétences en présence.
+Nos discussions ont fait émerger un problème commun concernant la gestion du code JavaScript côté client.
+Chaque site de chaîne a son processus de build, ses outils, ses habitudes, ses façons de faire le JavaScript front-end.
+Ceci se traduit naturellement en beaucoup de travail dupliqué et difficilement réutilisé.
+
+> Le _front-end_, c'est le cœur de la problématique.
+
+Un conseil ici serait d'avoir une équipe transverse spécifique sur à sujets, de la même manière qu'il existe une équipe transverse sur le framework PHP qui interroge l'API interne.
+Il existe l'*équipe cockpit* qui produit des composants transverses comme le _player multimédia_.
+Notre compréhension à ce stade est que cette équipe ne fait que créer et maintenir quelques composants front-end réutilisés par tous les sites.
+
+> On voudrait avoir des briques fonctionnelles isolées.
+> On a fait ça dans le _rush_ et on n'en a peut-être pas assez parlé.
+
+[horizontal]
+Opportunités::
+  * Étendre les sujets couverts par cette équipe ;
+  * L'intégrer à l'équipe UX pour en faire une équipe transverse et reproduire le succès du SDK API côté front-end.
+
+### Observations équipe Zone 51
+
+Cette équipe a été montée il y a environ un an pour remplacer l'API Radio (un composant parmi ceux gérés par l'équipe API) — API en charge de normaliser les données collectées depuis le SI métier.
+Cet effort a été engagé pour *mettre fin aux problèmes liés l'accumulation* de rustines successives et pour distribuer la connaissance des règles métier jusque là contenue dans la tête d'une personne.
+
+Une des caractéristiques de cette équipe est d'avoir deux _Product Owner_ : un à la Direction du Numérique et un au Service Informatique.
+Une intention claire est de rapprocher la Direction du Numérique et le SI par la pratique.
+
+> C'est le premier projet en coopération avec l'équipe informatique basée de l'autre côté de la ligne de RER.
+
+> Tout le monde travaille sur tout.
+> Tout le monde fait le support.
+> Nous avons des rituels de partage de connaissance.
+
+> Maziar sait bien s'entourer et il nous fait confiance.
+
+==== Module rf-pubsub
+
+Le module `rf-pubsub` a été mentionné à quelques reprises.
+Notamment l'effort de publication d'un module additionnel — un _wrapper_ — pour le _promisifier_.
+
+[horizontal]
+Frictions::
+  * Un module supplémentaire a été créé, doit être maintenu alors que la fonctionnalité décrite existe déjà dans `rf-pubsub`.
+
+Opportunités::
+  * Cartographier l'utilisation des modules `rf-*` au sein des applications pour évaluer les versions utilisées et leurs dépendants ;
+  * Organiser des *cliniques de code* pour fournir un support, détecter et co-développer des améliorations possibles.
+
+
+### Observations équipe UX
+
+Beaucoup de sujets ont été évoqués, dont celui d'une charte graphique (voire d'un _styleguide_) en cours de réalisation.
+Ce sujet a aussi été évoqué par au moins deux équipes chaînes.
+
+Les designers sont embarqué·e·s dans les équipes chaînes en fonction des demandes et de la charge de travail.
+Une personne peut travailler en alternance pour l'équipe _Culture_ et _France Bleu_, par exemple.
+
+[horizontal]
+Succès::
+  * Les compétences UX et UI deviennent reconnues ;
+  * L'émergence d'un besoin de _styleguide_ fait consensus.
+
+Frictions::
+  * Il n'y a pas un consensus évident quant à la responsabilité de produire du code ;
+  * Il n'y a pas non plus consensus sur la diffusion du guide et du suivi de son implémentation.
+
+Opportunités::
+  * Un rapprochement avec les équipes chaînes pourrait être utile afin de mieux coordonner les efforts ;
+  * Partager les outils de documentation pour bénéficier d'une documentation multi-disciplinaire ;
+  * S'orienter vers une utilisation de link:https://www.sketchapp.com/[Sketch] combinée à link:https://www.goabstract.com[Abstract] (versioning avec Git), link:https://www.invisionapp.com/craft[Craft] (prototypage et consommation des API) et link:http://airbnb.io/react-sketchapp/[React Sketch.app] (rendu de composants React) pour créer des composants communs aux sites web et app mobiles.
+
+### Observations équipe mobile
+
+L'équipe mobile est située dans un bureau à part.
+Elle est constituée de développeurs iOS et Android mais aussi de _Product Managers_.
+
+Leurs interactions avec l'API Radio France se fait via la _Public API_, quasi exclusivement en consommation.
+La seule API en `POST` qui soit utilisée n'est par ailleurs par gérée par l'équipe API.
+
+> Normalement on a une doc de l'API mais je ne sais plus où elle est.
+
+> Notre documentation c'est le SDK qu'on s'est fait. Il reflète notre besoin. Quand on a une question va voir l'équipe API.
+
+Des problèmes de performance sur une route de l'API _staging_ (40 à 50 secondes d'attente) ont obligé les développeurs à changer leurs valeurs de _timeout_ et à opter pour cibler l'environnement de _production_ à la place.
+Ils ne savent pas d'où vient le problème ni s'il a été réglé.
+
+> On trouvait ça mieux de tester en production. C'est plus parlant.
+
+> Il parait qu'ils refont la documentation ; elle est finie ?
+
+> On essaie de rattraper le delta entre API privée et _Public API_.
+
+[horizontal]
+Frictions::
+  * Sensation de distance, notamment au niveau du dialogue et des façons de faire ;
+  * Pas d'appétence à mieux travailler ensemble ;
+  * L'écart continuera de se creuser avec le temps, jusqu'à un point de non-retour.
+
+Opportunités::
+  * Des envies produit (comme enrichir les profils de personnes invitées avec Wikipédia) convergent avec des opportunités de l'_Open API_ ;
+  * Explorer les composants partagés pour web et mobile (type link:http://www.reactnative.com/[React Native]) ;
+  * Considérer le développement mobile comme une compétence transverse des équipes chaînes et de l'équipe UX.
+
+### Observations équipe marketing
+
+Nous entamons une discussion après avoir lu le mot *documentation* sur un post-it affiché sur un tableau blanc.
+
+> Les gens de la technique, ils ne viennent pas nous voir.
+
+> J'ai plein de données _analytics_ que j'ai du mal à récupérer.
+
+[horizontal]
+Frictions::
+  * L'outil de documentation _de facto_ est l'email ;
+  * On a ressenti une certaine souffrance liée à l'isolation technique et à une charge de travail continue ;
+  * Beaucoup d'actions manuelles sont nécessaires pour collecter les informations nécessaire
+
+Opportunités::
+  * Former Deborah à être _Product Owner_ ;
+  * Doter l'équipe d'un·e _Product Owner_ ;
+  * Partager les outils de documentation pour bénéficier d'une documentation multi-disciplinaire ;
+  * Venir livrer des rapports succincts aux différentes foires pour informer des impacts des équipes ;
+  * Organiser une foire pour susciter l'intérêt des autres équipes (techniques et produits) ;
+  * Designer une _API Business_ pour refermer la boucle de _feedback_.
+
+### Observations projet _Open Data_
+
+Radio France envisage de mettre à disposition une _Open API_ à des personnes tierces.
+Elle serait une version dérivée de la _Public API_ — cette dernière étant destinée aux sites et applications Radio France.
+
+Cette envie s'inscrit dans la *compréhension des usages d'écoute* et de consommation des flux de Radio France.
+Un des objectifs est de pouvoir *soutenir les mouvements de désintermédiation et d'innovation*, mais aussi d'anticiper les effets de la link:https://www.etalab.gouv.fr/loi-pour-une-republique-numerique-lancement-dune-consultation-sur-le-service-public-de-la-donnee[Loi République Numérique] — on peut en effet imaginer qu'à terme les données courantes de Radio France soient considérées comme une information publique.
+
+> Nous voulons mutualiser les coûts et les ressources entre acteurs.
+
+L'ouverture de l'API bénéficierait également à Radio France en faisant émerger les données cachées, en facilitant la réutilisation de leurs données tout en devenant un aimant pour repérer et attirer les talents.
+L'émergence de réutilisations et de contributions (notamment de traduction) apporteraient également des éléments de réflexion à la stratégie produit de Radio France.
+
+[horizontal]
+Succès::
+  * Cette action est considérée possible car l'infrastructure et les capacités de montée en charge sont éprouvées et robustes.
+
+Frictions::
+  * L'absence de normalisation des valeurs (invité·e·s, artistes, thèmes, tags etc.) peut limiter considérablement l'usage externe du fait de jointures de données complexes et coûteuses en nettoyage.
+
+Opportunités::
+  * Aller au-delà de _JSON Schema_ avec des link:http://schema.org/docs/full.html[schémas connus de données] exprimés en link:http://json-ld.org/[JSON-LD] et/ou link:https://swagger.io/[Swagger] pour appliquer du _typage_ aux modèles de données ;
+  * Employer des ontologies génériques (ex: link:https://www.wikidata.org/[Wikidata]), spécialisées (ex: link:https://musicbrainz.org/[MusicBrainz]) ou spécifiques à Radio France (à la link:http://www.bbc.co.uk/things/[BBC Things]) pour définir les valeurs retournées par l'API ;
+  * Les deux précédents points auraient également un impact bénéfique en interne : recherches et recommandations para-produits, enrichissement naturel des données (via des extraits Wikipédia  par exemple) ;
+  * Organiser un _soft launch_ avec les équipes de la link:https://etalab.gouv.fr[mission Etalab] pour se roder à l'exercice des _hackathons_ et obtenir des retours d'utilisation de l'_Open API_.
+
+=== Observations Direction du Numérique
+
+> Il ne faut pas perdre de vue la vision globale.
+
+> Mon challenge c'est de faire travailler les gens ensemble.
+
+> Être dans le mouvement, maintenir la dynamique pour ne pas devenir une startup vieillissante.
+
+> L'enjeu se situe également côté produit, sinon il n'y a pas d'enjeu technique.
+
+== Conclusion, enjeux et intérêts
+
+L'équipe API constitue une pierre angulaire du succès de la stratégie de la Direction du Numérique mise en œuvre il y a de cela deux ans.
+Sa réussite tient à la confiance portée dans l'équipe, à des recrutements de qualité, au rôle des _Product Owners_ et à la présence d'équipes connexes telles que l'infrastructure, _back-office_ et Zone 51.
+
+Les enjeux sont multiples :
+
+* se remettre dans une situation de _challenge_ pour réunir et motiver les équipes à aller plus loin ensemble ;
+* réitérer le succès technique de l'API au niveau du langage visuel avec une plus grande diversité de métiers — UX, mobile, front-end ;
+* éviter le clivage client/fournisseur lié aux frontières dures établies par des postures.
+
+Nous pensons que :
+
+* *simplifier les strates d'accès à l'API* (_Open_ vs. interne) aidera à la maintenance, du code API et de ses consommateurs — ainsi que les interactions et relations afférantes ;
+* le *typage transversal* aidera à garantir la qualité des structures de données (schema.org, JSON-LD, Swagger, TypeScript/Flow) ;
+* la *convergence styleguide/web/mobile* aidera à mettre les équipes en position de collaboration multi-disciplinaire en vue de réaliser un objet commun — des entités Radio France solides dans et hors les murs, côté services et côté utilisateurs.
+
+Le meilleur soutien et accompagnement que l'on puisse apporter serait de *pairer* à la réalisation de tâches/_epics_ ciblées pour *maintenir l'autonomie* dont fait déjà preuve l'équipe API et les équipes afférantes.
+
+[appendix]
+[[emerging-todolist]]
+== Envies émergentes de l'équipe API
+
+Les sections suivantes découlent de la première journée de présence sur place, à savoir le jeudi 15 juin.
+
+L'ensemble des actions ventilées ci-dessous a été présenté à l'équipe API qui les a ensuite priorisé  en fonction de ses appétences et de ses intérêts.
+
+=== Intérêt immédiat
+
+* Eslint : renforcer certaines pratiques via des règles additionnelles, voire la création de règles custom ;
+* Eslint : établir un package de configuration Radio France
+* Package `rf-init` — auditer ;
+* Package `rf-pg-connector` — auditer, passer en promesses, quid d'un _redesign_ d'API pour permettre ;
+* Package `rf-pg-connector` — utilisation de template strings ou d'un _query builder_ ? ;
+* Anticiper le passage en `node@8` et ECMAScript 2016/2017 ;
+* Quid des _consumers_ Symfony de l'API.
+
+=== Intérêt fort
+
+* Documentation des concepts métier — glossaire, etc. ;
+* Public API : explorer l'aspect vocabulaire/ontologie pour rendre le contenu référençable hors du contexte Radio France (aka Linked Data) ;
+* Public API : comment l'utiliser dans différents cas d'accès à l'API (ex : WebExtension, WebHook, CI, WebApp, etc.) ;
+* Public API : quelle(s) stratégie(s) d'authentification ? ;
+* Public API : POURQUOI, QUI et COMMENT afin de bien _designer_ le contenu et les exemples ;
+* Public API : quelle(s) stratégie(s) de documentation.
+
+=== Intérêt modéré
+
+* Quel retour sur investissement de tester en local vs. tester uniquement en intégration continue ?
+* Harmoniser la documentation des repos, des README notamment ;
+* Document d'architecture — remettre la main dessus, le rendre visible ;
+* Stratégie de partage de setup de machines — dans l'équipe API, leur entourage immédiat et éventuellement avec les autres équipes dev du plateau ;
+* Quid de la découvrabilité de l'API ;
+* Faire une review des requêtes ElasticSearch ;
+* Participer à des codes review — quelles pratiques faire émerger ?
+* Quid de la consistance des données — "greg" ne retournait pas de suggestions dans l'API autocomplete, un document retourné par ElasticSearch était en réalité manquant (pas de concept associé) ;
+* Quid du requêtage en pur SQL vs. assistance en JavaScript — mieux documenter l'intention de requêtes complexes notamment ;
+* Quel est le _bus factor_ d'Éric ?
+
+[appendix]
+[[retrospectives]]
+== Rétrospectives
+
+=== Jeudi 13 juillet
+
+==== Ce qui a marché
+
+- la prioritisation avec des post-it en début de deuxième journée ;
+- lecture transverse, juste et bienveillante de _dtc innovation_ ;
+- idée des cliniques pour pairer sur des librairies Node ;
+- émergence d'un challenge sur les formats de représentation des données de l'_Open API_ ;
+- émergence d'un challenge sur le duo documentation/schéma des APIs (avis partagé avec Zone 51) ;
+- émergence de l'opportunité d'open sourcer `rf-init` et `rf-pubsub` (considérer une link:https://www.npmjs.com/docs/orgs/[organisation npm]).
+
+==== Ce qui a moins bien marché
+
+N/A
+
+include::../footer-license.adoc[]
