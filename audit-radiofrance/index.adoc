@@ -1,18 +1,19 @@
 = Audit Radio France
 :toc: left
 :toc-title: Sommaire
+:appendix-caption: Annexe
 :hide-uri-scheme:
 :idprefix:
 :data-uri:
 :icons: font
 :revnumber: v1.0.0
-:revdate: 11 juillet 2017
+:revdate: 17 juillet 2017
 
 Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
 
 == Contexte
 
-La coopérative *dtc innovation* a été contactée par la _Direction du Numérique_ de *Radio France* suite à une mise en relation de link::https://jolicode.com/[Jolicode].
+La coopérative *dtc innovation* a été contactée par la _Direction du Numérique_ de *Radio France* suite à une mise en relation de link:https://jolicode.com/[Jolicode].
 
 La _Direction du Numérique_ souhaitait obtenir davantage de visibilité sur ses applications JavaScript en sollicitant un audit de ses applications Node — principalement du côté de son équipe API.
 Cet audit s'inscrit dans la lignée d'un audit de leurs applications PHP.
@@ -22,7 +23,7 @@ L'objectif de cet audit est multiple :
 . *faire un point* sur leur parc applicatif JavaScript et Node ;
 . *obtenir un regard* sur les habitudes de l'équipe ;
 . *augmenter la visibilité* sur ce qui est produit par les équipes ;
-. dans un monde idéal, atteindre un niveau où *tout code serait _open sourçable_* (aka. link::https://en.wikipedia.org/wiki/Inner_source[inner source]).
+. dans un monde idéal, atteindre un niveau où *tout code serait _open sourçable_* (aka. link:https://en.wikipedia.org/wiki/Inner_source[inner source]).
 
 L'audit débutera d'abord par l'*établissement d'un périmètre fonctionnel* (_scope_) pour ensuite définir des missions d'actions ciblées, généralement courtes et clairement délimitées.
 
@@ -92,10 +93,12 @@ Il s'agit de l'équipe avec laquelle nous avons passé la majorité de notre tem
 
 Au 9 juillet 2017, la _stack_ est basée sur `node@6` et a pour objectif de suivre son cycle _Long-term Support_ (LTS).
 Le langage JavaScript est utilisé à hauteur de l'implémentation supportée par Node. +
-Le choix technologique initial des services API étaient basés sur link::http://loopback.io/[LoopBack] et link::https://www.mongodb.com/fr[MongoDB].
-Après moults difficultés et frustrations, l'équipe s'est recentrée sur le duo link::https://expressjs.com/[Express] et link::https://www.postgresql.org/[PostgreSQL].
+Le choix technologique initial des services API étaient basés sur link:http://loopback.io/[LoopBack] et link:https://www.mongodb.com/fr[MongoDB].
+Après moults difficultés et frustrations, l'équipe s'est recentrée sur le duo link:https://expressjs.com/[Express] et link:https://www.postgresql.org/[PostgreSQL].
 
-L'équipe API met à disposition plusieurs modules Node
+L'équipe API met à disposition plusieurs modules NodeJS sur GitLab.
+Ces modules sont préfixés par `rf-` par convention.
+Leur usage en dehors des projets de l'équipe est inconnu.
 
 [horizontal]
 Succès::
@@ -109,7 +112,7 @@ Frictions::
 
 Opportunités::
   * Harmoniser les scripts npm — `npm start` pour démarrer le service, `npm run build` pour produire les artéfacts, `npm test` pour lancer les tests, `npm run dev` pour démarrer le service en mode développement (et redémarrer en cas de changement avec `nodemon`, par exemple) ;
-  * Systématiser des vérifications lors de l'intégration continue (`npm outdated`, link::https://npmjs.com/npm-check[npm-check], link::https://npmjs.com/snyk[snyk], link::https://npmjs.com/david[david]) ;
+  * Systématiser des vérifications lors de l'intégration continue (`npm outdated`, link:https://npmjs.com/npm-check[npm-check], link:https://npmjs.com/snyk[snyk], link:https://npmjs.com/david[david]) ;
   * Héberger les modules Node sur un registre privé auto-hébergé pour faciliter le suivi semver des dépendances — ainsi que la consommation de librairies côté client (notamment pour le parsing des _steps_ ou de la grille de programme) ;
   * Basculer vers `node@8` et `npm@5` lorsqu'elle passe en LTS afin de bénéficier du `package-lock.json` et de l'installation déterministe ;
   * Systématiser le cours à des fichiers README répondant à des besoins élémentaires — périmètre fonction et exemples d'utilisation, d'installation.
@@ -118,19 +121,19 @@ Opportunités::
 
 Il existe une dizaine de web services avec comme objectif de distribuer la donnée au plus de monde possible au sein de _Radio France_.
 
-Les services sont déployés 5 à 10 fois par semaine avec link::http://capistranorb.com/[Capistrano], tandis que le _provisioning_ et l'instantiation sont effectués avec link::https://www.terraform.io/[Terraform] et link::https://puppet.com/[Puppet].
+Les services sont déployés 5 à 10 fois par semaine avec link:http://capistranorb.com/[Capistrano], tandis que le _provisioning_ et l'instantiation sont effectués avec link:https://www.terraform.io/[Terraform] et link:https://puppet.com/[Puppet].
 L'infrastructure gère environ _100 millions_ de requêtes par jour avec un _uptime_ de 100%.
 
 > On veut être résilient à tout type de pannes.
 
 La structure de données de l'API a pour vocation à rester rétrocompatible afin de limiter la maintenance des consommateurs de l'API.
 Une surcouche de l'API — la *Public API* — est consommée par les _services mobiles_.
-Cette dernière diffère légèrement de l'API privée car elle expose moins de champs et a recours à la link::http://jsonapi.org/[spécification JSON API].
+Cette dernière diffère légèrement de l'API privée car elle expose moins de champs et a recours à la link:http://jsonapi.org/[spécification JSON API].
 
 [horizontal]
 Succès::
   * La disponibilité de l'API est unanime ;
-  * Les modèles link::https://www.openapis.org/[Open API] documentent programmatiquement les ressources et sont exposés… via l'API.
+  * Les modèles link:https://www.openapis.org/[Swagger] documentent programatiquement les ressources et sont exposés… via l'API.
 
 Frictions::
   * Une documentation a été mise en ligne à une adresse, puis continuée "ailleurs" ;
@@ -140,7 +143,7 @@ Frictions::
 Opportunités::
   * Capitaliser sur l'expérience de l'équipe pour sortir une v2 de l'API qui uniformise les sorties, supprime les spécifiques et les efforts de rétrocompatibilité en simplifiant la base de code — ainsi que celle des différents SDK.
 
-L'API de recherche textuelle au sein des contenus se base sur link::https://www.elastic.co/products/elasticsearch[ElasticSearch].
+L'API de recherche textuelle au sein des contenus se base sur link:https://www.elastic.co/products/elasticsearch[ElasticSearch].
 Elle est notamment utilisée pour les recommandations d'articles (via la fonctionnalité `more_like_this`), l'autocomplétion
 
 > On n'est pas très bon sur la recherche client.
@@ -151,11 +154,19 @@ Frictions::
 
 Opportunités::
   * Une bonne recherche nécessite des réglages fins et un certain temps d'ajustements et d'observation ;
-  * Ça ne coûterait pas cher de faire du link::http://www.uxbooth.com/articles/the-art-of-guerrilla-usability-testing/[guerilla testing] devant la Maison de la Radio pour recueillir une connaissance des pratiques de recherche ;
+  * Ça ne coûterait pas cher de faire du link:http://www.uxbooth.com/articles/the-art-of-guerrilla-usability-testing/[guerilla testing] devant la Maison de la Radio pour recueillir une connaissance des pratiques de recherche ;
   * Les résultats d'autocomplétion pourraient être basés sur des critères de fraicheur et de popularité (de recherche, de visites, de tags cliqués) ainsi que par choix éditoriaux.
 
 > Il y a 2 ans, on a commencé la nouvelle infrastructure _from scratch_.
 > Maintenant on s'ennuie presque — beaucoup de micro-tâches, souvent de l'ordre d'une journée ou moins.
+
+[TIP]
+.Actions et envies priorisées
+====
+_dtc innovation_ et l'équipe API ont fait émerger et priorisé une liste d'actions à mener autour des projets de l'équipe.
+
+Cette liste exhaustive d'envies est formulée en <<emerging-todolist,annexe de ce document>>.
+====
 
 #### Module rf-pg-connector
 
@@ -169,14 +180,14 @@ Florian a indiqué que cette procédure est connue et a déjà été appliquée.
 Opportunités::
   * Basculer vers `npm@5` pour bénéficier de semver avec git.
 
-Concernant les requêtes SQL, il est conseillé d'utiliser un link::https://github.com/brianc/node-sql[query builder] ou link::https://www.npmjs.com/package/sql-template-strings[un autre]. Cela augmenterait la lisibilité du code SQL qui se cache à l'intérieur du JavaScript.
-Nous avons vu que le module link::https://github.com/brianc/node-sql[node-sql] ne supporte pas les `LATERAL JOIN`. +
+Concernant les requêtes SQL, il est conseillé d'utiliser un link:https://github.com/brianc/node-sql[query builder] ou link:https://www.npmjs.com/package/sql-template-strings[un autre]. Cela augmenterait la lisibilité du code SQL qui se cache à l'intérieur du JavaScript.
+Nous avons vu que le module link:https://github.com/brianc/node-sql[node-sql] ne supporte pas les `LATERAL JOIN`. +
 Apparemment, le choix des `LATERAL JOIN` (plutôt que des requêtes imbriquées) a été fait sur un conseil d'un expert pour raison de performances.
 
 [horizontal]
 Opportunités::
-  * L'utilisation d'un langage avec vérification statique comme link::http://www.typescriptlang.org/[TypeScript] ou link::https://flow.org/[Flow] pourrait aider au refactoring et renforcer la cohérence des modèles de données employés ;
-  * Contribuer le support de `LATERAL JOIN` à link::https://github.com/brianc/node-sql[node-sql] si elle est choisie ;
+  * L'utilisation d'un langage avec vérification statique comme link:http://www.typescriptlang.org/[TypeScript] ou link:https://flow.org/[Flow] pourrait aider au refactoring et renforcer la cohérence des modèles de données employés ;
+  * Contribuer le support de `LATERAL JOIN` à link:https://github.com/brianc/node-sql[node-sql] si elle est choisie ;
   * Définir une méthodologie de test de cette hypothèse sur les requêtes qui ont lieu effectivement chez Radio France.
 
 Florian a évoqué un questionnement sur le fait d'avoir du SQL à 3 endroits (`rf-pg-connector`, `rf-models` et dans chaque modèle).
@@ -273,7 +284,7 @@ Frictions::
 Opportunités::
   * Un rapprochement avec les équipes chaînes pourrait être utile afin de mieux coordonner les efforts ;
   * Partager les outils de documentation pour bénéficier d'une documentation multi-disciplinaire ;
-  * S'orienter vers une utilisation de link::https://www.sketchapp.com/[Sketch] combinée à link::https://www.goabstract.com[Abstract] (versioning avec Git), link::https://www.invisionapp.com/craft[Craft] (prototypage et consommation des API) et link::http://airbnb.io/react-sketchapp/[React Sketch.app] (rendu de composants React) pour créer des composants communs aux sites web et app mobiles.
+  * S'orienter vers une utilisation de link:https://www.sketchapp.com/[Sketch] combinée à link:https://www.goabstract.com[Abstract] (versioning avec Git), link:https://www.invisionapp.com/craft[Craft] (prototypage et consommation des API) et link:http://airbnb.io/react-sketchapp/[React Sketch.app] (rendu de composants React) pour créer des composants communs aux sites web et app mobiles.
 
 ### Observations équipe mobile
 
@@ -304,7 +315,7 @@ Frictions::
 
 Opportunités::
   * Des envies produit (comme enrichir les profils de personnes invitées avec Wikipédia) convergent avec des opportunités de l'_Open API_ ;
-  * Explorer les composants partagés pour web et mobile (type link::http://www.reactnative.com/[React Native]) ;
+  * Explorer les composants partagés pour web et mobile (type link:http://www.reactnative.com/[React Native]) ;
   * Considérer le développement mobile comme une compétence transverse des équipes chaînes et de l'équipe UX.
 
 ### Observations équipe marketing
@@ -335,7 +346,7 @@ Radio France envisage de mettre à disposition une _Open API_ à des personnes t
 Elle serait une version dérivée de la _Public API_ — cette dernière étant destinée aux sites et applications Radio France.
 
 Cette envie s'inscrit dans la *compréhension des usages d'écoute* et de consommation des flux de Radio France.
-Un des objectifs est de pouvoir *soutenir les mouvements de désintermédiation et d'innovation*, mais aussi d'anticiper les effets de la link::https://www.etalab.gouv.fr/loi-pour-une-republique-numerique-lancement-dune-consultation-sur-le-service-public-de-la-donnee[Loi République Numérique] — on peut en effet imaginer qu'à terme les données courantes de Radio France soient considérées comme une information publique.
+Un des objectifs est de pouvoir *soutenir les mouvements de désintermédiation et d'innovation*, mais aussi d'anticiper les effets de la link:https://www.etalab.gouv.fr/loi-pour-une-republique-numerique-lancement-dune-consultation-sur-le-service-public-de-la-donnee[Loi République Numérique] — on peut en effet imaginer qu'à terme les données courantes de Radio France soient considérées comme une information publique.
 
 > Nous voulons mutualiser les coûts et les ressources entre acteurs.
 
@@ -350,10 +361,10 @@ Frictions::
   * L'absence de normalisation des valeurs (invité·e·s, artistes, thèmes, tags etc.) peut limiter considérablement l'usage externe du fait de jointures de données complexes et coûteuses en nettoyage.
 
 Opportunités::
-  * Combiner _Open API_ avec des link::http://schema.org/docs/full.html[schémas connus de données] exprimés en link::http://json-ld.org/[JSON-LD] pour appliquer du _typage_ aux modèles de données ;
-  * Employer des ontologies génériques (ex: link::https://www.wikidata.org/[Wikidata]), spécialisées (ex: link::https://musicbrainz.org/[MusicBrainz]) ou spécifiques à Radio France (à la link::http://www.bbc.co.uk/things/[BBC Things]) pour définir les valeurs retournées par l'API ;
+  * Aller au-delà de _JSON Schema_ avec des link:http://schema.org/docs/full.html[schémas connus de données] exprimés en link:http://json-ld.org/[JSON-LD] et/ou link:https://swagger.io/[Swagger] pour appliquer du _typage_ aux modèles de données ;
+  * Employer des ontologies génériques (ex: link:https://www.wikidata.org/[Wikidata]), spécialisées (ex: link:https://musicbrainz.org/[MusicBrainz]) ou spécifiques à Radio France (à la link:http://www.bbc.co.uk/things/[BBC Things]) pour définir les valeurs retournées par l'API ;
   * Les deux précédents points auraient également un impact bénéfique en interne : recherches et recommandations para-produits, enrichissement naturel des données (via des extraits Wikipédia  par exemple) ;
-  * Organiser un _soft launch_ avec les équipes de la link::https://etalab.gouv.fr[mission Etalab] pour se roder à l'exercice des _hackathons_ et obtenir des retours d'utilisation de l'_Open API_.
+  * Organiser un _soft launch_ avec les équipes de la link:https://etalab.gouv.fr[mission Etalab] pour se roder à l'exercice des _hackathons_ et obtenir des retours d'utilisation de l'_Open API_.
 
 === Observations Direction du Numérique
 
@@ -379,10 +390,18 @@ Les enjeux sont multiples :
 Nous pensons que :
 
 * *simplifier les strates d'accès à l'API* (_Open_ vs. interne) aidera à la maintenance, du code API et de ses consommateurs — ainsi que les interactions et relations afférantes ;
-* le *typage transversal* aidera à garantir la qualité des structures de données (schema.org, JSON-LD, Open API, TypeScript/Flow) ;
+* le *typage transversal* aidera à garantir la qualité des structures de données (schema.org, JSON-LD, Swagger, TypeScript/Flow) ;
 * la *convergence styleguide/web/mobile* aidera à mettre les équipes en position de collaboration multi-disciplinaire en vue de réaliser un objet commun — des entités Radio France solides dans et hors les murs, côté services et côté utilisateurs.
 
 Le meilleur soutien et accompagnement que l'on puisse apporter serait de *pairer* à la réalisation de tâches/_epics_ ciblées pour *maintenir l'autonomie* dont fait déjà preuve l'équipe API et les équipes afférantes.
+
+[appendix]
+[[emerging-todolist]]
+== Envies émergentes de l'équipe API
+
+Les sections suivantes découlent de la première journée de présence sur place, à savoir le jeudi 15 juin.
+
+L'ensemble des actions ventilées ci-dessous a été présenté à l'équipe API qui les a ensuite priorisé  en fonction de ses appétences et de ses intérêts.
 
 === Intérêt immédiat
 
@@ -415,5 +434,24 @@ Le meilleur soutien et accompagnement que l'on puisse apporter serait de *pairer
 * Quid de la consistance des données — "greg" ne retournait pas de suggestions dans l'API autocomplete, un document retourné par ElasticSearch était en réalité manquant (pas de concept associé) ;
 * Quid du requêtage en pur SQL vs. assistance en JavaScript — mieux documenter l'intention de requêtes complexes notamment ;
 * Quel est le _bus factor_ d'Éric ?
+
+[appendix]
+[[retrospectives]]
+== Rétrospectives
+
+=== Jeudi 13 juillet
+
+==== Ce qui a marché
+
+- la prioritisation avec des post-it en début de deuxième journée ;
+- lecture transverse, juste et bienveillante de _dtc innovation_ ;
+- idée des cliniques pour pairer sur des librairies Node ;
+- émergence d'un challenge sur les formats de représentation des données de l'_Open API_ ;
+- émergence d'un challenge sur le duo documentation/schéma des APIs (avis partagé avec Zone 51) ;
+- émergence de l'opportunité d'open sourcer `rf-init` et `rf-pubsub` (considérer une link:https://www.npmjs.com/docs/orgs/[organisation npm]).
+
+==== Ce qui a moins bien marché
+
+N/A
 
 include::../footer-license.adoc[]
