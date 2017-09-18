@@ -1,0 +1,28 @@
+= Expérience utilisateur data.gouv.fr
+:toc: left
+:toc-title: Sommaire
+:appendix-caption: Annexe
+:hide-uri-scheme:
+:idprefix:
+:data-uri:
+:icons: font
+:revnumber: v1.0.0
+:revdate: 18 septembre 2017
+
+Dernière mise à jour du document (_{revnumber}_) : _{revdate}_.
+
+== Contexte
+
+TBD.
+
+== Phase Juillet-septembre 2017
+
+Cette première série d'entretiens est destinée à faire émerger des éléments relatifs à ces 3 hypothèses :
+
+. la découvrabilité des données est semée d'embûches ;
+. la compréhension des données n'est pas évidente ;
+. la réutilisation des données est trop coûteuse.
+
+L'enjeu est de dégager des actions courtes à impact fort ainsi qu'une vision synthétique des domaines et de leurs niveaux d'enjeux.
+
+icon:external-link-square[] https://github.com/etalab/user-research/#juillet-septembre-2017[Entretiens et transcripts sur github.com/etalab/user-research]
