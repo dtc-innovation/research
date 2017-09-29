@@ -46,7 +46,7 @@ D'autres pratiques pourraient être mises en place et généralisées pour palli
 
 ### Open source
 
-Tous les projets n'ont pas vocation à être open sourcés ; en effet, certains ont un métier très spécifique à Radio France, comme certains onglet de Kaizer. Le projet dejavu a aussi peu de valeur ajoutée par rapport aux projets qu'il encapsule (BLazy et instantclick).
+Tous les projets n'ont pas vocation à être open sourcés ; en effet, certains ont un métier très spécifique à Radio France, comme certains onglets de Kaizer. Le projet dejavu a aussi peu de valeur ajoutée par rapport aux projets qu'il encapsule (BLazy et instantclick).
 
 Toutefois, pour les autres projets, les repos sont bien découpés et ne dépendent que très peu de dépendances spécifiques à Radio France. Il sera donc assez facile de les isoler et les mettre en *open source*.
 
