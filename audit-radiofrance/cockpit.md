@@ -6,7 +6,7 @@ Les 11 et 12 septembre, David Bruant est venu pour rencontrer l'équipe "Cockpit
 
 ## Contexte général
 
-L'équipe Cockpit comporte 4 développeurs et un PO. Elle est née d'une *mitose* d'avec l'équipe Cruiser qui ne garda alors que la responsabilité des données. L'équipe cockpit a commencé avec la responsabilité de maintenir le *player* et de nouveaux projets ont apparu au cours du temps : kami (l'éditeur pour les back-office), damlib (un outil pour inclure des média), un front-end pour l'API, Kaizer (qui contient notamment l'outil pour la grille des programmes) et déjavu (outil qui est un wrapper autour de instaclick + Blazy).
+L'équipe Cockpit comporte 4 développeurs et un PO. Elle est née d'une *mitose* d'avec l'équipe Cruiser qui ne garda alors que la responsabilité des données. L'équipe cockpit a commencé avec la responsabilité de maintenir le *player*. De nouveaux projets sont apparus au cours du temps : kami (l'éditeur pour les back-office), damlib (un outil pour inclure des média), un front-end pour l'API, Kaizer (qui contient notamment l'outil pour la grille des programmes) et déjavu (outil qui est un wrapper autour de instaclick + Blazy).
 
 Le temps a mené à une spécialisation où chaque projet est très bien connu d'un développeur (typiquement qui l'a écrit en premier) et très peu des autres.
 
