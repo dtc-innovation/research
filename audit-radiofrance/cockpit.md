@@ -38,7 +38,7 @@ Aussi, si des efforts supplémentaires seraient à faire du point de vue de la d
 
 Consciente du problème de la spécialisation issu de l'histoire de cette équipe, l'équipe Cockpit avait déjà commencé à mettre en œuvredes pratiques pour limiter le bus factor comme de la transmission d'informations entre deux personnes.
 
-D'autres pratiques pourraient être mises en place et généralisées pour pallier à ce problème :
+D'autres pratiques pourraient être mises en place et généralisées pour pallier ce problème :
 * *[Pair programming](https://en.wikipedia.org/wiki/Pair_programming)*. Il arrivait que Kevin et Kamal la pratique, mais changer les paires pourrait aider à mieux distribuer la connaissance
 * *[Mob Programming](https://en.wikipedia.org/wiki/Mob_programming)* ou revue de code en équipe. L'idée ici est de faire à plusieurs une tâche que l'on peut faire seul. Un peu de temps est perdu à court terme pour faire la tâche, mais tout le monde apprend dans la foulée et a l'occasion de poser toutes les questions qui viennent
 * Distribuer les revues de code aléatoirement. La personne faisant la revue la fera en plus de temps, mais cela lui donne l'occasion de poser toutes les questions utiles à comprendre le code revu.
