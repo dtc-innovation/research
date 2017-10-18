@@ -6,7 +6,8 @@ Public research documents for the commons.
 
 ## In French
 
-- [Audit de l'équipe en charge des APIs](audit-radiofrance/index.adoc) • [Radio France][]
+- [Audit de l'équipe Cruiser — APIs](audit-radiofrance/index.adoc) • [Radio France][]
+- [Audit de l'équipe Cockpit — bibliothèques front-end](audit-radiofrance/cockpit.md) • [Radio France][]
 - [Recommandations de pratiques d'écriture collaborative](collaborative-writing/index.adoc) • [Open Data France][]
 - [Amélioration de l'expérience utilisateur de data.gouv.fr](etalab/index.adoc) • [Etalab][]
 
