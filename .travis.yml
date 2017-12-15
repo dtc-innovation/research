@@ -3,6 +3,7 @@ node_js: v8
 
 deploy:
   provider: pages
+  local_dir: dist
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   on:
