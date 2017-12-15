@@ -9,8 +9,8 @@
   "scripts": {
     "build": "npm-run-all -p build:md build:adoc -s build:index",
     "build:index": "exit 0",
-    "build:md": "./node_modules/.bin/asciidoctor -b html5 **/*.md",
-    "build:adoc": "./node_modules/.bin/asciidoctor -b html5 **/*.adoc",
+    "build:md": "./bin/build **/*.md",
+    "build:adoc": "./bin/build **/*.adoc",
     "pretest": "npm run build",
     "test": "exit 0"
   },

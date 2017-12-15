@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const asciidoctor = require('asciidoctor.js')();
+const {join} = require('path');
+
+const [,,...files] = process.argv;
+
+const DEFAULT_ATTRIBUTES = [
+  'lang=fr',
+  'hide-uri-scheme',
+  'toclevels=4',
+];
+
+files.forEach(SOURCE_FILE => {
+  asciidoctor.convertFile(join(__dirname, '..', SOURCE_FILE), {
+    attributes: DEFAULT_ATTRIBUTES,
+    backend: 'html5',
+    safe: 'unsafe',
+  });
+});
