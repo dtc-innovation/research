@@ -9,8 +9,8 @@
   "scripts": {
     "build": "npm-run-all -p build:md build:adoc -s build:index",
     "build:index": "exit 0",
-    "build:md": "asciidoctor -b html5 **/*.md",
-    "build:adoc": "asciidoctor -b html5 **/*.adoc",
+    "build:md": "./node_modules/.bin/asciidoctor -b html5 **/*.md",
+    "build:adoc": "./node_modules/.bin/asciidoctor -b html5 **/*.adoc",
     "pretest": "npm run build",
     "test": "exit 0"
   },
@@ -29,7 +29,6 @@
     "asciidoctor.js": "^1.5.6-preview.4"
   },
   "devDependencies": {
-    "mdlint": "^0.1.0",
     "npm-run-all": "^4.1.2"
   }
 }
