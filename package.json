@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Public research documents for the commons.",
   "main": "index.js",
+  "engines": {
+    "node": "8.x.x"
+  },
   "scripts": {
     "build": "npm-run-all -p build:md build:adoc -s build:index",
     "build:index": "exit 0",
@@ -26,7 +29,6 @@
     "asciidoctor.js": "^1.5.6-preview.4"
   },
   "devDependencies": {
-    "generate-index-html": "0.0.2",
     "mdlint": "^0.1.0",
     "npm-run-all": "^4.1.2"
   }
