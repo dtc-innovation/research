@@ -1,0 +1,33 @@
+{
+  "name": "@dtc-innovation/research",
+  "version": "1.0.0",
+  "description": "Public research documents for the commons.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm-run-all -p build:md build:adoc -s build:index",
+    "build:index": "exit 0",
+    "build:md": "asciidoctor -b html5 **/*.md",
+    "build:adoc": "asciidoctor -b html5 **/*.adoc",
+    "pretest": "npm run build",
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtc-innovation/research.git"
+  },
+  "keywords": [],
+  "author": "dtc innovation (https://dtc-innovation.org)",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/dtc-innovation/research/issues"
+  },
+  "homepage": "https://github.com/dtc-innovation/research#readme",
+  "dependencies": {
+    "asciidoctor.js": "^1.5.6-preview.4"
+  },
+  "devDependencies": {
+    "generate-index-html": "0.0.2",
+    "mdlint": "^0.1.0",
+    "npm-run-all": "^4.1.2"
+  }
+}

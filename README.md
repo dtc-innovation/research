@@ -14,3 +14,18 @@ Public research documents for the commons.
 [Radio France]: http://www.radiofrance.fr/
 [Open Data France]: http://www.opendatafrance.net/
 [Etalab]: https://www.etalab.gouv.fr
+
+
+# Install
+
+```bash
+git clone https://github.com/dtc-innovation/research.git dtc-research
+cd dtc-research
+npm install
+```
+
+# Build
+
+```bash
+npm run build
+```
