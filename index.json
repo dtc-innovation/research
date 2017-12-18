@@ -1,0 +1,26 @@
+
+{
+  "research": [
+    
+    {
+      "title": "Audit Radio France",
+      "permalink": "/research/audit-radiofrance/"
+    },
+    
+    {
+      "title": "Audit Radio France - Equipe Cockpit",
+      "permalink": "/research/audit-radiofrance/cockpit.html"
+    },
+    
+    {
+      "title": "Expérience utilisateur data.gouv.fr",
+      "permalink": "/research/etalab/"
+    },
+    
+    {
+      "title": "Écriture collaborative",
+      "permalink": "/research/collaborative-writing/"
+    }
+    
+  ]
+}

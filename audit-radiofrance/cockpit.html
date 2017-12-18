@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Audit Radio France - Equipe Cockpit | dtc innovation research</title>
+<meta property="og:title" content="Audit Radio France - Equipe Cockpit" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="audits, thoughts, user researches" />
+<meta property="og:description" content="audits, thoughts, user researches" />
+<link rel="canonical" href="/research/audit-radiofrance/cockpit.html" />
+<meta property="og:url" content="/research/audit-radiofrance/cockpit.html" />
+<meta property="og:site_name" content="dtc innovation research" />
+<script type="application/ld+json">
+{"name":null,"description":"audits, thoughts, user researches","author":null,"@type":"WebPage","url":"/research/audit-radiofrance/cockpit.html","publisher":null,"image":null,"headline":"Audit Radio France - Equipe Cockpit","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link href="/research/assets/css/style.css?v=3942d0370de71a9cc3d058c6502f9c30e4d7a0a9" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+        <h1><a href="/research/">dtc innovation research</a></h1>
+      
+
+      <h1 id="audit-radio-france---equipe-cockpit">Audit Radio France - Equipe Cockpit</h1>
+
+<p>dtc innovation continue son audit chez Radio France.
+Les 11 et 12 septembre, David Bruant est venu pour rencontrer l’équipe “Cockpit” qui s’occupe des différentes bibliothèques front-end communes aux sites des différentes chaînes.</p>
+
+<h2 id="contexte-général">Contexte général</h2>
+
+<p>L’équipe Cockpit comporte 4 développeurs et un PO. Elle est née d’une <em>mitose</em> d’avec l’équipe Cruiser qui ne garda alors que la responsabilité des données. L’équipe cockpit a commencé avec la responsabilité de maintenir le <em>player</em>. De nouveaux projets sont apparus au cours du temps : kami (l’éditeur pour les back-office), damlib (un outil pour inclure des média), un front-end pour l’API, Kaizer (qui contient notamment l’outil pour la grille des programmes) et déjavu (outil qui est un wrapper autour de instaclick + Blazy).</p>
+
+<p>Le temps a mené à une spécialisation où chaque projet est très bien connu d’un développeur (typiquement qui l’a écrit en premier) et très peu des autres.</p>
+
+<h2 id="objectifs">Objectifs</h2>
+
+<p>Les objectifs de l’audit avec l’équipe Cockpit sont les suivants :</p>
+<ul>
+  <li>Evaluer le <em><a href="https://vimeo.com/187568897">bus factor</a></em></li>
+  <li>Evaluer si les différents repos peuvent être distribués en open source</li>
+  <li>Evaluer la facilité pour un nouveau-venu à rentrer dans le code des repos Cockpit</li>
+</ul>
+
+<h2 id="méthodologie">Méthodologie</h2>
+
+<p>David Bruant a procédé à des entretiens avec les membres de l’équipe Cockpit (sauf Jérémy, le PO qui était absent ces jours-là)</p>
+
+<h2 id="avis-général">Avis général</h2>
+
+<p>Sans grosse surprise et en continuité de l’avis émis lors du premier morceau d’audit, la première conclusion est que les voyants sont au vert au sein de l’équipe Cockpit. 
+Notamment, l’équipe était déjà consciente des dangers du bus factor et avait déjà mis des actions en places avant l’arrivée de David Bruant pour y remédier.</p>
+
+<p>Aussi, si des efforts supplémentaires seraient à faire du point de vue de la documentation, le fait que les différents repos aient une même <em>stack</em> technique (React + redux, modules ES6, etc.) fait qu’il est déjà assez facile pour un débutant pour s’acclimater aux différents projets. Pareillement, la bonne gestion des dépendances permet que les projets pertinents soient quasiment déjà “open-sourçables”.</p>
+
+<h2 id="sujets-spécifiques">Sujets spécifiques</h2>
+
+<h3 id="bus-factor">Bus factor</h3>
+
+<p>Consciente du problème de la spécialisation issu de l’histoire de cette équipe, l’équipe Cockpit avait déjà commencé à mettre en œuvredes pratiques pour limiter le bus factor comme de la transmission d’informations entre deux personnes.</p>
+
+<p>D’autres pratiques pourraient être mises en place et généralisées pour pallier ce problème :</p>
+<ul>
+  <li><em><a href="https://en.wikipedia.org/wiki/Pair_programming">Pair programming</a></em>. Il arrivait que Kevin et Kamal la pratique, mais changer les paires pourrait aider à mieux distribuer la connaissance</li>
+  <li><em><a href="https://en.wikipedia.org/wiki/Mob_programming">Mob Programming</a></em> ou revue de code en équipe. L’idée ici est de faire à plusieurs une tâche que l’on peut faire seul. Un peu de temps est perdu à court terme pour faire la tâche, mais tout le monde apprend dans la foulée et a l’occasion de poser toutes les questions qui viennent</li>
+  <li>Distribuer les revues de code aléatoirement. La personne faisant la revue la fera en plus de temps, mais cela lui donne l’occasion de poser toutes les questions utiles à comprendre le code revu.</li>
+</ul>
+
+<h3 id="open-source">Open source</h3>
+
+<p>Tous les projets n’ont pas vocation à être open sourcés ; en effet, certains ont un métier très spécifique à Radio France, comme certains onglets de Kaizer. Le projet dejavu a aussi peu de valeur ajoutée par rapport aux projets qu’il encapsule (BLazy et instantclick).</p>
+
+<p>Toutefois, pour les autres projets, les repos sont bien découpés et ne dépendent que très peu de dépendances spécifiques à Radio France. Il sera donc assez facile de les isoler et les mettre en <em>open source</em>.</p>
+
+<h3 id="open-source-et-nouveaux-venus">Open source et nouveaux-venus</h3>
+
+<p>Le fait que les technologies utilisées soient relativement les mêmes aide beaucoup à ce qu’un nouveau-venu (open source ou pas) puisse plonger rapidement dans un projet.</p>
+
+<h4 id="automatisation">Automatisation</h4>
+
+<p>Les process de <em>build</em> sont basés sur les <a href="http://substack.net/task_automation_with_npm_run">npm script</a> ; ce qui évite d’avoir à connaître des outils ésotériques. Toutefois, les noms de tâches sont parfois inconsistants (<code class="highlighter-rouge">npm run dev</code> ou <code class="highlighter-rouge">npm run build-dev</code>). Une tâche à mener serait de décider de conventions de nommage de tâches, de les documenter et de les appliquer sur tous les repos existants en copiant la documentation ou en faisant un lien vers elle.</p>
+
+<p>Normaliser les conventions de nommage de tâche aiderait.</p>
+
+<h4 id="readme">Readme</h4>
+
+<p>Pour l’open source comme pour les nouveaux-venus, il serait bon d’avoir des <em>readme</em> un peu plus riches, spécifiquement :</p>
+
+<ul>
+  <li>Expliquer clairement (un tweet ou 2 lignes max) l’objectif et le périmètre du projet</li>
+  <li>Expliquer les technologies majeures de chaque projet (TS + Draft + MegaDraft sur Kami) ou les choix majeurs (architecture en plugins)</li>
+  <li>Mettre le lien direct du chat (exemple https://chat.dnm.radiofrance.fr/channel/rfplayer pour rfPlayer, le chat de Cockpit pour les autres)</li>
+</ul>
+
+<h4 id="tests">Tests</h4>
+
+<p>Augmenter la couverture des tests serait aussi une bonne manière d’améliorer la confiance d’un nouveau venu à contribuer en étant assez sûr de ne pas casser l’existant. La couverture de code est un métrique discutable, mais elle a l’avantage d’être tangible et de pouvoir se donner un objectif… objectif.</p>
+
+<p>Une option pourrait être de mettre en place l’infrastructure de couverture de code, mais de ne pas la regarder en intégration continue, mais plutôt une fois de temps en temps et se donner des objectifs progressifs. Par exemple, à la mise en place, viser 30% sur tous les repos et oublier le sujet pour un moment. Quelques mois plus tard, re-regarder et se forcer à augmenter à 35%. Puis 40%, etc. mais sans se mettre de pression si d’autres tâches mènent à ce que ce pourcentage baisse ponctuellement.
+Faire systématiquement des tests de non-regression peut aider aussi.</p>
+
+<h4 id="eslint">ESLint</h4>
+
+<p>Pareillement, ESLint est utilisé dans certains projets, mais pas configuré de la même manière. les actions à mener sont :</p>
+<ul>
+  <li>activer ESLint sur tous les projets</li>
+  <li>partager une configuration sur tous les projets et l’appliquer</li>
+</ul>
+
+<h4 id="plus-de-mutualisation">Plus de mutualisation</h4>
+
+<p>Il faudrait aussi partager la configuration Babel afin de s’assurer qu’exactement la même syntaxe est utilisée sur tous les projets.</p>
+
+<p>Normaliser les polyfills et demander aux chaines de les charger (via polyfill.io ou autre) plutôt que de les rajouter dans le bundle via <code class="highlighter-rouge">babel-polyfill</code> (lecteur-commun/rfplayer/blob/master/src/Main.js)</p>
+
+<h3 id="lien-avec-les-équipes-chaînes">Lien avec les équipes chaînes</h3>
+
+<h4 id="réorganiser-certaines-responsabilités-">Réorganiser certaines responsabilités ?</h4>
+
+<p>Joachim faisait remonter le fait que les chaînes ont des rythmes assez différents quant à la mise à jour des versions des bibliothèques produites par l’équipe Cockpit. Ceci se traduit généralement par un soin particulier à s’assurer que tout changement est rétro-compatible.</p>
+
+<p>Après avoir discuté avec plusieurs équipes chaînes, celles-ci ont fait remonté qu’elles souhaiteraient des changelog mieux documentés, notamment pour savoir à quoi faire attention. Les chaînes transmettent aussi des indications concernant quoi tester aux QA ; ce changelog les aiderait à mieux formuler ces indications. Utiliser le bouton <a href="https://gitlab.dnm.radiofrance.fr/js-commons/rf-react-components/tags"><code class="highlighter-rouge">New Tag</code></a> permet de rentrer des notes riches.</p>
+
+<p>Un dernier sujet quant à l’utilisation des bibliothèques de l’équipe Cockpit est que cette équipe est parfois obligée de produire des artefacts pre-packagé (player avec le bon ensemble de plugins) pour chaque chaine. Cette solution est la conclusion notamment du fait que chaque chaîne a une stratégie différente quant à sa gestion des modules et des dépendances JavaScript front-end. Cet hétérogénéité des pratiques du front-end des chaînes est un problème qui est revenu plusieurs fois.</p>
+
+<p>Kevin faisait remarquer que l’équipe Cockpit est une des rares équipes n’avoir aucun objectif fonctionnel et seulement des objectifs techniques. Une solution pourrait donc être d’avoir une nouvelle équipe dédiée au player. Cette équipe aura pour responsabilité de :</p>
+<ul>
+  <li>maintenir le code du player et des plugins (déjà la responsabilité de l’équipe Cockpit)</li>
+  <li>mettre à jour le code JavaScript de toutes les chaînes qui utilisent le player (aujourd’hui sous la responsabilité de chaque chaîne)</li>
+</ul>
+
+<p>Cette équipe aurait donc un pied dans le code de chaque chaîne et un pied dans du code commun. Cette équipe pourrait, à cette occasion, commencer à diffuser des pratiques communes sur le front-end auprès des équipes des chaines et former ces équipes progressivement aux bonnes pratiques modernes du front-end.</p>
+
+<p>Cette nouvelle organisation permettrait de résoudre les problèmes cités ci-dessus dans le même mouvement. Tous les projets actuellement gérés par l’équipe cockpit et communs aux chaînes pourraient avoir une telle organisation.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>Les sujets de bus factor, open source et arrivée d’un nouveau venu sont en bon état déjà aujourd’hui.</p>
+
+<p>Des pistes d’améliorations sont possibles. Pour le bus factor, il faut favoriser les pratiques collectives. Pour l’open source et les nouveaux-venus, il faut travailler aux sujets transverses (mutualiser les noms des tâches npm, les configurations eslint, babel, compléter et normaliser les readme).</p>
+
+<p>Concernant les petits points de friction technique entre l’équipe Cockpit et les équipes des chaines et afin de diffuser des pratiques communes sur le JavaScript front-end, une solution peut être de réorganiser un peu l’équipe Cockpit autour de projets qu’ils produiraient puis diffuseraient auprès des chaines.</p>
+
+<h1 id="annexe--notes-brutes-de-revue-de-code">Annexe : notes brutes de revue de code</h1>
+
+<h3 id="lecteur-communrfplayer">lecteur-commun/rfplayer</h3>
+
+<p>https://gitlab.dnm.radiofrance.fr/lecteur-commun/rfplayer/</p>
+
+<p><code class="highlighter-rouge">"lint": "eslint ./src/main.js",</code> : ???</p>
+
+<p><code class="highlighter-rouge">https://gitlab.dnm.radiofrance.fr/lecteur-commun/rfplayer/blob/master/.eslintrc</code> pas partagé entre projets ?</p>
+
+<p><code class="highlighter-rouge">globals</code> peut être remplacé par des <a href="https://eslint.org/docs/user-guide/configuring#specifying-environments">envs</a>
+<code class="highlighter-rouge">browser</code> + <code class="highlighter-rouge">mocha</code></p>
+
+<p>Je n’arrive pas à chercher “object-assign” dans gitlab (HTTP 502)</p>
+
+<p>Les npm script <code class="highlighter-rouge">dev</code> et <code class="highlighter-rouge">dev-all</code> n’existent plus =&gt; <code class="highlighter-rouge">npm start</code></p>
+
+<p>Pourquoi versionner les fichiers <code class="highlighter-rouge">bundle-</code> ?
+=&gt; Les chaînes ne gèrent pas elles-mêmes leurs bulnde avec plugins. 
+=&gt; L’objectif à long terme est que les chaines utilisent rfPlayer comme lib (comme une dépendance NPM)
+Pour pouvoir lister en dépendance, on pourrait renseigner le <code class="highlighter-rouge">main</code> pour que le package puisse être <code class="highlighter-rouge">import</code> (ou <code class="highlighter-rouge">require</code>)</p>
+
+<p>à quoi sert le dossier <code class="highlighter-rouge">dist</code> ? <code class="highlighter-rouge">release</code> ? les <code class="highlighter-rouge">bundle-</code> dans <code class="highlighter-rouge">src</code> ?</p>
+
+<p>https://gitlab.dnm.radiofrance.fr/lecteur-commun/rfplayer/blob/master/src/models/Source.js#L30
+=&gt; Chaine qui mériterait d’être une constante</p>
+
+<p>https://gitlab.dnm.radiofrance.fr/lecteur-commun/rfplayer/blob/master/src/actions/PlayerActions.js
+=&gt; Faire plusieurs exports</p>
+
+<h3 id="lecteur-communrfplayer-commons">lecteur-commun/rfplayer-commons</h3>
+
+<p>https://gitlab.dnm.radiofrance.fr/lecteur-commun/rfplayer-commons/blob/a77cec541cbd70462263cfdad51ab80271c647e7/src/utils.js#L61
+=&gt; pas besoin de <code class="highlighter-rouge">item !== null</code>, déja ouvert par <code class="highlighter-rouge">item &amp;&amp;</code></p>
+
+<p>https://gitlab.dnm.radiofrance.fr/lecteur-commun/rfplayer-commons/blob/a77cec541cbd70462263cfdad51ab80271c647e7/src/utils.js#L42-50
+=&gt; Utiliser <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/find">find</a>
+<code class="highlighter-rouge">return TYPES.find(t =&gt; t === ext)</code></p>
+
+<p>https://gitlab.dnm.radiofrance.fr/lecteur-commun/rfplayer-commons/blob/a77cec541cbd70462263cfdad51ab80271c647e7/src/utils.js#L30
+=&gt; <a href="https://www.npmjs.com/package/path">path</a>.extname() https://nodejs.org/docs/latest/api/path.html#path_path_extname_path
+commons</p>
+
+<p>https://gitlab.dnm.radiofrance.fr/lecteur-commun/rfplayer-commons/blob/a77cec541cbd70462263cfdad51ab80271c647e7/src/utils.js#L21
+=&gt; y’a des modules pour ça</p>
+
+<p>mergeDeep
+=&gt; Y’a sûrement une solution facile avec lodash</p>
+
+<p>rfplayer-commons et rfplayer-constants peuvent être fusionnés dans rfPlayer. Les projets dépendants peuvent utiliser
+<code class="highlighter-rouge">require('rfplayer/commons')</code> ou <code class="highlighter-rouge">require('rfplayer/constants')</code> <a href="https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders">si ce sont les seuls morceaux utilisés</a></p>
+
+<h3 id="kaiser">Kaiser</h3>
+
+<p>L’erreur liée au fait de ne pas avoir de <code class="highlighter-rouge">config.local.json</code> est chiante. Le fichier peut être versionné puis mis dans le .gitignore. Comme ça, il est là et c’est cool, mais les changements ne sont pas versionnés.</p>
+
+<p>Le <a href="https://gitlab.dnm.radiofrance.fr/croiseur/kaiser/blob/6c47780ed097fcf283a9fb53c609a8113bbbb33e/www/src/services/Booster.js#L14-20">pattern singleton</a> n’est pas utile en JavaScript. Ne créer qu’un seul objet. (Utilisé dans plein de fichiers)</p>
+
+<h3 id="rf-gdp-client">rf-gdp-client</h3>
+
+<p>Il manque un readme utile.</p>
+
+<p>https://gitlab.dnm.radiofrance.fr/croiseur/rf-gdp-client/blob/2471eda7db6bcd4dcb0c6f65b3b23dd2621d6899/src/client/services/ApiClient.js#L52-62
+=&gt; Utiliser <code class="highlighter-rouge">Date.now()</code></p>
+
+<p>https://gitlab.dnm.radiofrance.fr/croiseur/rf-gdp-client/blob/2471eda7db6bcd4dcb0c6f65b3b23dd2621d6899/src/client/middleware/api.js#L11
+=&gt; <code class="highlighter-rouge">=== undefined</code></p>
+
+<h3 id="kami">Kami</h3>
+
+<p>https://gitlab.dnm.radiofrance.fr/cockpit/kami/blob/master/docs/Types.md 
+=&gt; Super cool !</p>
+
+<p>https://gitlab.dnm.radiofrance.fr/cockpit/kami
+=&gt; Pourquoi un Makefile ?</p>
+
+<p>Avantage de TypeScript : si les équipes chaine s’y mettent, elles peuvent profiter des types comme une première info sur si qqch a cassé</p>
+
+<h3 id="rf-react-components">rf-react-components</h3>
+
+<p>https://gitlab.dnm.radiofrance.fr/js-commons/rf-react-components/blob/29270262ab9d263bd59a4788e7735fa45d31972c/src/components/Menu.tsx#L15
+Un peu bizarre. Utiliser <a href="https://facebook.github.io/react/docs/composition-vs-inheritance.html#containment">children</a> semble plus adapté</p>
+
+<p>Il faudrait donner de meilleurs noms aux interface (DefaultProps, Props). Et peut-être les exporter, ça sera mieux pour l’open source</p>
+
+<h3 id="rfplayer-plugin-xiti">rfplayer-plugin-xiti</h3>
+
+<p>https://gitlab.dnm.radiofrance.fr/lecteur-commun/rfplayer-plugin-xiti/blob/13ee8791197efac7afefa0545106fe89bacaf30d/src/index.js#L20
+=&gt; Rajouter un commentaire sur pourquoi</p>
+
+<h3 id="rfplayer-plugin-binaural">rfplayer-plugin-binaural</h3>
+
+<p>https://gitlab.dnm.radiofrance.fr/lecteur-commun/rfplayer-plugin-binaural/blob/0f1065813132cd40728144f77779af02acc88021/src/Convolver.js#L125
+=&gt; Une technique utilisée dans d3.js consiste à créer une variable
+<code class="highlighter-rouge">const π = Math.PI</code>. Ou juste <code class="highlighter-rouge">pi</code>. 
+Destructuring sur les math aussi <code class="highlighter-rouge">const {cos, sin, round} = Math</code>.</p>
+
+<p>Il faudrait une doc ou un papier scientifique</p>
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="http://github.com/dtc-innovation/research/edit/gh-pages/audit-radiofrance/cockpit.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="/research/assets/javascript/anchor-js/anchor.min.js"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>

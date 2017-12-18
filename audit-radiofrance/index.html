@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Audit Radio France | dtc innovation research</title>
+<meta property="og:title" content="Audit Radio France" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="audits, thoughts, user researches" />
+<meta property="og:description" content="audits, thoughts, user researches" />
+<link rel="canonical" href="/research/audit-radiofrance/" />
+<meta property="og:url" content="/research/audit-radiofrance/" />
+<meta property="og:site_name" content="dtc innovation research" />
+<script type="application/ld+json">
+{"name":null,"description":"audits, thoughts, user researches","author":null,"@type":"WebPage","url":"/research/audit-radiofrance/","publisher":null,"image":null,"headline":"Audit Radio France","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link href="/research/assets/css/style.css?v=3942d0370de71a9cc3d058c6502f9c30e4d7a0a9" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+        <h1><a href="/research/">dtc innovation research</a></h1>
+      
+
+      <div id="toc" class="toc">
+<div id="toctitle">Sommaire</div>
+<ul class="sectlevel1">
+<li><a href="#contexte">Contexte</a></li>
+<li><a href="#journal">Journal</a>
+<ul class="sectlevel2">
+<li><a href="#jeudi-15-juin">jeudi 15 juin</a></li>
+<li><a href="#vendredi-16-juin">vendredi 16 juin</a></li>
+<li><a href="#mercredi-5-juillet">mercredi 5 juillet</a></li>
+<li><a href="#jeudi-13-juillet">jeudi 13 juillet</a></li>
+</ul>
+</li>
+<li><a href="#observation-et-conseils">Observation et conseils</a>
+<ul class="sectlevel2">
+<li><a href="#observations-générales">Observations générales</a></li>
+<li><a href="#observations-équipe-api">Observations équipe API</a></li>
+<li><a href="#observations-équipes-chaînes">Observations équipes chaînes</a></li>
+<li><a href="#observations-équipe-zone-51">Observations équipe Zone 51</a></li>
+<li><a href="#observations-équipe-ux">Observations équipe UX</a></li>
+<li><a href="#observations-équipe-mobile">Observations équipe mobile</a></li>
+<li><a href="#observations-équipe-marketing">Observations équipe marketing</a></li>
+<li><a href="#observations-projet-em-open-data-em">Observations projet <em>Open Data</em></a></li>
+<li><a href="#observations-direction-du-numérique">Observations Direction du Numérique</a></li>
+</ul>
+</li>
+<li><a href="#conclusion-enjeux-et-intérêts">Conclusion, enjeux et intérêts</a></li>
+<li><a href="#emerging-todolist">Annexe A: Envies émergentes de l&#8217;équipe API</a>
+<ul class="sectlevel2">
+<li><a href="#intérêt-immédiat">Intérêt immédiat</a></li>
+<li><a href="#intérêt-fort">Intérêt fort</a></li>
+<li><a href="#intérêt-modéré">Intérêt modéré</a></li>
+</ul>
+</li>
+<li><a href="#retrospectives">Annexe B: Rétrospectives</a>
+<ul class="sectlevel2">
+<li><a href="#jeudi-13-juillet-2">Jeudi 13 juillet</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dernière mise à jour du document (<em>v1.0.0</em>) : <em>17 juillet 2017</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contexte">Contexte</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La coopérative <strong>dtc innovation</strong> a été contactée par la <em>Direction du Numérique</em> de <strong>Radio France</strong> suite à une mise en relation de <a href="https://jolicode.com/">Jolicode</a>.</p>
+</div>
+<div class="paragraph">
+<p>La <em>Direction du Numérique</em> souhaitait obtenir davantage de visibilité sur ses applications JavaScript en sollicitant un audit de ses applications Node — principalement du côté de son équipe API.
+Cet audit s&#8217;inscrit dans la lignée d&#8217;un audit de leurs applications PHP.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;objectif de cet audit est multiple :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>faire un point</strong> sur leur parc applicatif JavaScript et Node ;</p>
+</li>
+<li>
+<p><strong>obtenir un regard</strong> sur les habitudes de l&#8217;équipe ;</p>
+</li>
+<li>
+<p><strong>augmenter la visibilité</strong> sur ce qui est produit par les équipes ;</p>
+</li>
+<li>
+<p>dans un monde idéal, atteindre un niveau où <strong>tout code serait <em>open sourçable</em></strong> (aka. <a href="https://en.wikipedia.org/wiki/Inner_source">inner source</a>).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>L&#8217;audit débutera d&#8217;abord par l'<strong>établissement d&#8217;un périmètre fonctionnel</strong> (<em>scope</em>) pour ensuite définir des missions d&#8217;actions ciblées, généralement courtes et clairement délimitées.</p>
+</div>
+<div class="paragraph">
+<p>Ce document <strong>résume ce que nous avons observé</strong> les 15 et 16 juin puis le 5 juillet 2017 dans les locaux de la <em>Direction du Numérique</em> chez Radio France.<br>
+Ce document contient également des <strong>pistes d&#8217;actions</strong>  ainsi que des <strong>recommandations</strong> pouvant appuyer et soutenir la stratégie moyen et long terme de Radio France dans son innovation numérique.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="journal">Journal</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="jeudi-15-juin">jeudi 15 juin</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Arrivée et accueil</p>
+</li>
+<li>
+<p>Matinée : présentation par l&#8217;équipe API ("cruiser") de l&#8217;architecture du back-end web et de la communication entre les micro-services</p>
+</li>
+<li>
+<p>Présence à la "Foire au Cruiser" l&#8217;après-midi</p>
+</li>
+<li>
+<p>Discussions avec les différents membres de l&#8217;équipe API</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="vendredi-16-juin">vendredi 16 juin</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Restitution des différents axes d&#8217;amélioration que nous avons entendu et discussion avec l&#8217;équipe API pour la priorisation de ces points</p>
+</li>
+<li>
+<p>Discussions avec d&#8217;autres équipes sur le même plateau</p>
+<div class="ulist">
+<ul>
+<li>
+<p>UX</p>
+</li>
+<li>
+<p>SEO</p>
+</li>
+<li>
+<p>France Culture</p>
+</li>
+<li>
+<p>France Bleu</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mercredi-5-juillet">mercredi 5 juillet</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Discussions avec les différents membres de l&#8217;équipe API</p>
+</li>
+<li>
+<p>Discussions avec d&#8217;autres équipes sur le même plateau</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Back-Office</p>
+</li>
+<li>
+<p>Terry dans l&#8217;équipe France Bleu — il a aidé à la mise en place du SDK PHP et récupéré le <em>lead</em> depuis 1 semaine</p>
+</li>
+<li>
+<p>Mobile natif</p>
+</li>
+<li>
+<p>Direction du numérique</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jeudi-13-juillet">jeudi 13 juillet</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Restitution de l&#8217;audit</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="observation-et-conseils">Observation et conseils</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="observations-générales">Observations générales</h3>
+<div class="paragraph">
+<p>Nous sommes ressortis avec un sentiment très positif suite à ce que nous avons pu observer à la <em>Direction du Numérique</em>.</p>
+</div>
+<div class="paragraph">
+<p>De nombreux signaux ont l&#8217;air d&#8217;être au vert :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Concernant la technique, les choix sont simples, cohérents en soi et entre eux, pas de gros risques sur des technologies, un parti pris sur l&#8217;indépendance logicielle (pas de services en SaaS) ;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Le premier matin, la clarté de l&#8217;explication de l&#8217;architecture était en elle-même un signe de la qualité de l&#8217;architecture ;</p>
+</li>
+<li>
+<p>Ne pas hésiter à payer pour du support spécifique quand un problème apparait et qu&#8217;un manque de compétence est identifié est une très bonne décision aussi ;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Nous ne connaissons pas les détails financiers, mais les ambitions ont l&#8217;air en adéquation avec les moyens à disposition ;</p>
+</li>
+<li>
+<p>Les équipes sont petites et ont l&#8217;air soudées et de bien communiquer entre elles. La communication a l&#8217;air fluide, simple, efficace ;</p>
+</li>
+<li>
+<p>Les équipes s&#8217;organisent comme elles le souhaitent et ont l&#8217;air de s&#8217;organiser de manière efficace ;</p>
+</li>
+<li>
+<p>La présence d&#8217;un <em>Product Owner</em> dans la majorité des équipes semble jouer pour beaucoup à l&#8217;organisation de l&#8217;effort et au maintien de la qualité applicative ;</p>
+</li>
+<li>
+<p>Les individus ont l&#8217;air épanouis et de prendre plaisir à leur travail ;</p>
+</li>
+<li>
+<p>Il y a un climat général de confiance entre les équipes et apparemment avec la <em>Direction du Numérique</em> qui laisse aux équipe l&#8217;autonomie nécessaire.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>En plus de cela, la pratique des <em>foires</em> hebdomadaires (30 minutes par semaine d&#8217;ouverture aux demandes en présentiel) semble être bien rodée, canalise les demandes et évite les tractations à la machine à café.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Les personnes reviennent des foires avec un besoin clarifié.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>On refuse les demandes qui ne bénéficient pas à toutes les chaines ; les trucs dégueulasses ils les gèrent de leur côté.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Si nous devions donner un premier conseil général, ça serait celui de <strong>préserver, encourager et protéger tous ces morceaux de contextes techniques, organisationnels et humains qui mènent mécaniquement à un service rendu de qualité</strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="observations-équipe-api">Observations équipe API</h3>
+<div class="paragraph">
+<p>Il s&#8217;agit de l&#8217;équipe avec laquelle nous avons passé la majorité de notre temps.</p>
+</div>
+<div class="paragraph">
+<p>Au 9 juillet 2017, la <em>stack</em> est basée sur <code>node@6</code> et a pour objectif de suivre son cycle <em>Long-term Support</em> (LTS).
+Le langage JavaScript est utilisé à hauteur de l&#8217;implémentation supportée par Node.<br>
+Le choix technologique initial des services API étaient basés sur <a href="http://loopback.io/">LoopBack</a> et <a href="https://www.mongodb.com/fr">MongoDB</a>.
+Après moults difficultés et frustrations, l&#8217;équipe s&#8217;est recentrée sur le duo <a href="https://expressjs.com/">Express</a> et <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;équipe API met à disposition plusieurs modules NodeJS sur GitLab.
+Ces modules sont préfixés par <code>rf-</code> par convention.
+Leur usage en dehors des projets de l&#8217;équipe est inconnu.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Succès
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Une bonne qualité de code ;</p>
+</li>
+<li>
+<p>Intégration continue quasi systématique ;</p>
+</li>
+<li>
+<p>Présence de tests d&#8217;intégration à défaut de pouvoir tester unitairement certains aspects métier.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Frictions
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>La découverte des modules est peu évidente — certains sont dans un <em>namespace</em> GitLab différent ;</p>
+</li>
+<li>
+<p>Les README sont minimalistes ou inexistants.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Opportunités
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Harmoniser les scripts npm — <code>npm start</code> pour démarrer le service, <code>npm run build</code> pour produire les artéfacts, <code>npm test</code> pour lancer les tests, <code>npm run dev</code> pour démarrer le service en mode développement (et redémarrer en cas de changement avec <code>nodemon</code>, par exemple) ;</p>
+</li>
+<li>
+<p>Systématiser des vérifications lors de l&#8217;intégration continue (<code>npm outdated</code>, <a href="https://npmjs.com/npm-check">npm-check</a>, <a href="https://npmjs.com/snyk">snyk</a>, <a href="https://npmjs.com/david">david</a>) ;</p>
+</li>
+<li>
+<p>Héberger les modules Node sur un registre privé auto-hébergé pour faciliter le suivi semver des dépendances — ainsi que la consommation de librairies côté client (notamment pour le parsing des <em>steps</em> ou de la grille de programme) ;</p>
+</li>
+<li>
+<p>Basculer vers <code>node@8</code> et <code>npm@5</code> lorsqu&#8217;elle passe en LTS afin de bénéficier du <code>package-lock.json</code> et de l&#8217;installation déterministe ;</p>
+</li>
+<li>
+<p>Systématiser le cours à des fichiers README répondant à des besoins élémentaires — périmètre fonction et exemples d&#8217;utilisation, d&#8217;installation.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>On veut réduire le temps de mise en production.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Il existe une dizaine de web services avec comme objectif de distribuer la donnée au plus de monde possible au sein de <em>Radio France</em>.</p>
+</div>
+<div class="paragraph">
+<p>Les services sont déployés 5 à 10 fois par semaine avec <a href="http://capistranorb.com/">Capistrano</a>, tandis que le <em>provisioning</em> et l&#8217;instantiation sont effectués avec <a href="https://www.terraform.io/">Terraform</a> et <a href="https://puppet.com/">Puppet</a>.
+L&#8217;infrastructure gère environ <em>100 millions</em> de requêtes par jour avec un <em>uptime</em> de 100%.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>On veut être résilient à tout type de pannes.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>La structure de données de l&#8217;API a pour vocation à rester rétrocompatible afin de limiter la maintenance des consommateurs de l&#8217;API.
+Une surcouche de l&#8217;API — la <strong>Public API</strong> — est consommée par les <em>services mobiles</em>.
+Cette dernière diffère légèrement de l&#8217;API privée car elle expose moins de champs et a recours à la <a href="http://jsonapi.org/">spécification JSON API</a>.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Succès
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>La disponibilité de l&#8217;API est unanime ;</p>
+</li>
+<li>
+<p>Les modèles <a href="https://www.openapis.org/">Swagger</a> documentent programatiquement les ressources et sont exposés… via l&#8217;API.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Frictions
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Une documentation a été mise en ligne à une adresse, puis continuée "ailleurs" ;</p>
+</li>
+<li>
+<p>Les <em>normaliseurs</em> sont difficiles à lire donc difficile à déboguer ;</p>
+</li>
+<li>
+<p>Chaque chaîne gère ses <em>tags</em> pour désigner des contenus et contenus ; ceci empêche l&#8217;interconnexion des données entre chaînes et avec le monde extérieur.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Opportunités
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Capitaliser sur l&#8217;expérience de l&#8217;équipe pour sortir une v2 de l&#8217;API qui uniformise les sorties, supprime les spécifiques et les efforts de rétrocompatibilité en simplifiant la base de code — ainsi que celle des différents SDK.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>L&#8217;API de recherche textuelle au sein des contenus se base sur <a href="https://www.elastic.co/products/elasticsearch">ElasticSearch</a>.
+Elle est notamment utilisée pour les recommandations d&#8217;articles (via la fonctionnalité <code>more_like_this</code>), l&#8217;autocomplétion</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>On n&#8217;est pas très bon sur la recherche client.</p>
+</div>
+</blockquote>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Frictions
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Certains événements de suppression d&#8217;articles ne sont pas répercutés, entrainant des résultats menant à des contenus retirés de la publication.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Opportunités
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Une bonne recherche nécessite des réglages fins et un certain temps d&#8217;ajustements et d&#8217;observation ;</p>
+</li>
+<li>
+<p>Ça ne coûterait pas cher de faire du <a href="http://www.uxbooth.com/articles/the-art-of-guerrilla-usability-testing/">guerilla testing</a> devant la Maison de la Radio pour recueillir une connaissance des pratiques de recherche ;</p>
+</li>
+<li>
+<p>Les résultats d&#8217;autocomplétion pourraient être basés sur des critères de fraicheur et de popularité (de recherche, de visites, de tags cliqués) ainsi que par choix éditoriaux.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Il y a 2 ans, on a commencé la nouvelle infrastructure <em>from scratch</em>.
+Maintenant on s&#8217;ennuie presque — beaucoup de micro-tâches, souvent de l&#8217;ordre d&#8217;une journée ou moins.</p>
+</div>
+</blockquote>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Actions et envies priorisées</div>
+<div class="paragraph">
+<p><em>dtc innovation</em> et l&#8217;équipe API ont fait émerger et priorisé une liste d&#8217;actions à mener autour des projets de l&#8217;équipe.</p>
+</div>
+<div class="paragraph">
+<p>Cette liste exhaustive d&#8217;envies est formulée en <a href="#emerging-todolist">annexe de ce document</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="module-rf-pg-connector">Module rf-pg-connector</h4>
+<div class="paragraph">
+<p>Concernant les limitations de <code>rf-pg-connector</code>, David Bruant a passé un peu de temps avec Florian de l&#8217;équipe API.
+La conclusion semble être que le problème est identifié et qu&#8217;il faut juste passer du temps à le résoudre.</p>
+</div>
+<div class="paragraph">
+<p>Afin de rendre la transition douce, il est recommandé d&#8217;épingler les numéros de versions de dépendance et de procéder la transition de ses consommateurs un par un.
+Florian a indiqué que cette procédure est connue et a déjà été appliquée.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Opportunités
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Basculer vers <code>npm@5</code> pour bénéficier de semver avec git.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Concernant les requêtes SQL, il est conseillé d&#8217;utiliser un <a href="https://github.com/brianc/node-sql">query builder</a> ou <a href="https://www.npmjs.com/package/sql-template-strings">un autre</a>. Cela augmenterait la lisibilité du code SQL qui se cache à l&#8217;intérieur du JavaScript.
+Nous avons vu que le module <a href="https://github.com/brianc/node-sql">node-sql</a> ne supporte pas les <code>LATERAL JOIN</code>.<br>
+Apparemment, le choix des <code>LATERAL JOIN</code> (plutôt que des requêtes imbriquées) a été fait sur un conseil d&#8217;un expert pour raison de performances.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Opportunités
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;utilisation d&#8217;un langage avec vérification statique comme <a href="http://www.typescriptlang.org/">TypeScript</a> ou <a href="https://flow.org/">Flow</a> pourrait aider au refactoring et renforcer la cohérence des modèles de données employés ;</p>
+</li>
+<li>
+<p>Contribuer le support de <code>LATERAL JOIN</code> à <a href="https://github.com/brianc/node-sql">node-sql</a> si elle est choisie ;</p>
+</li>
+<li>
+<p>Définir une méthodologie de test de cette hypothèse sur les requêtes qui ont lieu effectivement chez Radio France.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Florian a évoqué un questionnement sur le fait d&#8217;avoir du SQL à 3 endroits (<code>rf-pg-connector</code>, <code>rf-models</code> et dans chaque modèle).
+Ce choix a l&#8217;air raisonnable.
+Ces 3 endroits correspondent à 3 strates de spécificités qu&#8217;il n&#8217;est pas mauvais de garder séparés.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="observations-équipes-chaînes">Observations équipes chaînes</h3>
+<div class="paragraph">
+<p>Les équipes chaînes gèrent un <em>back-end</em> écrit en PHP avec le framework Symfony.
+Un SDK incubé par l'<em>équipe back-end</em> abstrait les appels à l&#8217;API.
+Chaque chaîne gère surcharge les composants du SDK pour gérer leurs cas spécifiques d&#8217;interprétation des données.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Succès
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Le SDK API est adopté par toutes les équipes chaînes.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Frictions
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;empilement de couches de gestion de données rend le débogage complexe et coûteux en temps ;</p>
+</li>
+<li>
+<p>L&#8217;adresse de la documentation n&#8217;est pas connue et le ticket d&#8217;entrée est élevé — on utilise le SDK et les composants PHP en guide de doc.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>La recherche, c&#8217;est encore un autre format.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>On voudrait que la structure des objets soit la même à tout moment.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Chaque chaîne gère leur <em>front-end</em> selon les affinités et compétences en présence.
+Nos discussions ont fait émerger un problème commun concernant la gestion du code JavaScript côté client.
+Chaque site de chaîne a son processus de build, ses outils, ses habitudes, ses façons de faire le JavaScript front-end.
+Ceci se traduit naturellement en beaucoup de travail dupliqué et difficilement réutilisé.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Le <em>front-end</em>, c&#8217;est le cœur de la problématique.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Un conseil ici serait d&#8217;avoir une équipe transverse spécifique sur à sujets, de la même manière qu&#8217;il existe une équipe transverse sur le framework PHP qui interroge l&#8217;API interne.
+Il existe l'<strong>équipe cockpit</strong> qui produit des composants transverses comme le <em>player multimédia</em>.
+Notre compréhension à ce stade est que cette équipe ne fait que créer et maintenir quelques composants front-end réutilisés par tous les sites.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>On voudrait avoir des briques fonctionnelles isolées.
+On a fait ça dans le <em>rush</em> et on n&#8217;en a peut-être pas assez parlé.</p>
+</div>
+</blockquote>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Opportunités
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Étendre les sujets couverts par cette équipe ;</p>
+</li>
+<li>
+<p>L&#8217;intégrer à l&#8217;équipe UX pour en faire une équipe transverse et reproduire le succès du SDK API côté front-end.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="observations-équipe-zone-51">Observations équipe Zone 51</h3>
+<div class="paragraph">
+<p>Cette équipe a été montée il y a environ un an pour remplacer l&#8217;API Radio (un composant parmi ceux gérés par l&#8217;équipe API) — API en charge de normaliser les données collectées depuis le SI métier.
+Cet effort a été engagé pour <strong>mettre fin aux problèmes liés l&#8217;accumulation</strong> de rustines successives et pour distribuer la connaissance des règles métier jusque là contenue dans la tête d&#8217;une personne.</p>
+</div>
+<div class="paragraph">
+<p>Une des caractéristiques de cette équipe est d&#8217;avoir deux <em>Product Owner</em> : un à la Direction du Numérique et un au Service Informatique.
+Une intention claire est de rapprocher la Direction du Numérique et le SI par la pratique.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>C&#8217;est le premier projet en coopération avec l&#8217;équipe informatique basée de l&#8217;autre côté de la ligne de RER.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Tout le monde travaille sur tout.
+Tout le monde fait le support.
+Nous avons des rituels de partage de connaissance.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Maziar sait bien s&#8217;entourer et il nous fait confiance.</p>
+</div>
+</blockquote>
+</div>
+<div class="sect3">
+<h4 id="module-rf-pubsub">Module rf-pubsub</h4>
+<div class="paragraph">
+<p>Le module <code>rf-pubsub</code> a été mentionné à quelques reprises.
+Notamment l&#8217;effort de publication d&#8217;un module additionnel — un <em>wrapper</em> — pour le <em>promisifier</em>.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Frictions
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Un module supplémentaire a été créé, doit être maintenu alors que la fonctionnalité décrite existe déjà dans <code>rf-pubsub</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Opportunités
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Cartographier l&#8217;utilisation des modules <code>rf-*</code> au sein des applications pour évaluer les versions utilisées et leurs dépendants ;</p>
+</li>
+<li>
+<p>Organiser des <strong>cliniques de code</strong> pour fournir un support, détecter et co-développer des améliorations possibles.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="observations-équipe-ux">Observations équipe UX</h3>
+<div class="paragraph">
+<p>Beaucoup de sujets ont été évoqués, dont celui d&#8217;une charte graphique (voire d&#8217;un <em>styleguide</em>) en cours de réalisation.
+Ce sujet a aussi été évoqué par au moins deux équipes chaînes.</p>
+</div>
+<div class="paragraph">
+<p>Les designers sont embarqué·e·s dans les équipes chaînes en fonction des demandes et de la charge de travail.
+Une personne peut travailler en alternance pour l&#8217;équipe <em>Culture</em> et <em>France Bleu</em>, par exemple.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Succès
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Les compétences UX et UI deviennent reconnues ;</p>
+</li>
+<li>
+<p>L&#8217;émergence d&#8217;un besoin de <em>styleguide</em> fait consensus.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Frictions
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Il n&#8217;y a pas un consensus évident quant à la responsabilité de produire du code ;</p>
+</li>
+<li>
+<p>Il n&#8217;y a pas non plus consensus sur la diffusion du guide et du suivi de son implémentation.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Opportunités
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Un rapprochement avec les équipes chaînes pourrait être utile afin de mieux coordonner les efforts ;</p>
+</li>
+<li>
+<p>Partager les outils de documentation pour bénéficier d&#8217;une documentation multi-disciplinaire ;</p>
+</li>
+<li>
+<p>S&#8217;orienter vers une utilisation de <a href="https://www.sketchapp.com/">Sketch</a> combinée à <a href="https://www.goabstract.com">Abstract</a> (versioning avec Git), <a href="https://www.invisionapp.com/craft">Craft</a> (prototypage et consommation des API) et <a href="http://airbnb.io/react-sketchapp/">React Sketch.app</a> (rendu de composants React) pour créer des composants communs aux sites web et app mobiles.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="observations-équipe-mobile">Observations équipe mobile</h3>
+<div class="paragraph">
+<p>L&#8217;équipe mobile est située dans un bureau à part.
+Elle est constituée de développeurs iOS et Android mais aussi de <em>Product Managers</em>.</p>
+</div>
+<div class="paragraph">
+<p>Leurs interactions avec l&#8217;API Radio France se fait via la <em>Public API</em>, quasi exclusivement en consommation.
+La seule API en <code>POST</code> qui soit utilisée n&#8217;est par ailleurs par gérée par l&#8217;équipe API.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Normalement on a une doc de l&#8217;API mais je ne sais plus où elle est.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Notre documentation c&#8217;est le SDK qu&#8217;on s&#8217;est fait. Il reflète notre besoin. Quand on a une question va voir l&#8217;équipe API.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Des problèmes de performance sur une route de l&#8217;API <em>staging</em> (40 à 50 secondes d&#8217;attente) ont obligé les développeurs à changer leurs valeurs de <em>timeout</em> et à opter pour cibler l&#8217;environnement de <em>production</em> à la place.
+Ils ne savent pas d&#8217;où vient le problème ni s&#8217;il a été réglé.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>On trouvait ça mieux de tester en production. C&#8217;est plus parlant.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Il parait qu&#8217;ils refont la documentation ; elle est finie ?</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>On essaie de rattraper le delta entre API privée et <em>Public API</em>.</p>
+</div>
+</blockquote>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Frictions
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Sensation de distance, notamment au niveau du dialogue et des façons de faire ;</p>
+</li>
+<li>
+<p>Pas d&#8217;appétence à mieux travailler ensemble ;</p>
+</li>
+<li>
+<p>L&#8217;écart continuera de se creuser avec le temps, jusqu&#8217;à un point de non-retour.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Opportunités
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Des envies produit (comme enrichir les profils de personnes invitées avec Wikipédia) convergent avec des opportunités de l'<em>Open API</em> ;</p>
+</li>
+<li>
+<p>Explorer les composants partagés pour web et mobile (type <a href="http://www.reactnative.com/">React Native</a>) ;</p>
+</li>
+<li>
+<p>Considérer le développement mobile comme une compétence transverse des équipes chaînes et de l&#8217;équipe UX.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="observations-équipe-marketing">Observations équipe marketing</h3>
+<div class="paragraph">
+<p>Nous entamons une discussion après avoir lu le mot <strong>documentation</strong> sur un post-it affiché sur un tableau blanc.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Les gens de la technique, ils ne viennent pas nous voir.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>J&#8217;ai plein de données <em>analytics</em> que j&#8217;ai du mal à récupérer.</p>
+</div>
+</blockquote>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Frictions
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;outil de documentation <em>de facto</em> est l&#8217;email ;</p>
+</li>
+<li>
+<p>On a ressenti une certaine souffrance liée à l&#8217;isolation technique et à une charge de travail continue ;</p>
+</li>
+<li>
+<p>Beaucoup d&#8217;actions manuelles sont nécessaires pour collecter les informations nécessaire</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Opportunités
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Former Deborah à être <em>Product Owner</em> ;</p>
+</li>
+<li>
+<p>Doter l&#8217;équipe d&#8217;un·e <em>Product Owner</em> ;</p>
+</li>
+<li>
+<p>Partager les outils de documentation pour bénéficier d&#8217;une documentation multi-disciplinaire ;</p>
+</li>
+<li>
+<p>Venir livrer des rapports succincts aux différentes foires pour informer des impacts des équipes ;</p>
+</li>
+<li>
+<p>Organiser une foire pour susciter l&#8217;intérêt des autres équipes (techniques et produits) ;</p>
+</li>
+<li>
+<p>Designer une <em>API Business</em> pour refermer la boucle de <em>feedback</em>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="observations-projet-em-open-data-em">Observations projet <em>Open Data</em></h3>
+<div class="paragraph">
+<p>Radio France envisage de mettre à disposition une <em>Open API</em> à des personnes tierces.
+Elle serait une version dérivée de la <em>Public API</em> — cette dernière étant destinée aux sites et applications Radio France.</p>
+</div>
+<div class="paragraph">
+<p>Cette envie s&#8217;inscrit dans la <strong>compréhension des usages d&#8217;écoute</strong> et de consommation des flux de Radio France.
+Un des objectifs est de pouvoir <strong>soutenir les mouvements de désintermédiation et d&#8217;innovation</strong>, mais aussi d&#8217;anticiper les effets de la <a href="https://www.etalab.gouv.fr/loi-pour-une-republique-numerique-lancement-dune-consultation-sur-le-service-public-de-la-donnee">Loi République Numérique</a> — on peut en effet imaginer qu&#8217;à terme les données courantes de Radio France soient considérées comme une information publique.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Nous voulons mutualiser les coûts et les ressources entre acteurs.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>L&#8217;ouverture de l&#8217;API bénéficierait également à Radio France en faisant émerger les données cachées, en facilitant la réutilisation de leurs données tout en devenant un aimant pour repérer et attirer les talents.
+L&#8217;émergence de réutilisations et de contributions (notamment de traduction) apporteraient également des éléments de réflexion à la stratégie produit de Radio France.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Succès
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Cette action est considérée possible car l&#8217;infrastructure et les capacités de montée en charge sont éprouvées et robustes.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Frictions
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>L&#8217;absence de normalisation des valeurs (invité·e·s, artistes, thèmes, tags etc.) peut limiter considérablement l&#8217;usage externe du fait de jointures de données complexes et coûteuses en nettoyage.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Opportunités
+</td>
+<td class="hdlist2">
+<div class="ulist">
+<ul>
+<li>
+<p>Aller au-delà de <em>JSON Schema</em> avec des <a href="http://schema.org/docs/full.html">schémas connus de données</a> exprimés en <a href="http://json-ld.org/">JSON-LD</a> et/ou <a href="https://swagger.io/">Swagger</a> pour appliquer du <em>typage</em> aux modèles de données ;</p>
+</li>
+<li>
+<p>Employer des ontologies génériques (ex: <a href="https://www.wikidata.org/">Wikidata</a>), spécialisées (ex: <a href="https://musicbrainz.org/">MusicBrainz</a>) ou spécifiques à Radio France (à la <a href="http://www.bbc.co.uk/things/">BBC Things</a>) pour définir les valeurs retournées par l&#8217;API ;</p>
+</li>
+<li>
+<p>Les deux précédents points auraient également un impact bénéfique en interne : recherches et recommandations para-produits, enrichissement naturel des données (via des extraits Wikipédia  par exemple) ;</p>
+</li>
+<li>
+<p>Organiser un <em>soft launch</em> avec les équipes de la <a href="https://etalab.gouv.fr">mission Etalab</a> pour se roder à l&#8217;exercice des <em>hackathons</em> et obtenir des retours d&#8217;utilisation de l'<em>Open API</em>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="observations-direction-du-numérique">Observations Direction du Numérique</h3>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Il ne faut pas perdre de vue la vision globale.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Mon challenge c&#8217;est de faire travailler les gens ensemble.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Être dans le mouvement, maintenir la dynamique pour ne pas devenir une startup vieillissante.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>L&#8217;enjeu se situe également côté produit, sinon il n&#8217;y a pas d&#8217;enjeu technique.</p>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="conclusion-enjeux-et-intérêts">Conclusion, enjeux et intérêts</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>L&#8217;équipe API constitue une pierre angulaire du succès de la stratégie de la Direction du Numérique mise en œuvre il y a de cela deux ans.
+Sa réussite tient à la confiance portée dans l&#8217;équipe, à des recrutements de qualité, au rôle des <em>Product Owners</em> et à la présence d&#8217;équipes connexes telles que l&#8217;infrastructure, <em>back-office</em> et Zone 51.</p>
+</div>
+<div class="paragraph">
+<p>Les enjeux sont multiples :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>se remettre dans une situation de <em>challenge</em> pour réunir et motiver les équipes à aller plus loin ensemble ;</p>
+</li>
+<li>
+<p>réitérer le succès technique de l&#8217;API au niveau du langage visuel avec une plus grande diversité de métiers — UX, mobile, front-end ;</p>
+</li>
+<li>
+<p>éviter le clivage client/fournisseur lié aux frontières dures établies par des postures.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Nous pensons que :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>simplifier les strates d&#8217;accès à l&#8217;API</strong> (<em>Open</em> vs. interne) aidera à la maintenance, du code API et de ses consommateurs — ainsi que les interactions et relations afférantes ;</p>
+</li>
+<li>
+<p>le <strong>typage transversal</strong> aidera à garantir la qualité des structures de données (schema.org, JSON-LD, Swagger, TypeScript/Flow) ;</p>
+</li>
+<li>
+<p>la <strong>convergence styleguide/web/mobile</strong> aidera à mettre les équipes en position de collaboration multi-disciplinaire en vue de réaliser un objet commun — des entités Radio France solides dans et hors les murs, côté services et côté utilisateurs.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Le meilleur soutien et accompagnement que l&#8217;on puisse apporter serait de <strong>pairer</strong> à la réalisation de tâches/<em>epics</em> ciblées pour <strong>maintenir l&#8217;autonomie</strong> dont fait déjà preuve l&#8217;équipe API et les équipes afférantes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="emerging-todolist">Annexe A: Envies émergentes de l&#8217;équipe API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Les sections suivantes découlent de la première journée de présence sur place, à savoir le jeudi 15 juin.</p>
+</div>
+<div class="paragraph">
+<p>L&#8217;ensemble des actions ventilées ci-dessous a été présenté à l&#8217;équipe API qui les a ensuite priorisé  en fonction de ses appétences et de ses intérêts.</p>
+</div>
+<div class="sect2">
+<h3 id="intérêt-immédiat">Intérêt immédiat</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Eslint : renforcer certaines pratiques via des règles additionnelles, voire la création de règles custom ;</p>
+</li>
+<li>
+<p>Eslint : établir un package de configuration Radio France</p>
+</li>
+<li>
+<p>Package <code>rf-init</code> — auditer ;</p>
+</li>
+<li>
+<p>Package <code>rf-pg-connector</code> — auditer, passer en promesses, quid d&#8217;un <em>redesign</em> d&#8217;API pour permettre ;</p>
+</li>
+<li>
+<p>Package <code>rf-pg-connector</code> — utilisation de template strings ou d&#8217;un <em>query builder</em> ? ;</p>
+</li>
+<li>
+<p>Anticiper le passage en <code>node@8</code> et ECMAScript 2016/2017 ;</p>
+</li>
+<li>
+<p>Quid des <em>consumers</em> Symfony de l&#8217;API.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="intérêt-fort">Intérêt fort</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation des concepts métier — glossaire, etc. ;</p>
+</li>
+<li>
+<p>Public API : explorer l&#8217;aspect vocabulaire/ontologie pour rendre le contenu référençable hors du contexte Radio France (aka Linked Data) ;</p>
+</li>
+<li>
+<p>Public API : comment l&#8217;utiliser dans différents cas d&#8217;accès à l&#8217;API (ex : WebExtension, WebHook, CI, WebApp, etc.) ;</p>
+</li>
+<li>
+<p>Public API : quelle(s) stratégie(s) d&#8217;authentification ? ;</p>
+</li>
+<li>
+<p>Public API : POURQUOI, QUI et COMMENT afin de bien <em>designer</em> le contenu et les exemples ;</p>
+</li>
+<li>
+<p>Public API : quelle(s) stratégie(s) de documentation.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="intérêt-modéré">Intérêt modéré</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Quel retour sur investissement de tester en local vs. tester uniquement en intégration continue ?</p>
+</li>
+<li>
+<p>Harmoniser la documentation des repos, des README notamment ;</p>
+</li>
+<li>
+<p>Document d&#8217;architecture — remettre la main dessus, le rendre visible ;</p>
+</li>
+<li>
+<p>Stratégie de partage de setup de machines — dans l&#8217;équipe API, leur entourage immédiat et éventuellement avec les autres équipes dev du plateau ;</p>
+</li>
+<li>
+<p>Quid de la découvrabilité de l&#8217;API ;</p>
+</li>
+<li>
+<p>Faire une review des requêtes ElasticSearch ;</p>
+</li>
+<li>
+<p>Participer à des codes review — quelles pratiques faire émerger ?</p>
+</li>
+<li>
+<p>Quid de la consistance des données — "greg" ne retournait pas de suggestions dans l&#8217;API autocomplete, un document retourné par ElasticSearch était en réalité manquant (pas de concept associé) ;</p>
+</li>
+<li>
+<p>Quid du requêtage en pur SQL vs. assistance en JavaScript — mieux documenter l&#8217;intention de requêtes complexes notamment ;</p>
+</li>
+<li>
+<p>Quel est le <em>bus factor</em> d&#8217;Éric ?</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="retrospectives">Annexe B: Rétrospectives</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="jeudi-13-juillet-2">Jeudi 13 juillet</h3>
+<div class="sect3">
+<h4 id="ce-qui-a-marché">Ce qui a marché</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>la prioritisation avec des post-it en début de deuxième journée ;</p>
+</li>
+<li>
+<p>lecture transverse, juste et bienveillante de <em>dtc innovation</em> ;</p>
+</li>
+<li>
+<p>idée des cliniques pour pairer sur des librairies Node ;</p>
+</li>
+<li>
+<p>émergence d&#8217;un challenge sur les formats de représentation des données de l'<em>Open API</em> ;</p>
+</li>
+<li>
+<p>émergence d&#8217;un challenge sur le duo documentation/schéma des APIs (avis partagé avec Zone 51) ;</p>
+</li>
+<li>
+<p>émergence de l&#8217;opportunité d&#8217;open sourcer <code>rf-init</code> et <code>rf-pubsub</code> (considérer une <a href="https://www.npmjs.com/docs/orgs/">organisation npm</a>).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ce-qui-a-moins-bien-marché">Ce qui a moins bien marché</h4>
+<div class="paragraph">
+<p>N/A</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><span class="small">Ce document est mis à disposition sous licence <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.fr">CC0 1.0 Universel</a>.</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="http://github.com/dtc-innovation/research/edit/gh-pages/audit-radiofrance/index.adoc">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="/research/assets/javascript/anchor-js/anchor.min.js"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
