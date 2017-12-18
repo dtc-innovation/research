@@ -1,0 +1,2 @@
+= dtc innovation research
+:page-layout: home

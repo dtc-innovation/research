@@ -1,0 +1,13 @@
+---
+---
+{% assign pages = site.pages | sort: 'title' | where_exp: 'd', 'd.path <> "index.adoc"' | where_exp: 'd', 'd.title' %}
+{
+  "research": [
+    {% for page in pages %}
+    {
+      "title": {{ page.title | jsonify }},
+      "permalink": {{ page.url | absolute_url | jsonify }}
+    }{% if forloop.index < forloop.length %},{% endif %}
+    {% endfor %}
+  ]
+}

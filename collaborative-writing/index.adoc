@@ -1,10 +1,4 @@
 = Écriture collaborative
-:toc: left
-:toc-title: Sommaire
-:hide-uri-scheme:
-:idprefix:
-:data-uri:
-:icons: font
 :revnumber: v1.1
 :revdate: 7 avril 2017
 //icons (in use in matrix.csv)

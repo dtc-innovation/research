@@ -1,0 +1,33 @@
+title: dtc innovation research
+email: contact@dtc-innovation.org
+description: >-
+  audits, thoughts, user researches
+baseurl: "/research"
+url: ""
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-asciidoc
+
+asciidoctor:
+  base_dir: :docdir
+  safe: unsafe
+  attributes:
+    toc: left
+    toc-title: Sommaire
+    appendix-caption: Annexe
+    hide-uri-scheme: ''
+    idprefix: ''
+    data-uri: ''
+    icons: font
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+{% assign pages = site.pages | sort: 'title' | where_exp: 'd', 'd.path <> "index.adoc"' | where_exp: 'd', 'd.title' %}
+
+<h1>{{ page.title }}</h1>
+
+{% for page in pages %}
+<article>
+  <h2>
+    <a href="{{ page.url | relative_url }}" rel="permalink">{{ page.title }}</a>
+  </h2>
+</article>
+{% endfor %}
+
+<footer>
+  <p>
+    🌎 Learn more about <a href="https://dtc-innovation.org">dtc innovation</a> work.
+  </p>
+</footer>

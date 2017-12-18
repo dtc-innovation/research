@@ -1,11 +1,4 @@
 = Audit Radio France
-:toc: left
-:toc-title: Sommaire
-:appendix-caption: Annexe
-:hide-uri-scheme:
-:idprefix:
-:data-uri:
-:icons: font
 :revnumber: v1.0.0
 :revdate: 17 juillet 2017
 
