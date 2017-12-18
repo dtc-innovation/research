@@ -4,6 +4,7 @@ description: >-
   audits, thoughts, user researches
 baseurl: "/research"
 url: ""
+repository: dtc-innovation/research
 
 # Build settings
 markdown: kramdown
